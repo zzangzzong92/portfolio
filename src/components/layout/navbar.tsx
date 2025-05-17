@@ -7,6 +7,9 @@ import { Moon, Sun, Menu } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+
 export default function Navbar() {
   const { setTheme, theme } = useTheme()
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)

@@ -3,11 +3,12 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Badge, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react"
-import { blogPosts } from "@/lib/blog-data"
+import { blogPosts } from "@/src/app/lib/blog-data"
 import { motion } from "framer-motion"
 import { Button } from "./ui/button"
 import { Card, CardContent } from "./ui/card"
 import { useEffect, useRef, useState } from "react"
+import { Badge as ShadcnBadge } from "@/src/app/components/ui/badge"
 
 interface BlogPost {
    id: number,
@@ -56,7 +57,7 @@ export default function BlogCarousel() {
   }
 
   // Keyboard accessibility
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowLeft") {
       prevSlide()
     } else if (e.key === "ArrowRight") {
@@ -141,9 +142,9 @@ export default function BlogCarousel() {
                       />
                       <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-2">
                         {post.categories?.map((category) => (
-                          <Badge key={category} variant="secondary" className="bg-primary/80 text-primary-foreground">
+                          <ShadcnBadge key={category} variant="secondary" className="bg-primary/80 text-primary-foreground">
                             {category}
-                          </Badge>
+                          </ShadcnBadge>
                         ))}
                       </div>
                       <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">

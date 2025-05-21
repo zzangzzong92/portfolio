@@ -146,7 +146,7 @@ export default function BlogCarousel() {
           >
             {blogPosts.map((post) => (
               <div key={post.id} className="min-w-full flex-shrink-0 px-0">
-                <Card className="border-0 overflow-hidden">
+                <Card className="border-0 overflow-hidden -py-6">
                   <CardContent className="p-0">
                     <div className="relative h-[400px] w-full">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />

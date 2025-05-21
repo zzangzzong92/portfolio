@@ -9,15 +9,14 @@ import parse from "html-react-parser";
 // import ParseHTML from "@/src/app/components/htmlparser";
 
 interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
-  const post = blogPosts.find((post) => post.slug === params.slug);
+  const slug = (await params).slug;
+  const post = await blogPosts.find((post) => post.slug === slug);
 
   if (!post) {
     return {
@@ -32,8 +31,9 @@ export async function generateMetadata({
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = blogPosts.find((post) => post.slug === params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const slug = (await params).slug;
+  const post = blogPosts.find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

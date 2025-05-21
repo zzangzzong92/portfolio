@@ -1,25 +1,29 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { useTheme } from "next-themes"
-import { Moon, Sun, Menu } from "lucide-react"
-import { usePathname } from "next/navigation"
-import { motion } from "framer-motion"
+import * as React from "react";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { Moon, Sun, Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
-import { Button } from "@/src/app/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/src/app/components/ui/sheet"
+import { Button } from "@/src/app/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/src/app/components/ui/sheet";
 
 export default function Navbar() {
-  const { setTheme, theme } = useTheme()
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
-  const [mounted, setMounted] = React.useState(false)
-  const pathname = usePathname()
+  const { setTheme, theme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [mounted, setMounted] = React.useState(false);
+  const pathname = usePathname();
 
   // useEffect를 사용하여 컴포넌트가 마운트된 후에만 테마 관련 UI를 렌더링
   React.useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   // 메뉴 아이템 정의
   const menuItems = [
@@ -28,7 +32,7 @@ export default function Navbar() {
     { href: "/projects", label: "프로젝트" },
     { href: "/blog", label: "블로그" },
     { href: "/contact", label: "연락처" },
-  ]
+  ];
 
   return (
     <motion.header
@@ -37,7 +41,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between mx-auto">
         <motion.div
           className="flex items-center gap-2"
           initial={{ opacity: 0, x: -20 }}
@@ -51,7 +55,7 @@ export default function Navbar() {
 
         <nav className="hidden md:flex items-center gap-6">
           {menuItems.map((item, index) => {
-            const isActive = pathname === item.href
+            const isActive = pathname === item.href;
             return (
               <motion.div
                 key={item.href}
@@ -63,7 +67,9 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   className={`text-sm font-medium transition-colors duration-200 ${
-                    isActive ? "text-primary font-semibold" : "text-foreground/70 hover:text-primary/70"
+                    isActive
+                      ? "text-primary font-semibold"
+                      : "text-foreground/70 hover:text-primary/70"
                   }`}
                 >
                   {item.label}
@@ -71,12 +77,16 @@ export default function Navbar() {
                     <motion.div
                       className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-primary rounded-full"
                       layoutId="navbar-indicator"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
                     />
                   )}
                 </Link>
               </motion.div>
-            )
+            );
           })}
         </nav>
 
@@ -111,27 +121,29 @@ export default function Navbar() {
             <SheetContent side="right">
               <div className="flex flex-col gap-4 mt-8">
                 {menuItems.map((item) => {
-                  const isActive = pathname === item.href
+                  const isActive = pathname === item.href;
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
                       className={`text-lg font-medium transition-colors duration-200 ${
-                        isActive ? "text-primary font-semibold" : "text-foreground/70 hover:text-primary/70"
+                        isActive
+                          ? "text-primary font-semibold"
+                          : "text-foreground/70 hover:text-primary/70"
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.label}
                     </Link>
-                  )
+                  );
                 })}
                 {mounted && (
                   <Button
                     variant="outline"
                     className="flex items-center justify-start gap-2 mt-4"
                     onClick={() => {
-                      setTheme(theme === "dark" ? "light" : "dark")
-                      setIsMenuOpen(false)
+                      setTheme(theme === "dark" ? "light" : "dark");
+                      setIsMenuOpen(false);
                     }}
                   >
                     {theme === "dark" ? (
@@ -153,5 +165,5 @@ export default function Navbar() {
         </div>
       </div>
     </motion.header>
-  )
+  );
 }

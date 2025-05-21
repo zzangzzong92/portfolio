@@ -1,69 +1,77 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Badge, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react"
-import { blogPosts } from "@/src/app/lib/blog-data"
-import { motion } from "framer-motion"
-import { Button } from "./ui/button"
-import { Card, CardContent } from "./ui/card"
-import { useEffect, useRef, useState } from "react"
-import { Badge as ShadcnBadge } from "@/src/app/components/ui/badge"
+import Link from "next/link";
+import Image from "next/image";
+import { Badge, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { blogPosts } from "@/src/app/lib/blog-data";
+import { motion } from "framer-motion";
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
+import { useEffect, useRef, useState } from "react";
+import { Badge as ShadcnBadge } from "@/src/app/components/ui/badge";
 
 interface BlogPost {
-   id: number,
-    title: string
-    slug: string
-    date: string
-    excerpt: string
-    content: string
+  id: number;
+  title: string;
+  slug: string;
+  date: string;
+  excerpt: string;
+  content: string;
 }
 
 export default function BlogCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [autoPlay, setAutoPlay] = useState(true)
-  const carouselRef = useRef<HTMLDivElement>(null)
-  const totalSlides = blogPosts.length
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const totalSlides = blogPosts.length;
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout
-
     if (autoPlay) {
-      timer = setInterval(() => {
-        nextSlide()
-      }, 5000)
+      timerRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
+      }, 5000);
+    } else {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
     }
-
     return () => {
-      if (timer) clearInterval(timer)
-    }
-  }, [currentIndex, autoPlay])
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+    };
+  }, [autoPlay, totalSlides]);
 
-  // Mouse hover handlers to pause/resume auto-play
   const handleMouseEnter = () => {
-    setAutoPlay(false)
-  }
+    setAutoPlay(false);
+  };
 
   const handleMouseLeave = () => {
-    setAutoPlay(true)
-  }
+    setAutoPlay(true);
+  };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1))
-  }
+    setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
+    if (autoPlay && timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
+      }, 5000);
+    }
+  };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1))
-  }
-
-  // Keyboard accessibility
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === "ArrowLeft") {
-      prevSlide()
-    } else if (e.key === "ArrowRight") {
-      nextSlide()
+    setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
+    if (autoPlay && timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
+      }, 5000);
     }
-  }
+  };
 
   return (
     <motion.section
@@ -102,10 +110,20 @@ export default function BlogCarousel() {
               )}
             </Button>
             <div className="flex gap-2">
-              <Button variant="outline" size="icon" onClick={prevSlide} aria-label="이전 슬라이드">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={prevSlide}
+                aria-label="이전 슬라이드"
+              >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
-              <Button variant="outline" size="icon" onClick={nextSlide} aria-label="다음 슬라이드">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={nextSlide}
+                aria-label="다음 슬라이드"
+              >
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
@@ -115,7 +133,6 @@ export default function BlogCarousel() {
         <div
           className="relative overflow-hidden rounded-lg"
           tabIndex={0}
-          onKeyDown={handleKeyDown}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -142,27 +159,39 @@ export default function BlogCarousel() {
                       />
                       <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-2">
                         {post.categories?.map((category) => (
-                          <ShadcnBadge key={category} variant="secondary" className="bg-primary/80 text-primary-foreground">
+                          <ShadcnBadge
+                            key={category}
+                            variant="secondary"
+                            className="bg-primary/80 text-primary-foreground"
+                          >
                             {category}
                           </ShadcnBadge>
                         ))}
                       </div>
                       <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">
-                        <h3 className="text-2xl md:text-3xl font-bold mb-2">{post.title}</h3>
-                        <p className="text-sm md:text-base mb-4 text-white/80 line-clamp-2">{post.excerpt}</p>
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                          {post.title}
+                        </h3>
+                        <p className="text-sm md:text-base mb-4 text-white/80 line-clamp-2">
+                          {post.excerpt}
+                        </p>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center">
                             {post.author && (
                               <>
                                 <div className="relative w-8 h-8 mr-2">
                                   <Image
-                                    src={post.author.avatar || "/placeholder.svg"}
+                                    src={
+                                      post.author.avatar || "/placeholder.svg"
+                                    }
                                     alt={post.author.name}
                                     fill
                                     className="rounded-full object-cover"
                                   />
                                 </div>
-                                <span className="text-sm">{post.author.name}</span>
+                                <span className="text-sm">
+                                  {post.author.name}
+                                </span>
                               </>
                             )}
                           </div>
@@ -189,12 +218,22 @@ export default function BlogCarousel() {
               className={`w-2 h-2 rounded-full transition-colors ${
                 currentIndex === index ? "bg-primary" : "bg-muted-foreground/30"
               }`}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => {
+                setCurrentIndex(index);
+                if (autoPlay && timerRef.current) {
+                  clearInterval(timerRef.current);
+                  timerRef.current = setInterval(() => {
+                    setCurrentIndex((prev) =>
+                      prev === totalSlides - 1 ? 0 : prev + 1
+                    );
+                  }, 5000);
+                }
+              }}
               aria-label={`슬라이드 ${index + 1}로 이동`}
             />
           ))}
         </div>
       </div>
     </motion.section>
-  )
+  );
 }

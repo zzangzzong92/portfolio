@@ -4,7 +4,7 @@ export const categories = [
   { id: "devops", name: "DevOps" },
   { id: "design", name: "디자인" },
   { id: "career", name: "커리어" },
-]
+];
 
 export const blogPosts = [
   {
@@ -14,44 +14,44 @@ export const blogPosts = [
     date: "2024-05-10",
     excerpt: "Next.js 15에서 추가된 새로운 기능들을 살펴봅니다.",
     content: `
-# Next.js 15의 새로운 기능
+      # Next.js 15의 새로운 기능
 
-Next.js 15는 성능 개선과 개발자 경험 향상에 중점을 둔 주요 업데이트입니다.
+      Next.js 15는 성능 개선과 개발자 경험 향상에 중점을 둔 주요 업데이트입니다.
 
-## 주요 기능
+      ## 주요 기능
 
-### 1. Client Router Cache 기본 동작 변경
+      ### 1. Client Router Cache 기본 동작 변경
 
-Next.js 15에서는 Client Router Cache의 기본 동작이 변경되었습니다. 이제 Page 세그먼트의 \`staleTime\`이 기본적으로 \`0\`으로 설정됩니다. 이는 앱을 탐색할 때 클라이언트가 항상 탐색의 일부로 활성화되는 Page 컴포넌트에서 최신 데이터를 반영한다는 것을 의미합니다.
+      Next.js 15에서는 Client Router Cache의 기본 동작이 변경되었습니다. 이제 Page 세그먼트의 \`staleTime\`이 기본적으로 \`0\`으로 설정됩니다. 이는 앱을 탐색할 때 클라이언트가 항상 탐색의 일부로 활성화되는 Page 컴포넌트에서 최신 데이터를 반영한다는 것을 의미합니다.
 
-하지만 여전히 변경되지 않는 중요한 동작들이 있습니다:
-- 공유 레이아웃 데이터는 부분 렌더링을 지원하기 위해 서버에서 다시 가져오지 않습니다.
-- 뒤로/앞으로 탐색은 브라우저가 스크롤 위치를 복원할 수 있도록 캐시에서 복원됩니다.
-- Loading.js는 5분 동안(또는 \`staleTimes.static\` 구성 값) 캐시됩니다.
+      하지만 여전히 변경되지 않는 중요한 동작들이 있습니다:
+      - 공유 레이아웃 데이터는 부분 렌더링을 지원하기 위해 서버에서 다시 가져오지 않습니다.
+      - 뒤로/앞으로 탐색은 브라우저가 스크롤 위치를 복원할 수 있도록 캐시에서 복원됩니다.
+      - Loading.js는 5분 동안(또는 \`staleTimes.static\` 구성 값) 캐시됩니다.
 
-### 2. 부분 사전 렌더링(PPR)의 점진적 도입
+      ### 2. 부분 사전 렌더링(PPR)의 점진적 도입
 
-Next.js 14에서 소개된 부분 사전 렌더링(PPR)은 같은 페이지에서 정적 및 동적 렌더링을 결합하는 최적화입니다. Next.js는 현재 \`cookies()\`, \`headers()\` 및 캐시되지 않은 데이터 요청과 같은 동적 함수를 사용하지 않는 한 정적 렌더링을 기본값으로 합니다. 이러한 API는 전체 경로를 동적 렌더링으로 전환합니다.
+      Next.js 14에서 소개된 부분 사전 렌더링(PPR)은 같은 페이지에서 정적 및 동적 렌더링을 결합하는 최적화입니다. Next.js는 현재 \`cookies()\`, \`headers()\` 및 캐시되지 않은 데이터 요청과 같은 동적 함수를 사용하지 않는 한 정적 렌더링을 기본값으로 합니다. 이러한 API는 전체 경로를 동적 렌더링으로 전환합니다.
 
-PPR을 사용하면 Suspense 경계에서 동적 UI를 래핑할 수 있습니다. 새 요청이 들어오면 Next.js는 즉시 정적 HTML 셸을 제공한 다음 동일한 HTTP 요청에서 동적 부분을 렌더링하고 스트리밍합니다.
+      PPR을 사용하면 Suspense 경계에서 동적 UI를 래핑할 수 있습니다. 새 요청이 들어오면 Next.js는 즉시 정적 HTML 셸을 제공한 다음 동일한 HTTP 요청에서 동적 부분을 렌더링하고 스트리밍합니다.
 
-### 3. \`next/after\`를 사용한 응답 후 코드 실행
+      ### 3. \`next/after\`를 사용한 응답 후 코드 실행
 
-서버는 일반적으로 응답 계산과 직접 관련된 작업을 수행합니다. 그러나 로깅, 분석 및 기타 외부 시스템 동기화와 같은 작업을 수행해야 할 수도 있습니다.
+      서버는 일반적으로 응답 계산과 직접 관련된 작업을 수행합니다. 그러나 로깅, 분석 및 기타 외부 시스템 동기화와 같은 작업을 수행해야 할 수도 있습니다.
 
-이러한 작업은 응답과 직접 관련이 없으므로 사용자는 이러한 작업이 완료될 때까지 기다릴 필요가 없습니다. 그러나 응답 후 작업을 연기하는 것은 서버리스 함수가 응답이 닫힌 직후 계산을 중지하기 때문에 어려움을 겪습니다.
+      이러한 작업은 응답과 직접 관련이 없으므로 사용자는 이러한 작업이 완료될 때까지 기다릴 필요가 없습니다. 그러나 응답 후 작업을 연기하는 것은 서버리스 함수가 응답이 닫힌 직후 계산을 중지하기 때문에 어려움을 겪습니다.
 
-\`after()\`는 응답이 스트리밍을 완료한 후 작업을 처리할 수 있게 해주는 새로운 실험적 API입니다. 이를 통해 주요 응답을 차단하지 않고 보조 작업을 실행할 수 있습니다.
+      \`after()\`는 응답이 스트리밍을 완료한 후 작업을 처리할 수 있게 해주는 새로운 실험적 API입니다. 이를 통해 주요 응답을 차단하지 않고 보조 작업을 실행할 수 있습니다.
 
-## 결론
+      ## 결론
 
-Next.js 15는 성능과 개발자 경험을 크게 향상시키는 중요한 업데이트입니다. 특히 Client Router Cache의 변경과 부분 사전 렌더링의 점진적 도입은 애플리케이션의 성능을 크게 향상시킬 수 있습니다.
+      Next.js 15는 성능과 개발자 경험을 크게 향상시키는 중요한 업데이트입니다. 특히 Client Router Cache의 변경과 부분 사전 렌더링의 점진적 도입은 애플리케이션의 성능을 크게 향상시킬 수 있습니다.
     `,
-    coverImage: "/placeholder.svg?height=200&width=400&text=Next.js+15",
+    coverImage: "/next.png",
     categories: ["frontend"],
     author: {
-      name: "김개발",
-      avatar: "/placeholder.svg?height=40&width=40&text=김",
+      name: "짱쫑",
+      avatar: "/zzang.png",
     },
   },
   {
@@ -214,11 +214,11 @@ const UserPermissions: React.FC<{ user: User }> = ({ user }) => {
 
 TypeScript는 React 개발에 있어 타입 안전성과 개발자 경험을 크게 향상시킵니다. 초기 설정과 학습 곡선이 있지만, 장기적으로 코드 품질과 유지보수성 측면에서 큰 이점을 제공합니다. 특히 대규모 프로젝트나 팀 단위 개발에서 TypeScript의 가치는 더욱 빛을 발합니다.
     `,
-    coverImage: "/placeholder.svg?height=200&width=400&text=TypeScript+React",
+    coverImage: "/nextReact.png",
     categories: ["frontend"],
     author: {
-      name: "이타입",
-      avatar: "/placeholder.svg?height=40&width=40&text=이",
+      name: "짱쫑",
+      avatar: "/zzang.png",
     },
   },
   {
@@ -387,11 +387,11 @@ shadcn/ui는 Tailwind CSS를 사용하므로 테마를 쉽게 커스터마이징
 
 shadcn/ui는 아름다운 UI를 빠르게 구축할 수 있는 강력한 도구입니다. 컴포넌트 코드를 직접 소유하는 접근 방식은 유연성과 제어력을 제공하며, Tailwind CSS와의 통합은 스타일링을 간소화합니다. 특히 빠른 프로토타이핑이나 제품 개발에 이상적인 선택입니다.
     `,
-    coverImage: "/placeholder.svg?height=200&width=400&text=shadcn/ui",
+    coverImage: "/shadcn.png",
     categories: ["frontend", "design"],
     author: {
-      name: "박디자인",
-      avatar: "/placeholder.svg?height=40&width=40&text=박",
+      name: "짱쫑",
+      avatar: "/zzang.png",
     },
   },
   {
@@ -465,8 +465,8 @@ shadcn/ui는 아름다운 UI를 빠르게 구축할 수 있는 강력한 도구�
     coverImage: "/placeholder.svg?height=200&width=400&text=Web+Performance",
     categories: ["frontend", "backend"],
     author: {
-      name: "최성능",
-      avatar: "/placeholder.svg?height=40&width=40&text=최",
+      name: "짱쫑",
+      avatar: "/zzang.png",
     },
   },
   {
@@ -677,11 +677,11 @@ React Server Components는 서버와 클라이언트의 장점을 결합하여 �
 
 RSC를 효과적으로 활용하기 위해서는 서버와 클라이언트 컴포넌트의 특성을 이해하고, 적절한 경계를 설정하는 것이 중요합니다. 이를 통해 성능이 뛰어나고 유지보수가 용이한 애플리케이션을 구축할 수 있습니다.
     `,
-    coverImage: "/placeholder.svg?height=200&width=400&text=React+Server+Components",
+    coverImage: "/react.png",
     categories: ["frontend"],
     author: {
-      name: "정리액트",
-      avatar: "/placeholder.svg?height=40&width=40&text=정",
+      name: "짱쫑",
+      avatar: "/zzang.png",
     },
   },
   {
@@ -907,8 +907,8 @@ Docker와 Kubernetes는 현대 애플리케이션 개발 및 배포 환경에서
     coverImage: "/placeholder.svg?height=200&width=400&text=Docker+Kubernetes",
     categories: ["devops", "backend"],
     author: {
-      name: "김데브옵스",
-      avatar: "/placeholder.svg?height=40&width=40&text=김",
+      name: "짱쫑",
+      avatar: "/zzang.png",
     },
   },
   {
@@ -916,7 +916,8 @@ Docker와 Kubernetes는 현대 애플리케이션 개발 및 배포 환경에서
     title: "개발자 커리어 성장을 위한 팁",
     slug: "developer-career-growth-tips",
     date: "2024-04-05",
-    excerpt: "소프트웨어 개발자로서 커리어를 성장시키기 위한 실용적인 조언을 제공합니다.",
+    excerpt:
+      "소프트웨어 개발자로서 커리어를 성장시키기 위한 실용적인 조언을 제공합니다.",
     content: `
 # 개발자 커리어 성장을 위한 팁
 
@@ -1008,8 +1009,8 @@ T자형 스킬셋은 한 분야에 대한 깊은 전문성(수직 막대)과 여
     coverImage: "/placeholder.svg?height=200&width=400&text=Career+Growth",
     categories: ["career"],
     author: {
-      name: "이커리어",
-      avatar: "/placeholder.svg?height=40&width=40&text=이",
+      name: "짱쫑",
+      avatar: "/zzang.png",
     },
   },
-]
+];

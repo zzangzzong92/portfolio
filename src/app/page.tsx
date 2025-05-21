@@ -1,15 +1,14 @@
-"use client"
+"use client";
 
-import { Button } from "@/src/app/components/ui/button"
-import Link from "next/link"
-import BlogCarousel from "@/src/app/components/blog-carousel"
-import { AnimatedText } from "@/src/app/components/animated-text"
-import { motion } from "framer-motion"
+import { Button } from "@/src/app/components/ui/button";
+import Link from "next/link";
+import BlogCarousel from "@/src/app/components/blog-carousel";
+import { AnimatedText } from "@/src/app/components/animated-text";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="flex-1 flex flex-col">
-      {/* 인사말 섹션 - 최상단에 배치 */}
+    <div className="flex-1 flex flex-col w-full">
       <motion.section
         className="py-20 md:py-28 bg-muted/30"
         initial={{ opacity: 0 }}
@@ -26,8 +25,8 @@ export default function Home() {
 
           <AnimatedText delay={0.3} className="w-full">
             <p className="text-xl text-muted-foreground max-w-[600px] mx-auto mb-8">
-              Next.js, TypeScript, React를 활용한 웹 개발 전문가입니다. 사용자 경험을 중시하는 웹 애플리케이션을
-              만듭니다.
+              Next.js, TypeScript, React를 활용한 웹 개발 전문가입니다. 사용자
+              경험을 중시하는 웹 애플리케이션을 만듭니다.
             </p>
           </AnimatedText>
 
@@ -44,8 +43,9 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* 캐러셀 섹션 - 인사말 아래에 배치 */}
-      <BlogCarousel />
+      <div className="mt-20">
+        <BlogCarousel />
+      </div>
     </div>
-  )
+  );
 }

@@ -154,8 +154,7 @@ export default function BlogCarousel() {
                         src={post.coverImage || "/placeholder.svg"}
                         alt={post.title}
                         fill
-                        className="object-cover"
-                        priority
+                        className="w-full h-full"
                       />
                       <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-2">
                         {post.categories?.map((category) => (

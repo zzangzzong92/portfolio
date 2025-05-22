@@ -13,6 +13,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/src/app/components/ui/sheet";
+import Image from "next/image";
 
 export default function Navbar() {
   const { setTheme, theme } = useTheme();
@@ -48,8 +49,15 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link href="/" className="font-bold text-xl">
-            DevPortfolio
+          <Link href="/" className="font-bold text-xl flex gap-3">
+            <Image
+              src="/zzang.png"
+              alt="logo"
+              width={32}
+              height={32}
+              className="rounded-full"
+            />
+            <h1 className="leading-nomal">ZZ</h1>
           </Link>
         </motion.div>
 

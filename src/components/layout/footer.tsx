@@ -22,11 +22,9 @@ export default function Footer() {
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 지도 초기화 함수
     const initMap = () => {
       if (typeof google === "undefined" || !mapRef.current) return;
 
-      // 강남구 삼성로 104길, 28의 대략적인 좌표
       const location = { lat: 37.5087, lng: 127.0632 };
 
       const map = new google.maps.Map(mapRef.current, {
@@ -84,9 +82,8 @@ export default function Footer() {
         <div className="space-y-4">
           <h3 className="text-lg font-bold">DevPortfolio</h3>
           <p className="text-sm text-muted-foreground">
-            Next.js 15, TypeScript, shadcn/ui로 구축된 개발자 포트폴리오
-            웹사이트입니다. 최신 웹 기술을 활용한 프로젝트와 블로그 포스트를
-            공유합니다.
+            Frontend 환경과 더불어 Backend 환경도 함께 공부하는 공간입니다. 웹
+            개발의 전반에 대해 공부하며 기록하며 성장합니다.
           </p>
           <div className="flex space-x-4">
             <Link

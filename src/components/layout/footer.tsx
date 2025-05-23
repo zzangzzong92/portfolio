@@ -125,7 +125,7 @@ export default function Footer() {
             className="w-full h-48 bg-muted rounded-md"
             aria-label="강남구 삼성로 104길, 28 위치 지도"
           >
-            <KakaoMap />
+            <KakaoMap center={{ lat: 37.510048, lng: 127.059856 }} />
           </div>
         </div>
       </div>

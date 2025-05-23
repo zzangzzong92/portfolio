@@ -1,15 +1,24 @@
 "use client";
 
-import { Map } from "react-kakao-maps-sdk";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 
-export default function KakaoMap() {
+interface KakaoMapProps {
+  center: { lat: number; lng: number };
+  style?: React.CSSProperties;
+  level?: number;
+}
+
+export default function KakaoMap({ center, style, level }: KakaoMapProps) {
   return (
     <div className="w-full h-48">
       <Map
-        center={{ lat: 37.494589, lng: 126.868346 }}
-        style={{ width: "100%", height: "100%" }}
-        level={3}
-      />
+        center={center ? center : { lat: 37.494589, lng: 126.868346 }}
+        style={style ? style : { width: "100%", height: "100%" }}
+        level={level ? level : 3}
+        isPanto={true}
+      >
+        <MapMarker position={center} />
+      </Map>
     </div>
   );
 }

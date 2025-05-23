@@ -10,14 +10,7 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import { useEffect, useRef } from "react";
 import KakaoMap from "../kakaomap";
-
-declare global {
-  interface Window {
-    initMap?: () => void;
-  }
-}
 
 export default function Footer() {
   return (
@@ -31,21 +24,21 @@ export default function Footer() {
           </p>
           <div className="flex space-x-4">
             <Link
-              href="https://github.com"
+              href="https://github.com/zzangzzong92"
               className="text-muted-foreground hover:text-foreground"
             >
               <Github className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </Link>
-            <Link
+            {/* <Link
               href="https://twitter.com"
               className="text-muted-foreground hover:text-foreground"
             >
               <Twitter className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
-            </Link>
+            </Link> */}
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/%EC%A2%85%ED%98%84-%EC%9E%A5-56372423a/"
               className="text-muted-foreground hover:text-foreground"
             >
               <Linkedin className="h-5 w-5" />
@@ -64,12 +57,12 @@ export default function Footer() {
         <div className="space-y-4">
           <h3 className="text-lg font-bold">사이트맵</h3>
           <nav className="flex flex-col space-y-2">
-            <Link
+            {/* <Link
               href="/"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
               홈
-            </Link>
+            </Link> */}
             <Link
               href="/about"
               className="text-sm text-muted-foreground hover:text-foreground"
@@ -83,7 +76,7 @@ export default function Footer() {
               프로젝트
             </Link>
             <Link
-              href="/blog"
+              href="/"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
               블로그
@@ -92,7 +85,7 @@ export default function Footer() {
               href="/contact"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
-              연락처
+              링크드인
             </Link>
           </nav>
         </div>
@@ -102,7 +95,7 @@ export default function Footer() {
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Mail className="h-4 w-4" />
-              <span>contact@example.com</span>
+              <span>zzangzzong92@gmail.com</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Phone className="h-4 w-4" />

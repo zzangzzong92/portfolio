@@ -209,7 +209,6 @@ export default function BlogCarousel() {
           </motion.div>
         </div>
 
-        {/* Indicators */}
         <div className="flex justify-center gap-2 mt-4">
           {Array.from({ length: totalSlides }).map((_, index) => (
             <button

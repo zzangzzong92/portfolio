@@ -10,72 +10,9 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import { useEffect, useRef } from "react";
-
-declare global {
-  interface Window {
-    initMap?: () => void;
-  }
-}
+import KakaoMap from "../kakaomap";
 
 export default function Footer() {
-  const mapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const initMap = () => {
-      if (typeof google === "undefined" || !mapRef.current) return;
-
-      const location = { lat: 37.5087, lng: 127.0632 };
-
-      const map = new google.maps.Map(mapRef.current, {
-        center: location,
-        zoom: 16,
-        styles: [
-          {
-            featureType: "all",
-            elementType: "labels.text.fill",
-            stylers: [{ color: "#6c7b88" }],
-          },
-          {
-            featureType: "administrative",
-            elementType: "geometry.fill",
-            stylers: [{ color: "#f6f6f6" }],
-          },
-        ],
-      });
-
-      // 마커 추가
-      new google.maps.Marker({
-        position: location,
-        map,
-        title: "강남구 삼성로 104길, 28",
-      });
-    };
-
-    // Google Maps API 로드
-    const loadGoogleMapsScript = () => {
-      const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
-      script.async = true;
-      script.defer = true;
-
-      // 콜백 함수 정의
-      window.initMap = initMap;
-
-      document.head.appendChild(script);
-    };
-
-    loadGoogleMapsScript();
-
-    // 클린업 함수
-    return () => {
-      // Google Maps 콜백 제거
-      if (window.initMap) {
-        delete window.initMap;
-      }
-    };
-  }, []);
-
   return (
     <footer className="bg-muted py-12">
       <div className="container grid grid-cols-1 md:grid-cols-4 gap-8 mx-auto">
@@ -87,21 +24,21 @@ export default function Footer() {
           </p>
           <div className="flex space-x-4">
             <Link
-              href="https://github.com"
+              href="https://github.com/zzangzzong92"
               className="text-muted-foreground hover:text-foreground"
             >
               <Github className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </Link>
-            <Link
+            {/* <Link
               href="https://twitter.com"
               className="text-muted-foreground hover:text-foreground"
             >
               <Twitter className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
-            </Link>
+            </Link> */}
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/%EC%A2%85%ED%98%84-%EC%9E%A5-56372423a/"
               className="text-muted-foreground hover:text-foreground"
             >
               <Linkedin className="h-5 w-5" />
@@ -120,12 +57,12 @@ export default function Footer() {
         <div className="space-y-4">
           <h3 className="text-lg font-bold">사이트맵</h3>
           <nav className="flex flex-col space-y-2">
-            <Link
+            {/* <Link
               href="/"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
               홈
-            </Link>
+            </Link> */}
             <Link
               href="/about"
               className="text-sm text-muted-foreground hover:text-foreground"
@@ -139,7 +76,7 @@ export default function Footer() {
               프로젝트
             </Link>
             <Link
-              href="/blog"
+              href="/"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
               블로그
@@ -148,7 +85,7 @@ export default function Footer() {
               href="/contact"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
-              연락처
+              링크드인
             </Link>
           </nav>
         </div>
@@ -158,7 +95,7 @@ export default function Footer() {
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Mail className="h-4 w-4" />
-              <span>contact@example.com</span>
+              <span>zzangzzong92@gmail.com</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Phone className="h-4 w-4" />
@@ -178,33 +115,31 @@ export default function Footer() {
         <div className="space-y-4">
           <h3 className="text-lg font-bold">위치</h3>
           <div
-            ref={mapRef}
             className="w-full h-48 bg-muted rounded-md"
             aria-label="강남구 삼성로 104길, 28 위치 지도"
-          ></div>
-          <p className="text-xs text-muted-foreground">
-            * 지도를 보려면 Google Maps API 키가 필요합니다.
-          </p>
+          >
+            <KakaoMap center={{ lat: 37.510048, lng: 127.059856 }} />
+          </div>
         </div>
       </div>
 
       <div className="container mt-8 pt-8 border-t mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} DevPortfolio. All rights reserved.
+            &copy; ZZ DevPortfolio. All rights reserved.
           </p>
           <div className="flex gap-4">
             <Link
               href="/privacy"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
-              개인정보 처리방침
+              {/* 개인정보 처리방침 */}
             </Link>
             <Link
               href="/terms"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
-              이용약관
+              {/* 이용약관 */}
             </Link>
           </div>
         </div>

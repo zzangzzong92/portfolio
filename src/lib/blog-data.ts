@@ -462,7 +462,7 @@ shadcn/ui는 아름다운 UI를 빠르게 구축할 수 있는 강력한 도구�
 
 웹 성능 최적화는 일회성 작업이 아닌 지속적인 과정입니다. 사용자 경험을 개선하고 비즈니스 목표를 달성하기 위해 다양한 전략을 조합하여 사용해야 합니다. 성능 지표를 정기적으로 모니터링하고, 새로운 기술과 방법론을 적용하여 지속적으로 개선해 나가는 것이 중요합니다.
     `,
-    coverImage: "/placeholder.svg?height=200&width=400&text=Web+Performance",
+    coverImage: "/web.png",
     categories: ["frontend", "backend"],
     author: {
       name: "짱쫑",
@@ -904,7 +904,7 @@ Docker와 Kubernetes는 현대 애플리케이션 개발 및 배포 환경에서
 
 이러한 도구를 효과적으로 활용하면 개발 주기를 단축하고, 인프라 활용도를 높이며, 애플리케이션의 안정성을 향상시킬 수 있습니다. 컨테이너화와 오케스트레이션의 기본 개념을 이해하는 것은 클라우드 네이티브 환경에서 성공적인 애플리케이션 개발의 첫 걸음입니다.
     `,
-    coverImage: "/placeholder.svg?height=200&width=400&text=Docker+Kubernetes",
+    coverImage: "/docker.png",
     categories: ["devops", "backend"],
     author: {
       name: "짱쫑",

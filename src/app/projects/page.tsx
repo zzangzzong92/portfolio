@@ -1,9 +1,16 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/src/app/components/ui/card"
-import { Badge } from "@/src/app/components/ui/badge"
-import { Button } from "@/src/app/components/ui/button"
-import Link from "next/link"
-import Image from "next/image"
-import { Github, ExternalLink } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/src/app/components/ui/card";
+import { Badge } from "@/src/app/components/ui/badge";
+import { Button } from "@/src/app/components/ui/button";
+import Link from "next/link";
+import Image from "next/image";
+import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
@@ -20,27 +27,27 @@ const projects = [
     id: 2,
     title: "로스트아크 커뮤니티",
     description: "로스트아크 유저들을 위한 커뮤니티 애플리케이션입니다.",
-    image: "/placeholder.svg?height=200&width=400&text=Collaborative+Notes",
+    image: "/loa-project.png",
     tags: ["React", "Socket.io", "Express", "MongoDB"],
-    demoUrl: "loa.kakao.gg",
+    demoUrl: "https://loa.kakao.gg",
     githubUrl: "",
-    featured: true,
+    featured: false,
   },
   {
     id: 3,
     title: "던전앤파이터 커뮤니티",
     description: "던전앤파이터 유저들을 위한 커뮤니티 애플리케이션입니다.",
-    image: "/placeholder.svg?height=200&width=400&text=Portfolio+Template",
+    image: "/dnf-project.png",
     tags: ["Next.js", "TypeScript", "shadcn/ui", "Tailwind CSS"],
-    demoUrl: "dnf.kakao.gg",
+    demoUrl: "https://dnf.kakao.gg",
     githubUrl: "",
-    featured: true,
+    featured: false,
   },
-]
+];
 
 export default function ProjectsPage() {
-  const featuredProjects = projects.filter((project) => project.featured)
-  const otherProjects = projects.filter((project) => !project.featured)
+  const featuredProjects = projects.filter((project) => project.featured);
+  const otherProjects = projects.filter((project) => !project.featured);
 
   return (
     <div className="container py-12">
@@ -51,7 +58,10 @@ export default function ProjectsPage() {
           <h2 className="text-2xl font-bold mb-6">주요 프로젝트</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProjects.map((project) => (
-              <Card key={project.id} className="flex flex-col h-full">
+              <Card
+                key={project.id}
+                className="flex flex-col h-full cursor-pointer -py-6 hover:shadow-lg"
+              >
                 <div className="relative h-48 w-full">
                   <Image
                     src={project.image || "/placeholder.svg"}
@@ -61,8 +71,12 @@ export default function ProjectsPage() {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
+                  <CardTitle className="line-clamp-2">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="flex-grow min-h-10">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <div className="flex flex-wrap gap-2">
@@ -73,15 +87,23 @@ export default function ProjectsPage() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="flex justify-between">
+                <CardFooter className="flex justify-between p-3">
                   <Button asChild variant="outline" size="sm">
-                    <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="mr-2 h-4 w-4" />
                       GitHub
                     </Link>
                   </Button>
                   <Button asChild size="sm">
-                    <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="mr-2 h-4 w-4" />
                       데모
                     </Link>
@@ -96,7 +118,10 @@ export default function ProjectsPage() {
           <h2 className="text-2xl font-bold mb-6">기타 프로젝트</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {otherProjects.map((project) => (
-              <Card key={project.id} className="flex flex-col h-full">
+              <Card
+                key={project.id}
+                className="flex flex-col h-full cursor-pointer -py-6 hover:shadow-lg"
+              >
                 <div className="relative h-48 w-full">
                   <Image
                     src={project.image || "/placeholder.svg"}
@@ -106,8 +131,12 @@ export default function ProjectsPage() {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
+                  <CardTitle className="line-clamp-2">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="flex-grow min-h-10">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <div className="flex flex-wrap gap-2">
@@ -118,15 +147,23 @@ export default function ProjectsPage() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="flex justify-between">
+                <CardFooter className="flex justify-between p-3">
                   <Button asChild variant="outline" size="sm">
-                    <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="mr-2 h-4 w-4" />
                       GitHub
                     </Link>
                   </Button>
                   <Button asChild size="sm">
-                    <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ExternalLink className="mr-2 h-4 w-4" />
                       데모
                     </Link>
@@ -138,5 +175,5 @@ export default function ProjectsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

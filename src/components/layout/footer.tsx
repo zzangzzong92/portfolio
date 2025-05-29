@@ -25,6 +25,7 @@ export default function Footer() {
           <div className="flex space-x-4">
             <Link
               href="https://github.com/zzangzzong92"
+              target="_blank"
               className="text-muted-foreground hover:text-foreground"
             >
               <Github className="h-5 w-5" />
@@ -39,6 +40,7 @@ export default function Footer() {
             </Link> */}
             <Link
               href="https://www.linkedin.com/in/%EC%A2%85%ED%98%84-%EC%9E%A5-56372423a/"
+              target="_blank"
               className="text-muted-foreground hover:text-foreground"
             >
               <Linkedin className="h-5 w-5" />
@@ -80,12 +82,6 @@ export default function Footer() {
               className="text-sm text-muted-foreground hover:text-foreground"
             >
               블로그
-            </Link>
-            <Link
-              href="/contact"
-              className="text-sm text-muted-foreground hover:text-foreground"
-            >
-              링크드인
             </Link>
           </nav>
         </div>

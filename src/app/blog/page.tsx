@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@/src/app/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -11,11 +11,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/src/app/components/ui/card";
-import { Checkbox } from "@/src/app/components/ui/checkbox";
-import { Input } from "@/src/app/components/ui/input";
+} from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import { blogPosts, categories } from "@/src/app/lib/blog-data";
+import { blogPosts, categories } from "@/lib/blog-data";
 
 export default function BlogPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);

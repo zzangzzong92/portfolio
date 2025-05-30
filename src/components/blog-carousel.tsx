@@ -3,12 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Badge, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
-import { blogPosts } from "@/src/app/lib/blog-data";
+import { blogPosts } from "@/lib/blog-data";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { useEffect, useRef, useState } from "react";
-import { Badge as ShadcnBadge } from "@/src/app/components/ui/badge";
+import { Badge as ShadcnBadge } from "@/components/ui/badge";
 
 interface BlogPost {
   id: number;

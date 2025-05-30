@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/src/app/components/ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import BlogCarousel from "@/src/app/components/blog-carousel";
-import { AnimatedText } from "@/src/app/components/animated-text";
+import BlogCarousel from "@/components/blog-carousel";
+import { AnimatedText } from "@/components/animated-text";
 import { motion } from "framer-motion";
 
 export default function Home() {

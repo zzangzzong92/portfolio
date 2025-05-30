@@ -1,20 +1,25 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
+import * as React from "react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
-import { Button } from "@/src/app/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/src/app/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function ThemeToggle() {
-  const { setTheme, theme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
+  const { setTheme, theme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
 
   // useEffect를 사용하여 컴포넌트가 마운트된 후에만 테마 관련 UI를 렌더링
   React.useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
     return (
@@ -22,7 +27,7 @@ export function ThemeToggle() {
         <Sun className="h-5 w-5" />
         <span className="sr-only">테마 변경</span>
       </Button>
-    )
+    );
   }
 
   return (
@@ -48,5 +53,5 @@ export function ThemeToggle() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }

@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import type { Metadata } from "next";
-import { Badge } from "@/src/app/components/ui/badge";
-import { blogPosts, categories } from "@/src/app/lib/blog-data";
+import { Badge } from "@/components/ui/badge";
+import { blogPosts, categories } from "@/lib/blog-data";
 import parse from "html-react-parser";
-// import ParseHTML from "@/src/app/components/htmlparser";
+// import ParseHTML from "@/components/htmlparser";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;

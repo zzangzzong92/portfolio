@@ -1,39 +1,63 @@
 "use client";
 
-import * as React from "react";
-import Link from "next/link";
+import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu } from "lucide-react";
-import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 
-import { Button } from "@/src/app/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/src/app/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+
+const menuItems = [
+  { href: "/", label: "홈" },
+  { href: "/about", label: "소개" },
+  { href: "/projects", label: "프로젝트" },
+  { href: "/blog", label: "블로그" },
+  { href: "/contact", label: "연락처" },
+];
+
+type LanguageOption = {
+  code: string;
+  name: string;
+};
+
+const languages: LanguageOption[] = [
+  { code: "ko", name: "한국어" },
+  { code: "en", name: "English" },
+  { code: "zh", name: "中文 (중국어)" },
+  { code: "ja", name: "日本語 (일본어)" },
+  { code: "vi", name: "Tiếng Việt (베트남어)" },
+  { code: "th", name: "ภาษาไทย (태국어)" },
+  { code: "ru", name: "Русский (러시아어)" },
+];
 
 export default function Navbar() {
   const { setTheme, theme } = useTheme();
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [mounted, setMounted] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const languageDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale();
 
-  // useEffect를 사용하여 컴포넌트가 마운트된 후에만 테마 관련 UI를 렌더링
-  React.useEffect(() => {
+  useEffect(() => {
     setMounted(true);
   }, []);
 
-  // 메뉴 아이템 정의
-  const menuItems = [
-    { href: "/", label: "홈" },
-    { href: "/about", label: "소개" },
-    { href: "/projects", label: "프로젝트" },
-    { href: "/blog", label: "블로그" },
-    { href: "/contact", label: "연락처" },
-  ];
+  const selectLanguage = (language: LanguageOption) => {
+    setSelectedLanguage(language);
+    setIsLanguageDropdownOpen(false);
+    router.replace(pathname, { locale: language.code });
+  };
+
+  const toggleLanguageDropdown = () => {
+    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+  };
 
   return (
     <motion.header
@@ -63,7 +87,8 @@ export default function Navbar() {
 
         <nav className="hidden md:flex items-center gap-6">
           {menuItems.map((item, index) => {
-            const isActive = pathname === item.href;
+            const isActive =
+              pathname === `/${locale}${item.href === "/" ? "" : item.href}`;
             return (
               <motion.div
                 key={item.href}
@@ -74,6 +99,7 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href}
+                  locale={locale}
                   className={`text-sm font-medium transition-colors duration-200 ${
                     isActive
                       ? "text-primary font-semibold"
@@ -129,11 +155,15 @@ export default function Navbar() {
             <SheetContent side="right">
               <div className="flex flex-col gap-4 mt-8">
                 {menuItems.map((item) => {
-                  const isActive = pathname === item.href;
+                  const href = `/${locale}${
+                    item.href === "/" ? "" : item.href
+                  }`;
+                  const isActive = pathname === href;
                   return (
                     <Link
                       key={item.href}
-                      href={item.href}
+                      href={href}
+                      locale={locale}
                       className={`text-lg font-medium transition-colors duration-200 ${
                         isActive
                           ? "text-primary font-semibold"
@@ -170,6 +200,87 @@ export default function Navbar() {
               </div>
             </SheetContent>
           </Sheet>
+
+          {/* 언어 선택 드롭다운 */}
+          <div className="relative" ref={languageDropdownRef}>
+            <button
+              type="button"
+              className="flex items-center justify-center text-black transition-colors hover:text-gray-600"
+              aria-label="Select language"
+              onClick={toggleLanguageDropdown}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                className="fill-none stroke-current"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.2"
+                  d="M8 14a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.2"
+                  d="M2.4 6h11.2M2.4 10h11.2"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.2"
+                  d="M8 2a10 10 0 0 1 0 12"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.2"
+                  d="M8 2a10 10 0 0 0 0 12"
+                />
+              </svg>
+            </button>
+
+            {/* 언어 드롭다운 메뉴 */}
+            {isLanguageDropdownOpen && (
+              <div className="absolute right-0 z-50 mt-2 w-48 rounded-md border border-gray-200 bg-white py-2 shadow-lg">
+                <div className="py-1">
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      type="button"
+                      onClick={() => selectLanguage(language)}
+                      className={`${
+                        selectedLanguage.code === language.code
+                          ? "bg-gray-100 text-gray-900"
+                          : "text-gray-700"
+                      } flex w-full items-center px-4 py-2 text-left text-sm transition-colors hover:bg-gray-50`}
+                    >
+                      {language.name}
+                      {selectedLanguage.code === language.code && (
+                        <svg
+                          className="ml-auto h-4 w-4 text-gray-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </motion.header>

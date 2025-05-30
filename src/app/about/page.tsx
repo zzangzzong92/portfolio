@@ -1,10 +1,5 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/src/app/components/ui/card";
-import { Badge } from "@/src/app/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 // Tech stack data

@@ -2,10 +2,10 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/src/app/components/theme-provider";
-import Navbar from "@/src/app/components/layout/navbar";
-import Footer from "@/src/app/components/layout/footer";
-import { PageTransition } from "@/src/app/components/page-transition";
+import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
+import { PageTransition } from "@/components/page-transition";
 
 const inter = Inter({ subsets: ["latin"] });
 

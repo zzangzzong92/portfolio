@@ -1,5 +1,4 @@
-import { LoadingSpinner } from "@/src/app/components/ui/loading-spinnger"
-
+import { LoadingSpinner } from "@/components/ui/loading-spinnger";
 
 export default function Loading() {
   return (
@@ -9,5 +8,5 @@ export default function Loading() {
         <p className="text-lg font-medium animate-pulse">페이지 로딩 중...</p>
       </div>
     </div>
-  )
+  );
 }

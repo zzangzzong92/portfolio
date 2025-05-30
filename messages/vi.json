@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "": "Trang chủ",
+    "about": "Giới thiệu",
+    "projects": "Dự án",
+    "blog": "Blog",
+    "contact": "Liên hệ"
+  },
+  "common": {
+    "theme": {
+      "light": "Chế độ sáng",
+      "dark": "Chế độ tối",
+      "system": "Hệ thống"
+    }
+  }
+}

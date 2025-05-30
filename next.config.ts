@@ -1,10 +1,10 @@
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n: {
-    locales: ["ko", "en", "cn", "jp"], // 지원할 언어 코드 배열
-    defaultLocale: "ko", // 기본 언어
-    localeDetection: true, // 브라우저 언어 감지(원하면 false로)
-  },
+  // next-intl을 사용하므로 기본 i18n 설정 제거
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

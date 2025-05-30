@@ -4,20 +4,12 @@ import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu } from "lucide-react";
 import { motion } from "framer-motion";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-
-const menuItems = [
-  { href: "/", label: "홈" },
-  { href: "/about", label: "소개" },
-  { href: "/projects", label: "프로젝트" },
-  { href: "/blog", label: "블로그" },
-  { href: "/contact", label: "연락처" },
-];
 
 type LanguageOption = {
   code: string;
@@ -44,12 +36,25 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations("navigation");
+
+  const menuItems = [
+    { href: "/", label: t("home") },
+    { href: "/about", label: t("about") },
+    { href: "/projects", label: t("projects") },
+    { href: "/blog", label: t("blog") },
+    { href: "/contact", label: t("contact") },
+  ];
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const selectLanguage = (language: LanguageOption) => {
+    if (language.code === locale) {
+      setIsLanguageDropdownOpen(false);
+      return;
+    }
     setSelectedLanguage(language);
     setIsLanguageDropdownOpen(false);
     router.replace(pathname, { locale: language.code });

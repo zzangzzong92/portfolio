@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "home": "홈",
+    "about": "소개",
+    "projects": "프로젝트",
+    "blog": "블로그",
+    "contact": "연락처"
+  },
+  "common": {
+    "theme": {
+      "light": "라이트 모드",
+      "dark": "다크 모드",
+      "system": "시스템 설정"
+    }
+  }
+}

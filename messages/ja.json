@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "": "ホーム",
+    "about": "概要",
+    "projects": "プロジェクト",
+    "blog": "ブログ",
+    "contact": "お問い合わせ"
+  },
+  "common": {
+    "theme": {
+      "light": "ライトモード",
+      "dark": "ダークモード",
+      "system": "システム"
+    }
+  }
+}

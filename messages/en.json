@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "common": {
+    "theme": {
+      "light": "Light Mode",
+      "dark": "Dark Mode",
+      "system": "System"
+    }
+  }
+}

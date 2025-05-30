@@ -7,8 +7,8 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>{t("greeting")}</h1>
-      <p>{t("bye")}</p>
+      <h1>{t("home")}</h1>
+      <p>{t("common")}</p>
     </div>
   );
 }

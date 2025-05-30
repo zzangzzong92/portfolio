@@ -6,13 +6,25 @@ import { routing } from "../../i18n/routing";
 
 type Props = {
   children: ReactNode;
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 };
 
-export default async function LocaleLayout(props: Props) {
-  const { children, params } = props;
-  const { locale } = await params;
+export function generateStaticParams() {
+  return [
+    { locale: "ko" },
+    { locale: "en" },
+    { locale: "zh" },
+    { locale: "ja" },
+    { locale: "vi" },
+    { locale: "th" },
+    { locale: "ru" },
+  ];
+}
 
+export default async function LocaleLayout({
+  children,
+  params: { locale },
+}: Props) {
   // //locale 유효성 체크
   // if (!routing.locales.includes(locale as any)) {
   //   notFound();
@@ -20,19 +32,17 @@ export default async function LocaleLayout(props: Props) {
 
   let messages;
   try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
+    messages = (await import(`../../../messages/${locale}.json`)).default;
   } catch (error) {
     notFound(); // 지원하지 않는 언어일 경우 404
   }
 
   return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Navbar />
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        {children}
+      </div>
+    </NextIntlClientProvider>
   );
 }

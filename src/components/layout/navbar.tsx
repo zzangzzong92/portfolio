@@ -6,24 +6,27 @@ import { Moon, Sun, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 
+
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 type LanguageOption = {
   code: string;
   name: string;
+  flag: string;
 };
 
 const languages: LanguageOption[] = [
-  { code: "ko", name: "한국어" },
-  { code: "en", name: "English" },
-  { code: "zh", name: "中文 (중국어)" },
-  { code: "ja", name: "日本語 (일본어)" },
-  { code: "vi", name: "Tiếng Việt (베트남어)" },
-  { code: "th", name: "ภาษาไทย (태국어)" },
-  { code: "ru", name: "Русский (러시아어)" },
+  { code: "ko", name: "한국어", flag: "/flag/kr.png" },
+  { code: "en", name: "English", flag: "/flag/us.gif" },
+  { code: "zh", name: "中文 (중국어)", flag: "/flag/cn.gif" },
+  { code: "ja", name: "日本語 (일본어)", flag: "/flag/jp.gif" },
+  { code: "vi", name: "Tiếng Việt (베트남어)", flag: "/flag/vn.gif" },
+  { code: "th", name: "ภาษาไทย (태국어)", flag: "/flag/th.gif" },
+  { code: "ru", name: "Русский (러시아어)", flag: "/flag/ru.gif" },
 ];
 
 export default function Navbar() {
@@ -210,7 +213,7 @@ export default function Navbar() {
           <div className="relative" ref={languageDropdownRef}>
             <button
               type="button"
-              className="flex items-center justify-center text-black transition-colors hover:text-gray-600"
+              className="flex items-center justify-center text-foreground transition-colors hover:text-foreground/70"
               aria-label="Select language"
               onClick={toggleLanguageDropdown}
             >
@@ -251,7 +254,7 @@ export default function Navbar() {
 
             {/* 언어 드롭다운 메뉴 */}
             {isLanguageDropdownOpen && (
-              <div className="absolute right-0 z-50 mt-2 w-48 rounded-md border border-gray-200 bg-white py-2 shadow-lg">
+              <div className="absolute right-0 z-50 mt-2 w-48 rounded-md border bg-background py-2 shadow-lg">
                 <div className="py-1">
                   {languages.map((language) => (
                     <button
@@ -260,10 +263,13 @@ export default function Navbar() {
                       onClick={() => selectLanguage(language)}
                       className={`${
                         selectedLanguage.code === language.code
-                          ? "bg-gray-100 text-gray-900"
-                          : "text-gray-700"
-                      } flex w-full items-center px-4 py-2 text-left text-sm transition-colors hover:bg-gray-50`}
+                          ? "bg-accent text-accent-foreground"
+                          : "text-foreground/70"
+                      } flex w-full items-center gap-2 px-4 py-2 text-left text-sm transition-colors hover:bg-accent/50`}
                     >
+                      <Avatar className="h-5 w-5">
+                        <AvatarImage src={language.flag} alt={language.name} />
+                      </Avatar>
                       {language.name}
                       {selectedLanguage.code === language.code && (
                         <svg

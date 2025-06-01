@@ -10,7 +10,28 @@
     "theme": {
       "light": "โหมดสว่าง",
       "dark": "โหมดมืด",
-      "system": "ระบบ"
+      "system": "การตั้งค่าระบบ"
+    }
+  },
+  "home": {
+    "greeting": "สวัสดีครับ",
+    "introduction": "ผมเป็นนักพัฒนา",
+    "name": "จาง จงฮยอน",
+    "description": "ผมเป็นผู้เชี่ยวชาญด้านการพัฒนาเว็บไซต์โดยใช้ Next.js, TypeScript และ React ผมสร้างแอปพลิเคชันเว็บที่ให้ความสำคัญกับประสบการณ์ผู้ใช้",
+    "viewProjects": "ดูโปรเจกต์",
+    "contact": "ติดต่อ"
+  },
+  "footer": {
+    "description": "นี่คือพื้นที่สำหรับการเรียนรู้ทั้งสภาพแวดล้อม Frontend และ Backend ผมเติบโตขึ้นโดยการเรียนรู้และบันทึกแง่มุมต่างๆ ของการพัฒนาเว็บ",
+    "sitemap": "แผนผังเว็บไซต์",
+    "contact": "ติดต่อ",
+    "location": "ที่ตั้ง",
+    "copyright": "ZZ DevPortfolio. All rights reserved.",
+    "privacy": "นโยบายความเป็นส่วนตัว",
+    "terms": "เงื่อนไขการใช้งาน",
+    "address": {
+      "line1": "104-gil, Samsung-ro, Gangnam-gu",
+      "line2": "โซล, เกาหลีใต้"
     }
   }
 }

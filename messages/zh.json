@@ -10,7 +10,28 @@
     "theme": {
       "light": "浅色模式",
       "dark": "深色模式",
-      "system": "系统"
+      "system": "系统设置"
+    }
+  },
+  "home": {
+    "greeting": "你好，",
+    "introduction": "我是一名优秀的开发者",
+    "name": "张钟贤",
+    "description": "我是一名使用 Next.js、TypeScript 和 React 的网页开发专家。我致力于创建注重用户体验的网页应用。",
+    "viewProjects": "查看项目",
+    "contact": "联系我"
+  },
+  "footer": {
+    "description": "这是一个同时学习前端和后端环境的空间。通过学习和记录网页开发的各个方面来成长。",
+    "sitemap": "网站地图",
+    "contact": "联系方式",
+    "location": "位置",
+    "copyright": "ZZ DevPortfolio. All rights reserved.",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "address": {
+      "line1": "江南区三星路104街28号",
+      "line2": "首尔，韩国"
     }
   }
 }

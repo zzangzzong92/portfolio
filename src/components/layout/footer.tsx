@@ -11,16 +11,18 @@ import {
   Instagram,
 } from "lucide-react";
 import KakaoMap from "../kakaomap";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
   return (
     <footer className="bg-muted py-12">
       <div className="container grid grid-cols-1 md:grid-cols-4 gap-8 mx-auto">
         <div className="space-y-4">
           <h3 className="text-lg font-bold">DevPortfolio</h3>
           <p className="text-sm text-muted-foreground">
-            Frontend 환경과 더불어 Backend 환경도 함께 공부하는 공간입니다. 웹
-            개발의 전반에 대해 공부하며 기록하며 성장합니다.
+            {t("description")}
           </p>
           <div className="flex space-x-4">
             <Link
@@ -57,7 +59,7 @@ export default function Footer() {
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-lg font-bold">사이트맵</h3>
+          <h3 className="text-lg font-bold">{t("sitemap")}</h3>
           <nav className="flex flex-col space-y-2">
             {/* <Link
               href="/"
@@ -69,25 +71,25 @@ export default function Footer() {
               href="/about"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
-              소개
+              {t("navigation.about")}
             </Link>
             <Link
               href="/projects"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
-              프로젝트
+              {t("navigation.projects")}
             </Link>
             <Link
               href="/"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
-              블로그
+              {t("navigation.blog")}
             </Link>
           </nav>
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-lg font-bold">연락처</h3>
+          <h3 className="text-lg font-bold">{t("contact")}</h3>
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Mail className="h-4 w-4" />
@@ -100,19 +102,19 @@ export default function Footer() {
             <div className="flex items-start gap-2 text-sm text-muted-foreground">
               <MapPin className="h-4 w-4 mt-1" />
               <span>
-                강남구 삼성로 104길, 28
+                {t("address.line1")}
                 <br />
-                서울, 대한민국
+                {t("address.line2")}
               </span>
             </div>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-lg font-bold">위치</h3>
+          <h3 className="text-lg font-bold">{t("location")}</h3>
           <div
             className="w-full h-48 bg-muted rounded-md"
-            aria-label="강남구 삼성로 104길, 28 위치 지도"
+            aria-label={`${t("address.line1")} ${t("location")}`}
           >
             <KakaoMap center={{ lat: 37.510048, lng: 127.059856 }} />
           </div>
@@ -122,20 +124,20 @@ export default function Footer() {
       <div className="container mt-8 pt-8 border-t mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; ZZ DevPortfolio. All rights reserved.
+            {t("copyright")}
           </p>
           <div className="flex gap-4">
             <Link
               href="/privacy"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
-              {/* 개인정보 처리방침 */}
+              {t("privacy")}
             </Link>
             <Link
               href="/terms"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
-              {/* 이용약관 */}
+              {t("terms")}
             </Link>
           </div>
         </div>

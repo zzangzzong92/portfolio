@@ -10,7 +10,28 @@
     "theme": {
       "light": "Chế độ sáng",
       "dark": "Chế độ tối",
-      "system": "Hệ thống"
+      "system": "Cài đặt hệ thống"
+    }
+  },
+  "home": {
+    "greeting": "Xin chào,",
+    "introduction": "Tôi là một nhà phát triển",
+    "name": "Jang Jonghyun",
+    "description": "Tôi là chuyên gia phát triển web sử dụng Next.js, TypeScript và React. Tôi tạo ra các ứng dụng web tập trung vào trải nghiệm người dùng.",
+    "viewProjects": "Xem dự án",
+    "contact": "Liên hệ"
+  },
+  "footer": {
+    "description": "Đây là không gian học tập cả môi trường Frontend và Backend. Tôi phát triển bằng cách học hỏi và ghi lại các khía cạnh khác nhau của phát triển web.",
+    "sitemap": "Sơ đồ trang",
+    "contact": "Liên hệ",
+    "location": "Vị trí",
+    "copyright": "ZZ DevPortfolio. All rights reserved.",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản sử dụng",
+    "address": {
+      "line1": "104-gil, Samsung-ro, Gangnam-gu",
+      "line2": "Seoul, Hàn Quốc"
     }
   }
 }

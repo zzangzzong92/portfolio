@@ -1,7 +1,7 @@
 {
   "navigation": {
     "": "ホーム",
-    "about": "概要",
+    "about": "自己紹介",
     "projects": "プロジェクト",
     "blog": "ブログ",
     "contact": "お問い合わせ"
@@ -10,7 +10,28 @@
     "theme": {
       "light": "ライトモード",
       "dark": "ダークモード",
-      "system": "システム"
+      "system": "システム設定"
+    }
+  },
+  "home": {
+    "greeting": "こんにちは、",
+    "introduction": "美しい開発者",
+    "name": "チャン・ジョンヒョン",
+    "description": "Next.js、TypeScript、Reactを活用したウェブ開発の専門家です。ユーザー体験を重視したウェブアプリケーションを作成します。",
+    "viewProjects": "プロジェクトを見る",
+    "contact": "お問い合わせ"
+  },
+  "footer": {
+    "description": "フロントエンドとバックエンドの両方の環境を学ぶ空間です。ウェブ開発の様々な側面を学び、記録しながら成長していきます。",
+    "sitemap": "サイトマップ",
+    "contact": "お問い合わせ",
+    "location": "所在地",
+    "copyright": "ZZ DevPortfolio. All rights reserved.",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "address": {
+      "line1": "江南区三星路104番地28",
+      "line2": "ソウル、韓国"
     }
   }
 }

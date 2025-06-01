@@ -12,5 +12,26 @@
       "dark": "다크 모드",
       "system": "시스템 설정"
     }
+  },
+  "home": {
+    "greeting": "안녕하세요,",
+    "introduction": "아름다운 개발자",
+    "name": "장종현",
+    "description": "Next.js, TypeScript, React를 활용한 웹 개발 전문가입니다. 사용자 경험을 중시하는 웹 애플리케이션을 만듭니다.",
+    "viewProjects": "프로젝트 보기",
+    "contact": "연락하기"
+  },
+  "footer": {
+    "description": "Frontend 환경과 더불어 Backend 환경도 함께 공부하는 공간입니다. 웹 개발의 전반에 대해 공부하며 기록하며 성장합니다.",
+    "sitemap": "사이트맵",
+    "contact": "연락처",
+    "location": "위치",
+    "copyright": "ZZ DevPortfolio. All rights reserved.",
+    "privacy": "개인정보 처리방침",
+    "terms": "이용약관",
+    "address": {
+      "line1": "강남구 삼성로 104길, 28",
+      "line2": "서울, 대한민국"
+    }
   }
 }

@@ -1,48 +1,65 @@
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "../globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "@/components/layout/footer";
+import { PageTransition } from "@/components/page-transition";
 import { NextIntlClientProvider } from "next-intl";
-import { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import Navbar from "../../components/layout/navbar";
-import { routing } from "../../i18n/routing";
+import Navbar from "@/components/layout/navbar";
 
-type Props = {
-  children: ReactNode;
-  params: { locale: string };
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description: "My Portfolio Website",
 };
 
-export function generateStaticParams() {
-  return [
-    { locale: "ko" },
-    { locale: "en" },
-    { locale: "zh" },
-    { locale: "ja" },
-    { locale: "vi" },
-    { locale: "th" },
-    { locale: "ru" },
-  ];
+async function getMessages(locale: string) {
+  try {
+    return (await import(`../../../messages/${locale}.json`)).default;
+  } catch (error) {
+    notFound();
+  }
 }
 
-export default async function LocaleLayout({
+export default async function RootLayout({
   children,
-  params: { locale },
-}: Props) {
-  // //locale 유효성 체크
-  // if (!routing.locales.includes(locale as any)) {
-  //   notFound();
-  // }
-
-  let messages;
-  try {
-    messages = (await import(`../../../messages/${locale}.json`)).default;
-  } catch (error) {
-    notFound(); // 지원하지 않는 언어일 경우 404
-  }
+  params: { locale }
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
+  const messages = await getMessages(locale);
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <div className="flex min-h-screen flex-col">
-        <Navbar />
-        {children}
-      </div>
-    </NextIntlClientProvider>
+    <html lang={locale} suppressHydrationWarning>
+      <head>
+        <script
+          type="text/javascript"
+          src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_KAKAOMAP_KEY}&libraries=services,clusterer`}
+        ></script>
+      </head>
+      <body className={inter.className}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+            storageKey="theme-preference"
+          >
+            <div className="flex min-h-screen flex-col">
+              <Navbar />
+              <main className="max-w-7xl w-2/3 mx-auto">
+                <PageTransition>{children}</PageTransition>
+              </main>
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

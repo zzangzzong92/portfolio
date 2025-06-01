@@ -34,11 +34,13 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const locale = useLocale();
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    languages.find((lang) => lang.code === locale) || languages[0]
+  );
   const languageDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const router = useRouter();
-  const locale = useLocale();
   const t = useTranslations("navigation");
 
   const menuItems = [
@@ -52,6 +54,14 @@ export default function Navbar() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // locale이 변경될 때마다 selectedLanguage 업데이트
+  useEffect(() => {
+    const currentLanguage = languages.find((lang) => lang.code === locale);
+    if (currentLanguage) {
+      setSelectedLanguage(currentLanguage);
+    }
+  }, [locale]);
 
   const selectLanguage = (language: LanguageOption) => {
     if (language.code === locale) {

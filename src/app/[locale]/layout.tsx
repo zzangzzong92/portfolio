@@ -6,7 +6,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/layout/footer";
 import { PageTransition } from "@/components/page-transition";
 import { NextIntlClientProvider } from "next-intl";
-import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,11 +16,7 @@ export const metadata: Metadata = {
 };
 
 async function getMessages(locale: string) {
-  try {
-    return (await import(`../../../messages/${locale}.json`)).default;
-  } catch (error) {
-    notFound();
-  }
+  return (await import(`../../../messages/${locale}.json`)).default;
 }
 
 export default async function RootLayout({

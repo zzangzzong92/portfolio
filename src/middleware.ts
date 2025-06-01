@@ -1,22 +1,31 @@
 import createMiddleware from "next-intl/middleware";
+import { NextRequest } from "next/server";
 
-export default createMiddleware({
-  // 지원하는 언어 목록
-  locales: ["ko", "en", "zh", "ja", "vi", "th", "ru"],
-  // 기본 언어
-  defaultLocale: "ko",
-  // 로케일 감지 전략 설정
-  localeDetection: true,
-  // 로케일 접두사 항상 사용
-  localePrefix: "always",
-});
+const locales = ["ko", "en", "zh", "ja", "vi", "th", "ru"];
+const defaultLocale = "ko";
+
+export default async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  const pathnameIsMissingLocale = locales.every(
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  );
+
+  // 지원하지 않는 언어로 접근한 경우 기본 언어로 리다이렉트
+  const locale = request.nextUrl.pathname.split("/")[1];
+  if (locale && !locales.includes(locale)) {
+    const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
+    return Response.redirect(newUrl);
+  }
+
+  // 기본 언어로 접근한 경우 리다이렉트하지 않음
+  if (pathnameIsMissingLocale) {
+    const locale = request.headers.get("accept-language")?.split(",")[0].split("-")[0] || defaultLocale;
+    const finalLocale = locales.includes(locale) ? locale : defaultLocale;
+    const newUrl = new URL(`/${finalLocale}${pathname}`, request.url);
+    return Response.redirect(newUrl);
+  }
+}
 
 export const config = {
-  // 정적 파일, API, _next, public 폴더 등을 제외한 경로에만 미들웨어 적용
-  matcher: [
-    // 모든 경로에 대해 미들웨어 적용
-    "/((?!api|_next|.*\\..*|_vercel|.*\\.[^/]*$).*)",
-    // 로케일이 없는 경로에 대해서만 리다이렉션
-    "/((?!_next|.*\\..*|_vercel|.*\\.[^/]*$).*)",
-  ],
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
 };

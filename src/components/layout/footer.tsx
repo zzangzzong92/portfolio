@@ -12,9 +12,19 @@ import {
 } from "lucide-react";
 import KakaoMap from "../kakaomap";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <footer className="bg-muted py-12">

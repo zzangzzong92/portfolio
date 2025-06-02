@@ -1,0 +1,69 @@
+{
+  "navigation": {
+    "home": "首页",
+    "about": "关于",
+    "projects": "项目",
+    "blog": "博客",
+    "contact": "联系"
+  },
+  "common": {
+    "theme": {
+      "light": "浅色模式",
+      "dark": "深色模式",
+      "system": "系统设置"
+    }
+  },
+  "home": {
+    "greeting": "你好，",
+    "introduction": "我是一名优秀的开发者",
+    "name": "张钟贤",
+    "description": "我是一名使用 Next.js、TypeScript 和 React 的网页开发专家。我致力于创建注重用户体验的网页应用。",
+    "viewProjects": "查看项目",
+    "contact": "联系我"
+  },
+  "footer": {
+    "description": "这是一个同时学习前端和后端环境的空间。通过学习和记录网页开发的各个方面来成长。",
+    "sitemap": "网站地图",
+    "contact": "联系方式",
+    "location": "位置",
+    "copyright": "ZZ DevPortfolio. All rights reserved.",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "address": {
+      "line1": "江南区三星路104街28号",
+      "line2": "首尔，韩国"
+    },
+    "navigation": {
+      "about": "关于",
+      "projects": "项目",
+      "blog": "博客"
+    }
+  },
+  "about": {
+    "title": "简介",
+    "greeting": "你好，我是有3年经验的开发者",
+    "intro1": "作为一名充满热情的全栈开发者，我喜欢构建以用户为中心的网页应用。主要使用Next.js、React和TypeScript，并始终探索最新的网页技术趋势。",
+    "intro2": "我专注于解决复杂问题和提升用户体验。重视整洁的代码和现代网页标准，并通过持续学习和成长成为更优秀的开发者。",
+    "careerTitle": "经历",
+    "career1Title": "初级前端开发者",
+    "career1Period": "2023.02 - 至今",
+    "career1Company": "韩国BizTech公司",
+    "career1Desc": "参与了将现有JSP基础的ERP系统转为React & Spring Boot基础系统的项目，负责HR/薪资、劳务管理模块，提升了可维护性和扩展性。",
+    "career2Title": "前端开发者",
+    "career2Period": "2022.02 - 2022.07",
+    "career2Company": "Shareground公司",
+    "career2Desc": "为东大门时尚业者的数字解决方案SELL-UP服务进行采购相关程序重构项目。...",
+    "educationTitle": "教育",
+    "education1Title": "中文系学士",
+    "education1Period": "2011 - 2018",
+    "education1School": "东西大学",
+    "education1Desc": "2011年至2018年在东西大学主修中文，不仅提升了语言能力，还加深了对中国文化和沟通的理解。",
+    "profileTitle": "个人简介",
+    "profilePosition": "全栈网页开发者",
+    "profileLocation": "位置",
+    "profileExperience": "经验",
+    "profileEmail": "邮箱",
+    "profileLanguage": "语言",
+    "techStackTitle": "技术栈"
+  }
+}

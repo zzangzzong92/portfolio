@@ -1,0 +1,69 @@
+{
+  "navigation": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "projects": "Dự án",
+    "blog": "Blog",
+    "contact": "Liên hệ"
+  },
+  "common": {
+    "theme": {
+      "light": "Chế độ sáng",
+      "dark": "Chế độ tối",
+      "system": "Cài đặt hệ thống"
+    }
+  },
+  "home": {
+    "greeting": "Xin chào,",
+    "introduction": "Tôi là một nhà phát triển",
+    "name": "Jang Jonghyun",
+    "description": "Tôi là chuyên gia phát triển web sử dụng Next.js, TypeScript và React. Tôi tạo ra các ứng dụng web tập trung vào trải nghiệm người dùng.",
+    "viewProjects": "Xem dự án",
+    "contact": "Liên hệ"
+  },
+  "footer": {
+    "description": "Đây là không gian học tập cả môi trường Frontend và Backend. Tôi phát triển bằng cách học hỏi và ghi lại các khía cạnh khác nhau của phát triển web.",
+    "sitemap": "Sơ đồ trang",
+    "contact": "Liên hệ",
+    "location": "Vị trí",
+    "copyright": "ZZ DevPortfolio. All rights reserved.",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản sử dụng",
+    "address": {
+      "line1": "104-gil, Samsung-ro, Gangnam-gu",
+      "line2": "Seoul, Hàn Quốc"
+    },
+    "navigation": {
+      "about": "Giới thiệu",
+      "projects": "Dự án",
+      "blog": "Blog"
+    }
+  },
+  "about": {
+    "title": "Giới thiệu",
+    "greeting": "Xin chào, tôi là lập trình viên với 3 năm kinh nghiệm",
+    "intro1": "Là một lập trình viên full-stack đam mê, tôi thích xây dựng các ứng dụng web lấy người dùng làm trung tâm. Tôi chủ yếu sử dụng Next.js, React và TypeScript, luôn tìm hiểu các xu hướng công nghệ web mới nhất.",
+    "intro2": "Tôi tập trung vào việc giải quyết các vấn đề phức tạp và cải thiện trải nghiệm người dùng. Tôi coi trọng mã sạch và các tiêu chuẩn web hiện đại, luôn nỗ lực học hỏi và phát triển để trở thành lập trình viên tốt hơn.",
+    "careerTitle": "Kinh nghiệm",
+    "career1Title": "Lập trình viên Frontend Junior",
+    "career1Period": "2023.02 - Hiện tại",
+    "career1Company": "Korea BizTech",
+    "career1Desc": "Tham gia dự án chuyển đổi hệ thống ERP dựa trên JSP sang hệ thống dựa trên React & Spring Boot tại công ty giải pháp ERP xây dựng hàng đầu Hàn Quốc. Cải thiện khả năng bảo trì và mở rộng bằng cách phụ trách các module nhân sự/lương và quản lý lao động.",
+    "career2Title": "Lập trình viên Frontend",
+    "career2Period": "2022.02 - 2022.07",
+    "career2Company": "Shareground",
+    "career2Desc": "Thực hiện refactor chương trình mua hàng cho dịch vụ SELL-UP, giải pháp số cho ngành thời trang Dongdaemun. Nền tảng hỗ trợ quản lý tích hợp cho người bán, quản lý mua hàng và các doanh nghiệp bán buôn/bán lẻ.",
+    "educationTitle": "Học vấn",
+    "education1Title": "Cử nhân tiếng Trung",
+    "education1Period": "2011 - 2018",
+    "education1School": "Đại học Dongseo",
+    "education1Desc": "Từ 2011 đến 2018 học tại Đại học Dongseo chuyên ngành tiếng Trung, không chỉ nâng cao năng lực ngôn ngữ mà còn hiểu biết về văn hóa và giao tiếp Trung Quốc.",
+    "profileTitle": "Hồ sơ",
+    "profilePosition": "Lập trình viên web full-stack",
+    "profileLocation": "Vị trí",
+    "profileExperience": "Kinh nghiệm",
+    "profileEmail": "Email",
+    "profileLanguage": "Ngôn ngữ",
+    "techStackTitle": "Công nghệ sử dụng"
+  }
+}

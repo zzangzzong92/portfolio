@@ -1,0 +1,69 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "common": {
+    "theme": {
+      "light": "Light Mode",
+      "dark": "Dark Mode",
+      "system": "System"
+    }
+  },
+  "home": {
+    "greeting": "Hello,",
+    "introduction": "I'm a beautiful developer",
+    "name": "Jang Jonghyun",
+    "description": "I'm a web development expert using Next.js, TypeScript, and React. I create web applications that prioritize user experience.",
+    "viewProjects": "View Projects",
+    "contact": "Contact Me"
+  },
+  "footer": {
+    "description": "A space where I study both Frontend and Backend environments. I grow by studying and documenting various aspects of web development.",
+    "sitemap": "Sitemap",
+    "contact": "Contact",
+    "location": "Location",
+    "copyright": "ZZ DevPortfolio. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "address": {
+      "line1": "104-gil, Samsung-ro, Gangnam-gu",
+      "line2": "Seoul, South Korea"
+    },
+    "navigation": {
+      "about": "About",
+      "projects": "Projects",
+      "blog": "Blog"
+    }
+  },
+  "about": {
+    "title": "About",
+    "greeting": "Hello, I'm a developer with 3 years of experience",
+    "intro1": "As a passionate full-stack developer, I love building user-centric web applications. I mainly use Next.js, React, and TypeScript, and always explore the latest web technology trends.",
+    "intro2": "I focus on solving complex problems and improving user experience. I value clean code and modern web standards, and strive to become a better developer through continuous learning and growth.",
+    "careerTitle": "Career",
+    "career1Title": "Junior Frontend Developer",
+    "career1Period": "2023.02 - Present",
+    "career1Company": "Korea BizTech Co., Ltd.",
+    "career1Desc": "Participated in a project to convert an existing JSP-based ERP system to a React & Spring Boot-based system at a leading domestic construction ERP solution company. Improved maintainability and scalability by handling HR/Payroll and labor management modules.",
+    "career2Title": "Frontend Developer",
+    "career2Period": "2022.02 - 2022.07",
+    "career2Company": "Shareground Co., Ltd.",
+    "career2Desc": "Refactored the purchasing program for the SELL-UP service, a digital solution for Dongdaemun fashion business professionals. The platform supports integrated management for sellers, purchasing managers, and wholesale/retail businesses.",
+    "educationTitle": "Education",
+    "education1Title": "Bachelor of Chinese",
+    "education1Period": "2011 - 2018",
+    "education1School": "Dongseo University",
+    "education1Desc": "Majored in Chinese at Dongseo University from 2011 to 2018, gaining not only language skills but also an understanding of Chinese culture and communication.",
+    "profileTitle": "Profile",
+    "profilePosition": "Full-stack Web Developer",
+    "profileLocation": "Location",
+    "profileExperience": "Experience",
+    "profileEmail": "Email",
+    "profileLanguage": "Languages",
+    "techStackTitle": "Tech Stack"
+  }
+}

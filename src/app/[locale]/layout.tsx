@@ -17,17 +17,21 @@ export const metadata: Metadata = {
 };
 
 async function getMessages(locale: string) {
-  return (await import(`../../../messages/${locale}.json`)).default;
+  return (await import(`@/messages/${locale}.json`)).default;
+}
+
+interface RootLayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }
 
 export default async function RootLayout({
   children,
-  params: { locale },
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
+  params,
+}: RootLayoutProps) {
+  const locale = (await params).locale;
   const messages = await getMessages(locale);
+  console.log(messages);
 
   return (
     <html lang={locale} suppressHydrationWarning>

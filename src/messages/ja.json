@@ -1,0 +1,69 @@
+{
+  "navigation": {
+    "home": "ホーム",
+    "about": "自己紹介",
+    "projects": "プロジェクト",
+    "blog": "ブログ",
+    "contact": "お問い合わせ"
+  },
+  "common": {
+    "theme": {
+      "light": "ライトモード",
+      "dark": "ダークモード",
+      "system": "システム設定"
+    }
+  },
+  "home": {
+    "greeting": "こんにちは、",
+    "introduction": "美しい開発者",
+    "name": "チャン・ジョンヒョン",
+    "description": "Next.js、TypeScript、Reactを活用したウェブ開発の専門家です。ユーザー体験を重視したウェブアプリケーションを作成します。",
+    "viewProjects": "プロジェクトを見る",
+    "contact": "お問い合わせ"
+  },
+  "footer": {
+    "description": "フロントエンドとバックエンドの両方の環境を学ぶ空間です。ウェブ開発の様々な側面を学び、記録しながら成長していきます。",
+    "sitemap": "サイトマップ",
+    "contact": "お問い合わせ",
+    "location": "所在地",
+    "copyright": "ZZ DevPortfolio. All rights reserved.",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "address": {
+      "line1": "江南区三星路104番地28",
+      "line2": "ソウル、韓国"
+    },
+    "navigation": {
+      "about": "概要",
+      "projects": "プロジェクト",
+      "blog": "ブログ"
+    }
+  },
+  "about": {
+    "title": "自己紹介",
+    "greeting": "こんにちは、3年目の開発者です",
+    "intro1": "ウェブ開発に情熱を持つフルスタック開発者で、ユーザー中心のウェブアプリケーションを作るのが好きです。Next.js、React、TypeScriptを主に使い、最新のウェブ技術トレンドを常に探求しています。",
+    "intro2": "複雑な問題を解決し、ユーザー体験を向上させることに重点を置いています。クリーンコードと最新のウェブ標準を重視し、継続的な学習と成長を通じてより良い開発者を目指しています。",
+    "careerTitle": "経歴",
+    "career1Title": "ジュニアフロントエンド開発者",
+    "career1Period": "2023.02 - 現在",
+    "career1Company": "韓国ビズテック株式会社",
+    "career1Desc": "29年の歴史を持つ国内建設ERPソリューション企業で、既存のJSPベースERPシステムをReact & Spring Bootベースに転換するプロジェクトに参加しました。人事・給与、労務管理モジュールを担当し、保守性と拡張性を改善し、新機能開発が容易な構造に改善しました。",
+    "career2Title": "フロントエンド開発者",
+    "career2Period": "2022.02 - 2022.07",
+    "career2Company": "シェアグラウンド株式会社",
+    "career2Desc": "東大門ファッションビジネス従事者向けデジタルソリューションSELL-UPサービスの仕入れ関連プログラムのリファクタリングプロジェクトを行いました。...",
+    "educationTitle": "学歴",
+    "education1Title": "中国語学科 学士",
+    "education1Period": "2011 - 2018",
+    "education1School": "東西大学",
+    "education1Desc": "2011年から2018年まで東西大学で中国語を専攻し、言語能力だけでなく中国文化とコミュニケーションについても理解を深めました。",
+    "profileTitle": "プロフィール",
+    "profilePosition": "フルスタックウェブ開発者",
+    "profileLocation": "所在地",
+    "profileExperience": "経験",
+    "profileEmail": "メール",
+    "profileLanguage": "言語",
+    "techStackTitle": "技術スタック"
+  }
+}

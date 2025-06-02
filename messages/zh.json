@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "": "首页",
+    "home": "首页",
     "about": "关于",
     "projects": "项目",
     "blog": "博客",
@@ -32,6 +32,11 @@
     "address": {
       "line1": "江南区三星路104街28号",
       "line2": "首尔，韩国"
+    },
+    "navigation": {
+      "about": "关于",
+      "projects": "项目",
+      "blog": "博客"
     }
   }
 }

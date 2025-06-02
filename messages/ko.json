@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "": "홈",
+    "home": "홈",
     "about": "소개",
     "projects": "프로젝트",
     "blog": "블로그",
@@ -32,6 +32,11 @@
     "address": {
       "line1": "강남구 삼성로 104길, 28",
       "line2": "서울, 대한민국"
+    },
+    "navigation": {
+      "about": "소개",
+      "projects": "프로젝트",
+      "blog": "블로그"
     }
   }
 }

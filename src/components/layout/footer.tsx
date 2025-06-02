@@ -31,9 +31,7 @@ export default function Footer() {
       <div className="container grid grid-cols-1 md:grid-cols-4 gap-8 mx-auto">
         <div className="space-y-4">
           <h3 className="text-lg font-bold">DevPortfolio</h3>
-          <p className="text-sm text-muted-foreground">
-            {t("description")}
-          </p>
+          <p className="text-sm text-muted-foreground">{t("description")}</p>
           <div className="flex space-x-4">
             <Link
               href="https://github.com/zzangzzong92"
@@ -133,9 +131,7 @@ export default function Footer() {
 
       <div className="container mt-8 pt-8 border-t mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            {t("copyright")}
-          </p>
+          <p className="text-sm text-muted-foreground">{t("copyright")}</p>
           <div className="flex gap-4">
             <Link
               href="/privacy"

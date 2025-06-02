@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "": "Trang chủ",
+    "home": "Trang chủ",
     "about": "Giới thiệu",
     "projects": "Dự án",
     "blog": "Blog",
@@ -32,6 +32,11 @@
     "address": {
       "line1": "104-gil, Samsung-ro, Gangnam-gu",
       "line2": "Seoul, Hàn Quốc"
+    },
+    "navigation": {
+      "about": "Giới thiệu",
+      "projects": "Dự án",
+      "blog": "Blog"
     }
   }
 }

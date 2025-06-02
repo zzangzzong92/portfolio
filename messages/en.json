@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "": "Home",
+    "home": "Home",
     "about": "About",
     "projects": "Projects",
     "blog": "Blog",
@@ -32,6 +32,11 @@
     "address": {
       "line1": "104-gil, Samsung-ro, Gangnam-gu",
       "line2": "Seoul, South Korea"
+    },
+    "navigation": {
+      "about": "About",
+      "projects": "Projects",
+      "blog": "Blog"
     }
   }
 }

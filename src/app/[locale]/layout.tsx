@@ -7,6 +7,7 @@ import Footer from "@/components/layout/footer";
 import { PageTransition } from "@/components/page-transition";
 import { NextIntlClientProvider } from "next-intl";
 import Navbar from "@/components/layout/navbar";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ async function getMessages(locale: string) {
 
 export default async function RootLayout({
   children,
-  params: { locale }
+  params: { locale },
 }: {
   children: React.ReactNode;
   params: { locale: string };
@@ -30,12 +31,6 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        <script
-          type="text/javascript"
-          src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_KAKAOMAP_KEY}&libraries=services,clusterer`}
-        ></script>
-      </head>
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider
@@ -45,6 +40,10 @@ export default async function RootLayout({
             disableTransitionOnChange
             storageKey="theme-preference"
           >
+            <Script
+              src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_KEY}&libraries=services,clusterer`}
+              strategy="afterInteractive"
+            />
             <div className="flex min-h-screen flex-col">
               <Navbar />
               <main className="max-w-7xl w-2/3 mx-auto">

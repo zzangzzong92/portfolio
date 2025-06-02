@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "": "ホーム",
+    "home": "ホーム",
     "about": "自己紹介",
     "projects": "プロジェクト",
     "blog": "ブログ",
@@ -32,6 +32,11 @@
     "address": {
       "line1": "江南区三星路104番地28",
       "line2": "ソウル、韓国"
+    },
+    "navigation": {
+      "about": "概要",
+      "projects": "プロジェクト",
+      "blog": "ブログ"
     }
   }
 }

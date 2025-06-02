@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "": "หน้าแรก",
+    "home": "หน้าแรก",
     "about": "เกี่ยวกับ",
     "projects": "โปรเจกต์",
     "blog": "บล็อก",
@@ -32,6 +32,11 @@
     "address": {
       "line1": "104-gil, Samsung-ro, Gangnam-gu",
       "line2": "โซล, เกาหลีใต้"
+    },
+    "navigation": {
+      "about": "เกี่ยวกับ",
+      "projects": "โปรเจกต์",
+      "blog": "บล็อก"
     }
   }
 }

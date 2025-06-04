@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { Moon, Sun, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
+import { FlagIcon, FlagIconCode } from "react-flag-kit";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -15,17 +16,17 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 type LanguageOption = {
   code: string;
   name: string;
-  flag: string;
+  flag: FlagIconCode;
 };
 
 const languages: LanguageOption[] = [
-  { code: "ko", name: "한국어", flag: "/flag/kr.png" },
-  { code: "en", name: "English", flag: "/flag/us.gif" },
-  { code: "zh", name: "中文 (중국어)", flag: "/flag/cn.gif" },
-  { code: "ja", name: "日本語 (일본어)", flag: "/flag/jp.gif" },
-  { code: "vi", name: "Tiếng Việt (베트남어)", flag: "/flag/vn.gif" },
-  { code: "th", name: "ภาษาไทย (태국어)", flag: "/flag/th.gif" },
-  { code: "ru", name: "Русский (러시아어)", flag: "/flag/ru.gif" },
+  { code: "ko", name: "한국어", flag: "KR" },
+  { code: "en", name: "English", flag: "US" },
+  { code: "zh", name: "中文 (중국어)", flag: "CN" },
+  { code: "ja", name: "日本語 (일본어)", flag: "JP" },
+  { code: "vi", name: "Tiếng Việt (베트남어)", flag: "VN" },
+  { code: "th", name: "ภาษาไทย (태국어)", flag: "TH" },
+  { code: "ru", name: "Русский (러시아어)", flag: "RU" },
 ];
 
 export default function Navbar() {
@@ -276,9 +277,7 @@ export default function Navbar() {
                           : "text-foreground/70"
                       } flex w-full items-center gap-2 px-4 py-2 text-left text-sm transition-colors hover:bg-accent/50`}
                     >
-                      <Avatar className="h-5 w-5">
-                        <AvatarImage src={language.flag} alt={language.name} />
-                      </Avatar>
+                      <FlagIcon code={language.flag} size={20} />
                       {language.name}
                       {selectedLanguage.code === language.code && (
                         <svg

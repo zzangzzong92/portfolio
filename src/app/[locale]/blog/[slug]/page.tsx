@@ -1,8 +1,9 @@
+"use client";
+
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
-import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { blogPosts, categories } from "@/lib/blog-data";
 import parse from "html-react-parser";
@@ -10,25 +11,6 @@ import parse from "html-react-parser";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateMetadata({
-  params,
-}: BlogPostPageProps): Promise<Metadata> {
-  const slug = (await params).slug;
-  const post = await blogPosts.find((post) => post.slug === slug);
-
-  if (!post) {
-    return {
-      title: "블로그 포스트를 찾을 수 없습니다",
-      description: "요청하신 블로그 포스트를 찾을 수 없습니다.",
-    };
-  }
-
-  return {
-    title: post.title,
-    description: post.excerpt,
-  };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

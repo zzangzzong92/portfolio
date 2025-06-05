@@ -64,6 +64,11 @@
     "profileExperience": "経験",
     "profileEmail": "メール",
     "profileLanguage": "言語",
-    "techStackTitle": "技術スタック"
+    "techStackTitle": "技術スタック",
+    "profileName": "チャン・ジョンヒョン",
+    "profileLocationValue": "ソウル、韓国",
+    "profileExperienceValue": "3年以上",
+    "profileEmailValue": "zzangzzong92@gmail.com",
+    "profileLanguageValue": "韓国語、中国語"
   }
 }

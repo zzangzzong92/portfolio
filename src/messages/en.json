@@ -64,6 +64,11 @@
     "profileExperience": "Experience",
     "profileEmail": "Email",
     "profileLanguage": "Languages",
-    "techStackTitle": "Tech Stack"
+    "techStackTitle": "Tech Stack",
+    "profileName": "Jang Jonghyun",
+    "profileLocationValue": "Seoul, South Korea",
+    "profileExperienceValue": "3+ years",
+    "profileEmailValue": "zzangzzong92@gmail.com",
+    "profileLanguageValue": "Korean, Chinese"
   }
 }

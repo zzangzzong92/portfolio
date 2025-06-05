@@ -53,6 +53,11 @@
     "profileExperience": "Опыт",
     "profileEmail": "Электронная почта",
     "profileLanguage": "Языки",
-    "techStackTitle": "Технологии"
+    "techStackTitle": "Технологии",
+    "profileName": "Чан Джонхён",
+    "profileLocationValue": "Сеул, Южная Корея",
+    "profileExperienceValue": "3+ года",
+    "profileEmailValue": "zzangzzong92@gmail.com",
+    "profileLanguageValue": "Корейский, Китайский"
   }
 }

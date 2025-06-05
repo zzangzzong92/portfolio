@@ -64,6 +64,11 @@
     "profileExperience": "경력",
     "profileEmail": "이메일",
     "profileLanguage": "언어",
-    "techStackTitle": "기술 스택"
+    "techStackTitle": "기술 스택",
+    "profileName": "장종현",
+    "profileLocationValue": "서울, 대한민국",
+    "profileExperienceValue": "3년+",
+    "profileEmailValue": "zzangzzong92@gmail.com",
+    "profileLanguageValue": "한국어, 중국어"
   }
 }

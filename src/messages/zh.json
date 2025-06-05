@@ -64,6 +64,11 @@
     "profileExperience": "经验",
     "profileEmail": "邮箱",
     "profileLanguage": "语言",
-    "techStackTitle": "技术栈"
+    "techStackTitle": "技术栈",
+    "profileName": "张钟贤",
+    "profileLocationValue": "首尔，中国",
+    "profileExperienceValue": "3年以上",
+    "profileEmailValue": "zzangzzong92@gmail.com",
+    "profileLanguageValue": "韩语, 中文"
   }
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
@@ -68,10 +70,14 @@ export default function AboutPage() {
               <CardContent className="p-6">
                 <div className="flex flex-col md:flex-row justify-between mb-2">
                   <h3 className="text-xl font-semibold">{t("career2Title")}</h3>
-                  <p className="text-muted-foreground">2022.02 - 2022.07</p>
+                  <p className="text-muted-foreground">{t("career2Period")}</p>
                 </div>
-                <p className="text-lg font-medium mb-2">(주)쉐어그라운드</p>
-                <p className="text-muted-foreground">{t("career2Desc")}</p>
+                <p className="text-lg font-medium mb-2">
+                  {t("career2Company")}
+                </p>
+                <p className="text-muted-foreground whitespace-pre-line break-words">
+                  {t("career2Desc")}
+                </p>
                 <div className="flex flex-wrap gap-2 mt-4">
                   <Badge>React</Badge>
                   <Badge>Recoil</Badge>
@@ -93,7 +99,9 @@ export default function AboutPage() {
                   <h3 className="text-xl font-semibold">
                     {t("education1Title")}
                   </h3>
-                  <p className="text-muted-foreground">2011 - 2018</p>
+                  <p className="text-muted-foreground">
+                    {t("education1Period")}
+                  </p>
                 </div>
                 <p className="text-lg font-medium">{t("education1School")}</p>
                 <p className="text-muted-foreground mt-2">
@@ -119,7 +127,7 @@ export default function AboutPage() {
                     className="rounded-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold mb-1">장종현</h3>
+                <h3 className="text-xl font-bold mb-1">{t("profileName")}</h3>
                 <p className="text-muted-foreground mb-4">
                   {t("profilePosition")}
                 </p>
@@ -128,23 +136,25 @@ export default function AboutPage() {
                   <div className="flex justify-between text-sm">
                     <span>{t("profileLocation")}:</span>
                     <span className="text-muted-foreground">
-                      서울, 대한민국
+                      {t("profileLocationValue")}
                     </span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span>{t("profileExperience")}:</span>
-                    <span className="text-muted-foreground">3년+</span>
+                    <span className="text-muted-foreground">
+                      {t("profileExperienceValue")}
+                    </span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span>{t("profileEmail")}:</span>
                     <span className="text-muted-foreground">
-                      zzangzzong92@gmail.com
+                      {t("profileEmailValue")}
                     </span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span>{t("profileLanguage")}:</span>
                     <span className="text-muted-foreground">
-                      한국어, 중국어
+                      {t("profileLanguageValue")}
                     </span>
                   </div>
                 </div>

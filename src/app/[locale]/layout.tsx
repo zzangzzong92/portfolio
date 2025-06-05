@@ -8,6 +8,8 @@ import { PageTransition } from "@/components/page-transition";
 import { NextIntlClientProvider } from "next-intl";
 import Navbar from "@/components/layout/navbar";
 import Script from "next/script";
+import { Messages } from "types/message";
+import { notFound } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,22 +18,26 @@ export const metadata: Metadata = {
   description: "My Portfolio Website",
 };
 
-async function getMessages(locale: string) {
-  return (await import(`@/messages/${locale}.json`)).default;
-}
-
-interface RootLayoutProps {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "ko" }];
 }
 
 export default async function RootLayout({
   children,
   params,
-}: RootLayoutProps) {
-  const locale = (await params).locale;
-  const messages = await getMessages(locale);
-  console.log(messages);
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  let messages: Messages;
+  try {
+    messages = (await import(`@/messages/${locale}.json`)).default;
+  } catch (error) {
+    notFound();
+  }
+
+  console.log("locale", locale);
 
   return (
     <html lang={locale} suppressHydrationWarning>

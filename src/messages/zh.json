@@ -70,5 +70,24 @@
     "profileExperienceValue": "3年以上",
     "profileEmailValue": "zzangzzong92@gmail.com",
     "profileLanguageValue": "韩语, 中文"
+  },
+  "projects": {
+    "title": "项目",
+    "featured": "主要项目",
+    "others": "其他项目",
+    "github": "GitHub",
+    "demo": "演示",
+    "project1": {
+      "title": "First Step Korea",
+      "description": "为外国人提供韩国生活信息的网络应用。"
+    },
+    "project2": {
+      "title": "Lost Ark 社区",
+      "description": "为Lost Ark用户打造的社区应用。"
+    },
+    "project3": {
+      "title": "地下城与勇士社区",
+      "description": "为地下城与勇士用户打造的社区应用。"
+    }
   }
 }

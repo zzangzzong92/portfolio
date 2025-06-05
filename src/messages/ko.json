@@ -70,5 +70,24 @@
     "profileExperienceValue": "3년+",
     "profileEmailValue": "zzangzzong92@gmail.com",
     "profileLanguageValue": "한국어, 중국어"
+  },
+  "projects": {
+    "title": "프로젝트",
+    "featured": "주요 프로젝트",
+    "others": "기타 프로젝트",
+    "github": "GitHub",
+    "demo": "데모",
+    "project1": {
+      "title": "First Step Korea",
+      "description": "외국인에게 한국의 생활정보를 제공하는 웹 애플리케이션입니다."
+    },
+    "project2": {
+      "title": "로스트아크 커뮤니티",
+      "description": "로스트아크 유저들을 위한 커뮤니티 애플리케이션입니다."
+    },
+    "project3": {
+      "title": "던전앤파이터 커뮤니티",
+      "description": "던전앤파이터 유저들을 위한 커뮤니티 애플리케이션입니다."
+    }
   }
 }

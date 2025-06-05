@@ -59,5 +59,24 @@
     "profileExperienceValue": "3+ года",
     "profileEmailValue": "zzangzzong92@gmail.com",
     "profileLanguageValue": "Корейский, Китайский"
+  },
+  "projects": {
+    "title": "Проекты",
+    "featured": "Избранные проекты",
+    "others": "Другие проекты",
+    "github": "GitHub",
+    "demo": "Демо",
+    "project1": {
+      "title": "First Step Korea",
+      "description": "Веб-приложение, предоставляющее информацию о жизни в Корее для иностранцев."
+    },
+    "project2": {
+      "title": "Сообщество Lost Ark",
+      "description": "Приложение-сообщество для пользователей Lost Ark."
+    },
+    "project3": {
+      "title": "Сообщество Dungeon & Fighter",
+      "description": "Приложение-сообщество для пользователей Dungeon & Fighter."
+    }
   }
 }

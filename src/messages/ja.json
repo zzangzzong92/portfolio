@@ -70,5 +70,24 @@
     "profileExperienceValue": "3年以上",
     "profileEmailValue": "zzangzzong92@gmail.com",
     "profileLanguageValue": "韓国語、中国語"
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "featured": "注目プロジェクト",
+    "others": "その他のプロジェクト",
+    "github": "GitHub",
+    "demo": "デモ",
+    "project1": {
+      "title": "First Step Korea",
+      "description": "外国人向けに韓国の生活情報を提供するウェブアプリケーションです。"
+    },
+    "project2": {
+      "title": "ロストアークコミュニティ",
+      "description": "ロストアークユーザーのためのコミュニティアプリケーションです。"
+    },
+    "project3": {
+      "title": "ダンジョン＆ファイターコミュニティ",
+      "description": "ダンジョン＆ファイターユーザーのためのコミュニティアプリケーションです。"
+    }
   }
 }

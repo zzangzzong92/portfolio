@@ -70,5 +70,24 @@
     "profileExperienceValue": "Hơn 3 năm",
     "profileEmailValue": "zzangzzong92@gmail.com",
     "profileLanguageValue": "Tiếng Hàn, Tiếng Trung"
+  },
+  "projects": {
+    "title": "Dự án",
+    "featured": "Dự án nổi bật",
+    "others": "Dự án khác",
+    "github": "GitHub",
+    "demo": "Demo",
+    "project1": {
+      "title": "First Step Korea",
+      "description": "Ứng dụng web cung cấp thông tin cuộc sống tại Hàn Quốc cho người nước ngoài."
+    },
+    "project2": {
+      "title": "Cộng đồng Lost Ark",
+      "description": "Ứng dụng cộng đồng cho người dùng Lost Ark."
+    },
+    "project3": {
+      "title": "Cộng đồng Dungeon & Fighter",
+      "description": "Ứng dụng cộng đồng cho người dùng Dungeon & Fighter."
+    }
   }
 }

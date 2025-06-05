@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -11,12 +13,13 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { Github, ExternalLink } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const projects = [
   {
     id: 1,
-    title: "First Step Korea",
-    description: "외국인에게 한국의 생활정보를 제공하는 웹 애플리케이션입니다.",
+    titleKey: "project1.title",
+    descriptionKey: "project1.description",
     image: "/placeholder.svg?height=200&width=400&text=AI+Image+Generator",
     tags: ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS"],
     demoUrl: "",
@@ -25,8 +28,8 @@ const projects = [
   },
   {
     id: 2,
-    title: "로스트아크 커뮤니티",
-    description: "로스트아크 유저들을 위한 커뮤니티 애플리케이션입니다.",
+    titleKey: "project2.title",
+    descriptionKey: "project2.description",
     image: "/loa-project.png",
     tags: ["React", "Socket.io", "Express", "MongoDB"],
     demoUrl: "https://loa.kakao.gg",
@@ -35,8 +38,8 @@ const projects = [
   },
   {
     id: 3,
-    title: "던전앤파이터 커뮤니티",
-    description: "던전앤파이터 유저들을 위한 커뮤니티 애플리케이션입니다.",
+    titleKey: "project3.title",
+    descriptionKey: "project3.description",
     image: "/dnf-project.png",
     tags: ["Next.js", "TypeScript", "shadcn/ui", "Tailwind CSS"],
     demoUrl: "https://dnf.kakao.gg",
@@ -46,16 +49,17 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
+  const t = useTranslations("projects");
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
 
   return (
     <div className="container py-12">
-      <h1 className="text-4xl font-bold mb-8">프로젝트</h1>
+      <h1 className="text-4xl font-bold mb-8">{t("title")}</h1>
 
       <div className="space-y-12">
         <div>
-          <h2 className="text-2xl font-bold mb-6">주요 프로젝트</h2>
+          <h2 className="text-2xl font-bold mb-6">{t("featured")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProjects.map((project) => (
               <Card
@@ -65,17 +69,17 @@ export default function ProjectsPage() {
                 <div className="relative h-48 w-full">
                   <Image
                     src={project.image || "/placeholder.svg"}
-                    alt={project.title}
+                    alt={t(project.titleKey)}
                     fill
                     className="object-cover rounded-t-lg"
                   />
                 </div>
                 <CardHeader>
                   <CardTitle className="line-clamp-2">
-                    {project.title}
+                    {t(project.titleKey)}
                   </CardTitle>
                   <CardDescription className="flex-grow min-h-10">
-                    {project.description}
+                    {t(project.descriptionKey)}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
@@ -95,7 +99,7 @@ export default function ProjectsPage() {
                       rel="noopener noreferrer"
                     >
                       <Github className="mr-2 h-4 w-4" />
-                      GitHub
+                      {t("github")}
                     </Link>
                   </Button>
                   <Button asChild size="sm">
@@ -105,7 +109,7 @@ export default function ProjectsPage() {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
-                      데모
+                      {t("demo")}
                     </Link>
                   </Button>
                 </CardFooter>
@@ -115,7 +119,7 @@ export default function ProjectsPage() {
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-6">기타 프로젝트</h2>
+          <h2 className="text-2xl font-bold mb-6">{t("others")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {otherProjects.map((project) => (
               <Card
@@ -125,17 +129,17 @@ export default function ProjectsPage() {
                 <div className="relative h-48 w-full">
                   <Image
                     src={project.image || "/placeholder.svg"}
-                    alt={project.title}
+                    alt={t(project.titleKey)}
                     fill
                     className="object-cover rounded-t-lg"
                   />
                 </div>
                 <CardHeader>
                   <CardTitle className="line-clamp-2">
-                    {project.title}
+                    {t(project.titleKey)}
                   </CardTitle>
                   <CardDescription className="flex-grow min-h-10">
-                    {project.description}
+                    {t(project.descriptionKey)}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
@@ -155,7 +159,7 @@ export default function ProjectsPage() {
                       rel="noopener noreferrer"
                     >
                       <Github className="mr-2 h-4 w-4" />
-                      GitHub
+                      {t("github")}
                     </Link>
                   </Button>
                   <Button asChild size="sm">
@@ -165,7 +169,7 @@ export default function ProjectsPage() {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
-                      데모
+                      {t("demo")}
                     </Link>
                   </Button>
                 </CardFooter>

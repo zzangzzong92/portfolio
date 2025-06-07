@@ -49,6 +49,7 @@ export default function Navbar() {
     { href: "/projects", label: t("projects") },
     { href: "/blog", label: t("blog") },
     { href: "/contact", label: t("contact") },
+    { href: "/resume", label: t("resume") },
   ];
 
   useEffect(() => {

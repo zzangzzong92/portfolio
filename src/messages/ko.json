@@ -4,7 +4,8 @@
     "about": "소개",
     "projects": "프로젝트",
     "blog": "블로그",
-    "contact": "연락처"
+    "contact": "연락처",
+    "resume": "이력서"
   },
   "common": {
     "theme": {
@@ -22,7 +23,7 @@
     "contact": "연락하기"
   },
   "footer": {
-    "description": "Frontend 환경과 더불어 Backend 환경도 함께 공부하는 공간입니다. 웹 개발의 전반에 대해 공부하며 기록하며 성장합니다.",
+    "description": "Frontend 환경과 더불어 Backend 환경도 함께 공부하는 공간입니다. 웹 개발의 전반에 대해 공부하고 기록하며 성장합니다.",
     "sitemap": "사이트맵",
     "contact": "연락처",
     "location": "위치",

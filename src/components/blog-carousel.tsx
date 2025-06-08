@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { Badge, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
@@ -21,61 +21,20 @@ interface BlogPost {
 
 export default function BlogCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [autoPlay, setAutoPlay] = useState(true);
   const carouselRef = useRef<HTMLDivElement>(null);
   const totalSlides = blogPosts.length;
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (autoPlay) {
-      timerRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
-      }, 5000);
-    } else {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-    }
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-    };
-  }, [autoPlay, totalSlides]);
-
-  const handleMouseEnter = () => {
-    setAutoPlay(false);
-  };
-
-  const handleMouseLeave = () => {
-    setAutoPlay(true);
-  };
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
-    if (autoPlay && timerRef.current) {
-      clearInterval(timerRef.current);
-      timerRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
-      }, 5000);
-    }
   };
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
-    if (autoPlay && timerRef.current) {
-      clearInterval(timerRef.current);
-      timerRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
-      }, 5000);
-    }
   };
 
   return (
     <motion.section
-      className="relative bg-muted/30 py-10"
+      className="relative py-10 bg-muted/30"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.3 }}
@@ -88,27 +47,9 @@ export default function BlogCarousel() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            인기 블로그 포스트
+            블로그 포스트
           </motion.h2>
           <div className="flex items-center gap-4">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setAutoPlay(!autoPlay)}
-              className="hidden sm:flex items-center gap-2"
-            >
-              {autoPlay ? (
-                <>
-                  <Pause className="h-4 w-4" />
-                  <span>자동 재생 중지</span>
-                </>
-              ) : (
-                <>
-                  <Play className="h-4 w-4" />
-                  <span>자동 재생 시작</span>
-                </>
-              )}
-            </Button>
             <div className="flex gap-2">
               <Button
                 variant="outline"
@@ -116,7 +57,7 @@ export default function BlogCarousel() {
                 onClick={prevSlide}
                 aria-label="이전 슬라이드"
               >
-                <ChevronLeft className="h-4 w-4" />
+                <ChevronLeft className="w-4 h-4" />
               </Button>
               <Button
                 variant="outline"
@@ -124,18 +65,13 @@ export default function BlogCarousel() {
                 onClick={nextSlide}
                 aria-label="다음 슬라이드"
               >
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="w-4 h-4" />
               </Button>
             </div>
           </div>
         </div>
 
-        <div
-          className="relative overflow-hidden rounded-lg"
-          tabIndex={0}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
+        <div className="relative overflow-hidden rounded-lg" tabIndex={0}>
           <motion.div
             ref={carouselRef}
             className="flex transition-transform duration-500 ease-in-out"
@@ -145,36 +81,39 @@ export default function BlogCarousel() {
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             {blogPosts.map((post) => (
-              <div key={post.id} className="min-w-full flex-shrink-0 px-0">
-                <Card className="border-0 overflow-hidden -py-6">
-                  <CardContent className="p-0">
-                    <div className="relative h-[400px] w-full">
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />
-                      <Image
-                        src={post.coverImage || "/placeholder.svg"}
-                        alt={post.title}
-                        fill
-                        className="w-full h-full"
-                      />
-                      <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-2">
-                        {post.categories?.map((category) => (
-                          <ShadcnBadge
-                            key={category}
-                            variant="secondary"
-                            className="bg-primary/80 text-primary-foreground"
-                          >
-                            {category}
-                          </ShadcnBadge>
-                        ))}
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">
-                        <h3 className="text-2xl md:text-3xl font-bold mb-2">
-                          {post.title}
-                        </h3>
-                        <p className="text-sm md:text-base mb-4 text-white/80 line-clamp-2">
-                          {post.excerpt}
-                        </p>
-                        <div className="flex items-center justify-between">
+              <div key={post.id} className="flex-shrink-0 min-w-full px-0">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="block group focus:outline-none"
+                >
+                  <Card className="overflow-hidden transition-shadow border-0 -py-6 group-hover:shadow-lg">
+                    <CardContent className="p-0">
+                      <div className="relative h-[400px] w-full">
+                        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 to-transparent" />
+                        <Image
+                          src={post.coverImage || "/placeholder.svg"}
+                          alt={post.title}
+                          fill
+                          className="w-full h-full"
+                        />
+                        <div className="absolute z-20 flex flex-wrap gap-2 top-4 left-4">
+                          {post.categories?.map((category) => (
+                            <ShadcnBadge
+                              key={category}
+                              variant="secondary"
+                              className="bg-primary/80 text-primary-foreground"
+                            >
+                              {category}
+                            </ShadcnBadge>
+                          ))}
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 z-20 p-6 text-white">
+                          <h3 className="mb-2 text-2xl font-bold md:text-3xl">
+                            {post.title}
+                          </h3>
+                          <p className="mb-4 text-sm md:text-base text-white/80 line-clamp-2">
+                            {post.excerpt}
+                          </p>
                           <div className="flex items-center">
                             {post.author && (
                               <>
@@ -185,7 +124,7 @@ export default function BlogCarousel() {
                                     }
                                     alt={post.author.name}
                                     fill
-                                    className="rounded-full object-cover"
+                                    className="object-cover rounded-full"
                                   />
                                 </div>
                                 <span className="text-sm">
@@ -194,16 +133,11 @@ export default function BlogCarousel() {
                               </>
                             )}
                           </div>
-                          <Link href={`/blog/${post.slug}`}>
-                            <Button variant="secondary" size="sm">
-                              자세히 보기
-                            </Button>
-                          </Link>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </Link>
               </div>
             ))}
           </motion.div>
@@ -218,14 +152,6 @@ export default function BlogCarousel() {
               }`}
               onClick={() => {
                 setCurrentIndex(index);
-                if (autoPlay && timerRef.current) {
-                  clearInterval(timerRef.current);
-                  timerRef.current = setInterval(() => {
-                    setCurrentIndex((prev) =>
-                      prev === totalSlides - 1 ? 0 : prev + 1
-                    );
-                  }, 5000);
-                }
               }}
               aria-label={`슬라이드 ${index + 1}로 이동`}
             />

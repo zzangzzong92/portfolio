@@ -6,7 +6,22 @@ export const categories = [
   { id: "career", name: "커리어" },
 ];
 
-export const blogPosts = [
+export interface BlogPostType {
+  id: number;
+  title: string;
+  slug: string;
+  date: string;
+  excerpt: string;
+  content: string;
+  coverImage: string;
+  categories?: string[];
+  author?: {
+    name: string;
+    avatar: string;
+  };
+}
+
+export const blogPosts: BlogPostType[] = [
   {
     id: 1,
     title: "Next.js 15의 새로운 기능",
@@ -948,7 +963,7 @@ T자형 스킬셋은 한 분야에 대한 깊은 전문성(수직 막대)과 여
 
 ## 소프트 스킬 개발
 
-### 1. 효과적��� 커뮤니케이션
+### 1. 효과적인 커뮤니케이션
 
 - **기술적 내용의 명확한 전달**: 복잡한 기술적 개념을 다양한 배경을 가진 사람들에게 이해하기 쉽게 설명하는 능력을 개발하세요.
 - **적극적인 경청**: 팀원이나 이해관계자의 요구사항과 피드백을 주의 깊게 듣고 이해하세요.

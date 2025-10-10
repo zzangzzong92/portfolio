@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="flex-1 flex flex-col w-full">
       <motion.section
-        className="py-20 md:py-28 bg-muted/30"
+        className="py-20 md:py-28 bg-muted/10 dark:bg-muted/30"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -37,7 +37,12 @@ export default function Home() {
               <Button asChild size="lg">
                 <Link href="/projects">{t("viewProjects")}</Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-border/60 text-foreground/80 hover:bg-primary/5 dark:hover:bg-primary/10 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/50 dark:focus-visible:ring-primary/60 transition-colors"
+              >
                 <Link href="/contact">{t("contact")}</Link>
               </Button>
             </div>

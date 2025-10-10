@@ -19,7 +19,6 @@ import {
   GraduationCap,
   Briefcase,
   Award,
-  Share2,
   Copy,
 } from "lucide-react"
 import { Link } from "@/i18n/navigation";
@@ -422,9 +421,9 @@ export default function ResumePage() {
         className="fixed bottom-8 right-8 flex flex-col gap-3"
       >
         <Button
-          variant="outline"
+          variant="default"
           size="icon"
-          className="h-12 w-12 rounded-full shadow-lg bg-background hover:bg-primary hover:text-primary-foreground"
+          className="h-12 w-12 rounded-full shadow-lg bg-[#FEE500] text-black hover:bg-[#f7d900] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black/40 dark:focus-visible:ring-black/60"
           title="카카오 공유하기"
         >
           <svg
@@ -443,18 +442,18 @@ export default function ResumePage() {
         </Button>
 
         <Button
-          variant="outline"
+          variant="default"
           size="icon"
-          className="h-12 w-12 rounded-full shadow-lg bg-background hover:bg-primary hover:text-primary-foreground"
+          className="h-12 w-12 rounded-full shadow-lg bg-foreground text-background hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
           title="URL 복사하기"
         >
           <Copy className="h-5 w-5" />
         </Button>
 
         <Button
-          variant="outline"
+          variant="default"
           size="icon"
-          className="h-12 w-12 rounded-full shadow-lg bg-background hover:bg-primary hover:text-primary-foreground"
+          className="h-12 w-12 rounded-full shadow-lg bg-foreground text-background hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
           title="PDF 다운로드"
         >
           <Download className="h-5 w-5" />

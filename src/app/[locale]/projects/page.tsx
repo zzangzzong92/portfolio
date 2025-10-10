@@ -20,10 +20,10 @@ const projects = [
     id: 1,
     titleKey: "project1.title",
     descriptionKey: "project1.description",
-    image: "/placeholder.svg?height=200&width=400&text=AI+Image+Generator",
+    image: "/withko.png",
     tags: ["Next.js", "TypeScript", "OpenAI API", "Tailwind CSS"],
     demoUrl: "",
-    githubUrl: "https://github.com/username/ai-image-generator",
+    githubUrl: "https://github.com/zzangzzong/first-step-korea",
     featured: true,
   },
   {

@@ -19,6 +19,8 @@ import {
   GraduationCap,
   Briefcase,
   Award,
+  Share2,
+  Copy,
 } from "lucide-react"
 import { Link } from "@/i18n/navigation";
 import { Separator } from "@radix-ui/react-separator";
@@ -410,6 +412,53 @@ export default function ResumePage() {
             </CardContent>
           </Card>
         </motion.div>
+      </motion.div>
+
+      {/* 공유 및 다운로드 버튼 */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="fixed bottom-8 right-8 flex flex-col gap-3"
+      >
+        <Button
+          variant="outline"
+          size="icon"
+          className="h-12 w-12 rounded-full shadow-lg bg-background hover:bg-primary hover:text-primary-foreground"
+          title="카카오 공유하기"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            stroke="currentColor"
+            strokeWidth="2"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" />
+          </svg>
+        </Button>
+
+        <Button
+          variant="outline"
+          size="icon"
+          className="h-12 w-12 rounded-full shadow-lg bg-background hover:bg-primary hover:text-primary-foreground"
+          title="URL 복사하기"
+        >
+          <Copy className="h-5 w-5" />
+        </Button>
+
+        <Button
+          variant="outline"
+          size="icon"
+          className="h-12 w-12 rounded-full shadow-lg bg-background hover:bg-primary hover:text-primary-foreground"
+          title="PDF 다운로드"
+        >
+          <Download className="h-5 w-5" />
+        </Button>
       </motion.div>
     </div>
   )

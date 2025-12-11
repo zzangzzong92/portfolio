@@ -1,7 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 
-import "./globals.css"
+import "../globals.css"
 
 import { Onest, Geist_Mono as V0_Font_Geist_Mono } from "next/font/google"
 

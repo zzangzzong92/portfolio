@@ -1,35 +1,24 @@
 import { Mail } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 export function ServicesSection() {
-  const services = [
-    {
-      title: "Web design",
-      description: "Lacus adipiscing lectus convallis purus aliquet cursus magnaol dolori montes augue donec cras.",
-      image: "/images/web-design.svg",
-    },
-    {
-      title: "UI/UX design",
-      description: "Arcu venenatis sit nullam pellentesq varius urna non sed aliquam colemir imperdiet amet imperdiet.",
-      image: "/images/ui-ux-design.svg",
-    },
-    {
-      title: "Product design",
-      description: "Arcu venenatis sit nullam pellentesq varius urna non sed aliquam colemir imperdiet amet imperdiet.",
-      image: "/images/product-design.svg",
-    },
-    {
-      title: "User research",
-      description: "Lacus adipiscing lectus convallis purus aliquet cursus magnaol dolori montes augue donec cras.",
-      image: "/images/user-research.svg",
-    },
-    {
-      title: "Motion graphics",
-      description: "Lacus adipiscing lectus convallis purus aliquet cursus magnaol dolori montes augue donec cras.",
-      image: "/images/motion-graphics.svg",
-    },
+  const t = useTranslations("services")
+  const servicesData = t.raw("services") as Array<{ title: string; description: string }>
+  
+  const imagePaths = [
+    "/images/web-design.svg",
+    "/images/ui-ux-design.svg",
+    "/images/product-design.svg",
+    "/images/user-research.svg",
+    "/images/motion-graphics.svg",
   ]
+  
+  const services = servicesData.map((service, index) => ({
+    ...service,
+    image: imagePaths[index],
+  }))
 
   return (
     <section className="bg-white py-16 md:py-24">
@@ -37,11 +26,10 @@ export function ServicesSection() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-4xl md:text-[52px] md:leading-[60px] font-bold mb-4">
-              My broad <span className="bg-[#FF4A60] text-white px-3 py-1 inline-block">set of services</span>
+              {t("title")} <span className="bg-[#FF4A60] text-white px-3 py-1 inline-block">{t("titleHighlight")}</span>
             </h2>
             <p className="text-[#393939] text-base md:text-lg font-medium leading-relaxed md:leading-[30px] max-w-2xl mx-auto">
-              Lacus, adipiscing lectus convallis purus aliquet cursus magnaol montes augue donec cras turpis ultrices
-              nulla sed doler.
+              {t("description")}
             </p>
           </div>
 
@@ -77,13 +65,13 @@ export function ServicesSection() {
                   className="w-[92px] h-[92px]"
                 />
               </div>
-              <h3 className="text-[28px] leading-[40px] font-bold mb-4 text-[#0B0B0B]">Get in touch</h3>
+              <h3 className="text-[28px] leading-[40px] font-bold mb-4 text-[#0B0B0B]">{t("getInTouchTitle")}</h3>
               <p className="text-[18px] leading-[30px] font-medium text-[#393939] mb-8">
-                Looking for another service? Get in touch with me, there is a high chance that I will be able to help!
+                {t("getInTouchDescription")}
               </p>
               <Button className="bg-black text-white hover:bg-black/90 rounded-[16px] px-12 py-6 font-medium text-[18px] w-full max-w-[340px] h-[64px]">
                 <Mail className="w-5 h-5 mr-2" />
-                Get in touch
+                {t("getInTouchButton")}
               </Button>
             </div>
           </div>

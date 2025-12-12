@@ -100,5 +100,35 @@
       "title": "Dungeon & Fighter Community",
       "description": "A community application for Dungeon & Fighter users."
     }
+  },
+  "services": {
+    "title": "My broad",
+    "titleHighlight": "set of services",
+    "description": "From construction ERP solution development to web application development, I provide various services. I help achieve business goals through efficient and scalable systems.",
+    "services": [
+      {
+        "title": "ERP System Development",
+        "description": "I develop ERP systems optimized for construction business processes. I integrate various modules such as HR/payroll, labor management, and project management to support efficient business operations."
+      },
+      {
+        "title": "Web Application Development",
+        "description": "I develop modern web applications using React, Next.js, and TypeScript. I provide user-friendly interfaces and excellent performance."
+      },
+      {
+        "title": "System Integration",
+        "description": "I migrate legacy systems to modern technology stacks and implement integration between various systems. I optimize data flow through API development and integration."
+      },
+      {
+        "title": "Database Design & Management",
+        "description": "I provide efficient database schema design and optimization. I improve system performance through large-scale data processing and complex query optimization."
+      },
+      {
+        "title": "System Maintenance & Optimization",
+        "description": "I provide ongoing maintenance and performance optimization for existing systems. I improve system stability and scalability through code refactoring, bug fixes, and feature enhancements."
+      }
+    ],
+    "getInTouchTitle": "Get in touch",
+    "getInTouchDescription": "Need construction ERP solution development or web application development? Get in touch with me, there is a high chance that I will be able to help!",
+    "getInTouchButton": "Get in touch"
   }
 }

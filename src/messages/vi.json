@@ -98,5 +98,35 @@
       "title": "Cộng đồng Dungeon & Fighter",
       "description": "Ứng dụng cộng đồng cho người dùng Dungeon & Fighter."
     }
+  },
+  "services": {
+    "title": "Bộ dịch vụ",
+    "titleHighlight": "rộng lớn của tôi",
+    "description": "Từ phát triển giải pháp ERP xây dựng đến phát triển ứng dụng web, tôi cung cấp nhiều dịch vụ đa dạng. Thông qua các hệ thống hiệu quả và có thể mở rộng, giúp đạt được mục tiêu kinh doanh.",
+    "services": [
+      {
+        "title": "Phát triển hệ thống ERP",
+        "description": "Tôi phát triển hệ thống ERP được tối ưu hóa cho quy trình kinh doanh xây dựng. Tôi tích hợp các module khác nhau như HR/lương, quản lý lao động và quản lý dự án để hỗ trợ hoạt động kinh doanh hiệu quả."
+      },
+      {
+        "title": "Phát triển ứng dụng web",
+        "description": "Tôi phát triển ứng dụng web hiện đại sử dụng React, Next.js và TypeScript. Tôi cung cấp giao diện thân thiện với người dùng và hiệu suất tuyệt vời."
+      },
+      {
+        "title": "Tích hợp hệ thống",
+        "description": "Tôi di chuyển các hệ thống legacy sang công nghệ stack hiện đại và triển khai tích hợp giữa các hệ thống khác nhau. Tôi tối ưu hóa luồng dữ liệu thông qua phát triển và tích hợp API."
+      },
+      {
+        "title": "Thiết kế và quản lý cơ sở dữ liệu",
+        "description": "Tôi cung cấp thiết kế schema cơ sở dữ liệu hiệu quả và tối ưu hóa. Tôi cải thiện hiệu suất hệ thống thông qua xử lý dữ liệu quy mô lớn và tối ưu hóa truy vấn phức tạp."
+      },
+      {
+        "title": "Bảo trì và tối ưu hóa hệ thống",
+        "description": "Tôi cung cấp bảo trì liên tục và tối ưu hóa hiệu suất cho các hệ thống hiện có. Tôi cải thiện tính ổn định và khả năng mở rộng của hệ thống thông qua refactoring code, sửa lỗi và cải thiện tính năng."
+      }
+    ],
+    "getInTouchTitle": "Liên hệ",
+    "getInTouchDescription": "Cần phát triển giải pháp ERP xây dựng hoặc phát triển ứng dụng web? Hãy liên hệ với tôi, khả năng cao tôi có thể giúp đỡ!",
+    "getInTouchButton": "Liên hệ"
   }
 }

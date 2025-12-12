@@ -72,13 +72,13 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col flex-wrap gap-4 pt-4 sm:flex-row sm:gap-7">
-            <Button className="bg-[#0B0B0B] text-white hover:bg-black/90 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] cursor-pointer">
-              <Mail className="w-5 h-5" />
+            <Button className="group bg-[#0B0B0B] text-white hover:bg-white hover:text-black rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] cursor-pointer border-[3px] border-black hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+              <Mail className="w-5 h-5 group-hover:text-black" />
               {t("getInTouch")}
             </Button>
             <Button
               variant="outline"
-              className="bg-white border-[3px] border-black hover:bg-gray-50 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] cursor-pointer"
+              className="bg-white border-[3px] border-black hover:bg-gray-50 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] cursor-pointer hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300"
             >
               <FolderOpen className="w-5 h-5" />
               {t("viewPortfolio")}

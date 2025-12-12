@@ -1,31 +1,87 @@
-import { Mail, FolderOpen } from "lucide-react"
-import { Button } from "@/components/ui/button"
+"use client";
+
+import { Mail, FolderOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
+import { useEffect, useMemo } from "react";
 
 export function HeroSection() {
+  const t = useTranslations("hero");
+
+  // Parse title with placeholders
+  const greeting = t("greeting");
+  const tagline = t("tagline");
+  const developerSuffix = t("developerSuffix");
+  const name = t("name");
+  const ending = t("ending");
+
+  // #region agent log
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      fetch(
+        "http://127.0.0.1:7242/ingest/de02e8f3-8b82-416d-b8f9-67d24f8faab7",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            location: "hero-section.tsx:8",
+            message: "Hero translation values",
+            data: { greeting, tagline, developerSuffix, name, ending },
+            timestamp: Date.now(),
+            sessionId: "debug-session",
+            runId: "run1",
+            hypothesisId: "A",
+          }),
+        }
+      ).catch(() => {});
+    }
+  }, [greeting, tagline, developerSuffix, name, ending]);
+  // #endregion
+
+  // Render title with styled spans
+  const renderedTitle = useMemo(() => {
+    return (
+      <>
+        {greeting}
+        <br />
+        <span className="bg-[#FF6B7A] text-white px-2 py-1 inline-block">
+          {tagline}
+        </span>
+        <br />
+        <span>
+          {developerSuffix}{" "}
+          <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">
+            {name}
+          </span>
+          {ending}
+        </span>
+      </>
+    );
+  }, [greeting, tagline, developerSuffix, name, ending]);
+
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section className="container px-4 py-16 mx-auto md:py-24">
+      <div className="grid gap-12 items-center mx-auto max-w-7xl md:grid-cols-2">
         <div className="space-y-6">
           <h1 className="text-[42px] leading-[50px] md:text-[72px] font-bold md:leading-[85px]">
-            I'm <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">Noah Jang</span>, a Web Developer from{" "}
-            <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">South Korea</span>
+            {renderedTitle}
           </h1>
 
           <p className="text-[#393939] text-[16px] md:text-[18px] font-medium leading-[28px] md:leading-[30px] max-w-xl">
-            I'm a web developer specializing in Next.js, TypeScript, and React. I create web applications that prioritize user experience.
+            {t("description")}
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-7 pt-4">
-            <Button className="bg-[#0B0B0B] text-white hover:bg-black/90 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px]">
+          <div className="flex flex-col flex-wrap gap-4 pt-4 sm:flex-row sm:gap-7">
+            <Button className="bg-[#0B0B0B] text-white hover:bg-black/90 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] cursor-pointer">
               <Mail className="w-5 h-5" />
-              Get in touch
+              {t("getInTouch")}
             </Button>
             <Button
               variant="outline"
-              className="bg-white border-[3px] border-black hover:bg-gray-50 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px]"
+              className="bg-white border-[3px] border-black hover:bg-gray-50 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] cursor-pointer"
             >
               <FolderOpen className="w-5 h-5" />
-              View portfolio
+              {t("viewPortfolio")}
             </Button>
           </div>
         </div>
@@ -35,11 +91,11 @@ export function HeroSection() {
             <img
               src="/images/design-mode/63407fbdc2d4ac5270385fd4_home-he.png"
               alt="Illustrated character avatar"
-              className="w-full h-full object-cover"
+              className="object-cover w-full h-full"
             />
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

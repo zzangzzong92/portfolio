@@ -22,6 +22,14 @@
     "viewProjects": "Посмотреть проекты",
     "contact": "Связаться"
   },
+  "hero": {
+    "title": "Я <name>Ноа Чан</name>, веб-разработчик из <location>Южной Кореи</location>",
+    "name": "Ноа Чан",
+    "location": "Южная Корея",
+    "description": "Я веб-разработчик, специализирующийся на Next.js, TypeScript и React. Я создаю веб-приложения, ориентированные на пользовательский опыт.",
+    "getInTouch": "Связаться",
+    "viewPortfolio": "Посмотреть портфолио"
+  },
   "footer": {
     "navigation": {
       "about": "О нас",

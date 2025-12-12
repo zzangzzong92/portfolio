@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 import { Mail, ChevronDown, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import * as React from "react";
@@ -25,48 +25,26 @@ const languages: LanguageOption[] = [
   { code: "en", name: "English", flag: "US" },
   { code: "zh", name: "中文", flag: "CN" },
   { code: "ja", name: "日本語", flag: "JP" },
-  { code: "vi", name: "Tiếng Việt", flag: "VN" },
-  { code: "th", name: "ไทย", flag: "TH" },
-  { code: "ru", name: "Русский", flag: "RU" },
 ];
-
-const locales = ["ko", "en", "zh", "ja", "vi", "th", "ru"];
 
 export function Navigation() {
   const [open, setOpen] = React.useState(false);
   const [langOpen, setLangOpen] = React.useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const locale = useLocale();
 
-  // Extract locale from pathname (e.g., "/ko/about" -> "ko")
-  const locale = pathname.split("/")[1] || "ko";
-  const isValidLocale = locales.includes(locale) ? locale : "ko";
   const currentLanguage =
-    languages.find((lang) => lang.code === isValidLocale) || languages[0];
-
-  // Helper function to create localized path
-  const getLocalizedPath = (path: string, targetLocale?: string) => {
-    const target = targetLocale || isValidLocale;
-    if (path === "/") {
-      return `/${target}`;
-    }
-    return `/${target}${path}`;
-  };
-
-  // Get current path without locale
-  const getPathWithoutLocale = () => {
-    const segments = pathname.split("/").slice(2);
-    return segments.length > 0 ? "/" + segments.join("/") : "/";
-  };
+    languages.find((lang) => lang.code === locale) || languages[0];
 
   const selectLanguage = (language: LanguageOption) => {
-    if (language.code === isValidLocale) {
+    if (language.code === locale) {
       setLangOpen(false);
       return;
     }
-    const pathWithoutLocale = getPathWithoutLocale();
-    const newPath = getLocalizedPath(pathWithoutLocale, language.code);
-    router.push(newPath);
+
+    // Use next-intl router to navigate with locale
+    router.replace(pathname, { locale: language.code });
     setLangOpen(false);
   };
 
@@ -74,7 +52,7 @@ export function Navigation() {
     <div className="container px-4 pt-8 pb-4 mx-auto">
       <nav className="flex items-center justify-between bg-white border-4 border-black rounded-xl px-5 py-3 max-w-2xl mx-auto shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
         <Link
-          href={getLocalizedPath("/")}
+          href="/"
           className="flex overflow-hidden flex-shrink-0 justify-center items-center w-10 h-10 bg-black rounded-full transition-opacity cursor-pointer hover:opacity-70"
         >
           <Image
@@ -89,19 +67,19 @@ export function Navigation() {
 
         <div className="hidden flex-1 gap-6 justify-center items-center md:flex">
           <Link
-            href={getLocalizedPath("/")}
+            href="/"
             className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity"
           >
             Home
           </Link>
           <Link
-            href={getLocalizedPath("/about")}
+            href="/about"
             className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity"
           >
             About
           </Link>
           <Link
-            href={getLocalizedPath("/projects")}
+            href="/projects"
             className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity"
           >
             Portfolio
@@ -125,7 +103,7 @@ export function Navigation() {
             >
               <DropdownMenuItem asChild className="rounded-md">
                 <Link
-                  href={getLocalizedPath("/blog")}
+                  href="/blog"
                   className="block w-full px-3 py-2 text-[16px] font-bold leading-[20px] rounded-md hover:bg-black hover:text-white"
                 >
                   Blog
@@ -133,7 +111,7 @@ export function Navigation() {
               </DropdownMenuItem>
               <DropdownMenuItem asChild className="rounded-md">
                 <Link
-                  href={getLocalizedPath("/resume")}
+                  href="/resume"
                   className="block w-full px-3 py-2 text-[16px] font-bold leading-[20px] rounded-md hover:bg-black hover:text-white"
                 >
                   Resume
@@ -161,7 +139,7 @@ export function Navigation() {
                   onClick={() => selectLanguage(language)}
                   className={cn(
                     "rounded-md px-3 py-2 text-[16px] font-bold leading-[20px] cursor-pointer flex items-center gap-2",
-                    isValidLocale === language.code
+                    locale === language.code
                       ? "bg-black text-white"
                       : "hover:bg-black hover:text-white"
                   )}

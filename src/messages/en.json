@@ -22,6 +22,16 @@
     "viewProjects": "View Projects",
     "contact": "Contact Me"
   },
+  "hero": {
+    "greeting": "Hello,",
+    "tagline": "Passionate about user experience",
+    "developerSuffix": "Developer",
+    "name": "Noah Jang",
+    "ending": " here.",
+    "description": "I'm a web developer specializing in Next.js, TypeScript, and React. I create web applications that prioritize user experience.",
+    "getInTouch": "Get in touch",
+    "viewPortfolio": "View portfolio"
+  },
   "footer": {
     "description": "A space where I study both Frontend and Backend environments. I grow by studying and documenting various aspects of web development.",
     "sitemap": "Sitemap",

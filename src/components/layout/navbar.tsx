@@ -24,9 +24,6 @@ const languages: LanguageOption[] = [
   { code: "en", name: "English", flag: "US" },
   { code: "zh", name: "中文 (중국어)", flag: "CN" },
   { code: "ja", name: "日本語 (일본어)", flag: "JP" },
-  { code: "vi", name: "Tiếng Việt (베트남어)", flag: "VN" },
-  { code: "th", name: "ภาษาไทย (태국어)", flag: "TH" },
-  { code: "ru", name: "Русский (러시아어)", flag: "RU" },
 ];
 
 export default function Navbar() {
@@ -85,14 +82,14 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="container flex h-16 items-center justify-between mx-auto">
+      <div className="container flex justify-between items-center mx-auto h-16">
         <motion.div
-          className="flex items-center gap-2"
+          className="flex gap-2 items-center"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link href="/" className="font-bold text-xl flex gap-3">
+          <Link href="/" className="flex gap-3 text-xl font-bold">
             <Image
               src="/zzang.png"
               alt="logo"
@@ -104,7 +101,7 @@ export default function Navbar() {
           </Link>
         </motion.div>
 
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden gap-6 items-center md:flex">
           {menuItems.map((item, index) => {
             const isActive =
               pathname === `/${locale}${item.href === "/" ? "" : item.href}`;
@@ -121,7 +118,7 @@ export default function Navbar() {
                   locale={locale}
                   className={`text-sm font-medium transition-colors duration-200 ${
                     isActive
-                      ? "text-primary font-semibold"
+                      ? "font-semibold text-primary"
                       : "text-foreground/70 hover:text-primary/70"
                   }`}
                 >
@@ -143,7 +140,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex gap-2 items-center">
           {mounted && (
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -157,8 +154,8 @@ export default function Navbar() {
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="relative"
               >
-                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <Sun className="w-5 h-5 transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute w-5 h-5 transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100" />
                 <span className="sr-only">테마 변경</span>
               </Button>
             </motion.div>
@@ -167,7 +164,7 @@ export default function Navbar() {
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
+                <Menu className="w-5 h-5" />
                 <span className="sr-only">메뉴 열기</span>
               </Button>
             </SheetTrigger>
@@ -185,7 +182,7 @@ export default function Navbar() {
                       locale={locale}
                       className={`text-lg font-medium transition-colors duration-200 ${
                         isActive
-                          ? "text-primary font-semibold"
+                          ? "font-semibold text-primary"
                           : "text-foreground/70 hover:text-primary/70"
                       }`}
                       onClick={() => setIsMenuOpen(false)}
@@ -197,7 +194,7 @@ export default function Navbar() {
                 {mounted && (
                   <Button
                     variant="outline"
-                    className="flex items-center justify-start gap-2 mt-4"
+                    className="flex gap-2 justify-start items-center mt-4"
                     onClick={() => {
                       setTheme(theme === "dark" ? "light" : "dark");
                       setIsMenuOpen(false);
@@ -205,12 +202,12 @@ export default function Navbar() {
                   >
                     {theme === "dark" ? (
                       <>
-                        <Sun className="h-4 w-4" />
+                        <Sun className="w-4 h-4" />
                         <span>라이트 모드로 전환</span>
                       </>
                     ) : (
                       <>
-                        <Moon className="h-4 w-4" />
+                        <Moon className="w-4 h-4" />
                         <span>다크 모드로 전환</span>
                       </>
                     )}
@@ -224,7 +221,7 @@ export default function Navbar() {
           <div className="relative" ref={languageDropdownRef}>
             <button
               type="button"
-              className="flex items-center justify-center text-foreground transition-colors hover:text-foreground/70"
+              className="flex justify-center items-center transition-colors text-foreground hover:text-foreground/70"
               aria-label="Select language"
               onClick={toggleLanguageDropdown}
             >
@@ -233,7 +230,7 @@ export default function Navbar() {
                 width="16"
                 height="16"
                 viewBox="0 0 16 16"
-                className="fill-none stroke-current"
+                className="stroke-current fill-none"
                 aria-hidden="true"
               >
                 <path
@@ -265,7 +262,7 @@ export default function Navbar() {
 
             {/* 언어 드롭다운 메뉴 */}
             {isLanguageDropdownOpen && (
-              <div className="absolute right-0 z-50 mt-2 w-48 rounded-md border bg-background py-2 shadow-lg">
+              <div className="absolute right-0 z-50 py-2 mt-2 w-48 rounded-md border shadow-lg bg-background">
                 <div className="py-1">
                   {languages.map((language) => (
                     <button
@@ -282,7 +279,7 @@ export default function Navbar() {
                       {language.name}
                       {selectedLanguage.code === language.code && (
                         <svg
-                          className="ml-auto h-4 w-4 text-gray-500"
+                          className="ml-auto w-4 h-4 text-gray-500"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"

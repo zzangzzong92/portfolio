@@ -22,6 +22,16 @@
     "viewProjects": "プロジェクトを見る",
     "contact": "お問い合わせ"
   },
+  "hero": {
+    "greeting": "こんにちは、",
+    "tagline": "ユーザー体験に真剣な",
+    "developerSuffix": "開発者",
+    "name": "ノア・チャン",
+    "ending": "です。",
+    "description": "Next.js、TypeScript、Reactを専門とするウェブ開発者です。ユーザー体験を優先するウェブアプリケーションを作成します。",
+    "getInTouch": "お問い合わせ",
+    "viewPortfolio": "ポートフォリオを見る"
+  },
   "footer": {
     "description": "フロントエンドとバックエンドの両方の環境を学ぶ空間です。ウェブ開発の様々な側面を学び、記録しながら成長していきます。",
     "sitemap": "サイトマップ",

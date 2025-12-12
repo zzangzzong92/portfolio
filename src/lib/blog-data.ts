@@ -360,7 +360,7 @@ export function DialogDemo() {
           </DialogDescription>
         </DialogHeader>
         {/* 다이얼로그 내용 */}
-        <div className="flex justify-end gap-2 mt-4">
+        <div className="flex gap-2 justify-end mt-4">
           <Button variant="outline">취소</Button>
           <Button>저장</Button>
         </div>

@@ -22,6 +22,16 @@
     "viewProjects": "查看项目",
     "contact": "联系我"
   },
+  "hero": {
+    "greeting": "你好，",
+    "tagline": "专注于用户体验的",
+    "developerSuffix": "开发者",
+    "name": "张钟贤",
+    "ending": "。",
+    "description": "我是一名专注于 Next.js、TypeScript 和 React 的网页开发者。我创建注重用户体验的网页应用。",
+    "getInTouch": "联系我",
+    "viewPortfolio": "查看作品集"
+  },
   "footer": {
     "description": "这是一个同时学习前端和后端环境的空间。通过学习和记录网页开发的各个方面来成长。",
     "sitemap": "网站地图",

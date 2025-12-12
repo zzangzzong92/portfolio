@@ -22,6 +22,14 @@
     "viewProjects": "Xem dự án",
     "contact": "Liên hệ"
   },
+  "hero": {
+    "title": "Tôi là <name>Noah Jang</name>, một Lập trình viên Web từ <location>Hàn Quốc</location>",
+    "name": "Noah Jang",
+    "location": "Hàn Quốc",
+    "description": "Tôi là lập trình viên web chuyên về Next.js, TypeScript và React. Tôi tạo ra các ứng dụng web ưu tiên trải nghiệm người dùng.",
+    "getInTouch": "Liên hệ",
+    "viewPortfolio": "Xem portfolio"
+  },
   "footer": {
     "description": "Đây là không gian học tập cả môi trường Frontend và Backend. Tôi phát triển bằng cách học hỏi và ghi lại các khía cạnh khác nhau của phát triển web.",
     "sitemap": "Sơ đồ trang",

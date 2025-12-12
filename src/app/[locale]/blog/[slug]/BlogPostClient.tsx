@@ -24,18 +24,18 @@ export default function BlogPostClient({
         href="/blog"
         className="flex items-center mb-8 text-muted-foreground hover:text-foreground"
       >
-        <ChevronLeft className="w-4 h-4 mr-2" />
+        <ChevronLeft className="mr-2 w-4 h-4" />
         {t("backToAllPosts") /* 번역키 예시, 실제 메시지에 맞게 수정 */}
       </Link>
 
-      <article className="max-w-3xl mx-auto">
+      <article className="mx-auto max-w-3xl">
         <div className="mb-8">
           <h1 className="mb-4 text-4xl font-bold">{post.title}</h1>
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex justify-between items-center mb-6">
             <div className="flex items-center">
               {post.author && (
                 <>
-                  <div className="relative w-10 h-10 mr-3">
+                  <div className="relative mr-3 w-10 h-10">
                     <Image
                       src={post.author.avatar || "/placeholder.svg"}
                       alt={post.author.name}
@@ -60,7 +60,7 @@ export default function BlogPostClient({
             </div>
           )}
 
-          <div className="relative w-full h-64 mb-8 md:h-96">
+          <div className="relative mb-8 w-full h-64 md:h-96">
             <Image
               src={post.coverImage || "/placeholder.svg"}
               alt={post.title}
@@ -71,7 +71,7 @@ export default function BlogPostClient({
           </div>
         </div>
 
-        <div className="prose prose-lg dark:prose-invert max-w-none">
+        <div className="max-w-none prose prose-lg dark:prose-invert">
           <div>{parse(post.content)}</div>
         </div>
       </article>

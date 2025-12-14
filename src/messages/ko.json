@@ -5,7 +5,8 @@
     "projects": "프로젝트",
     "blog": "블로그",
     "contact": "연락처",
-    "resume": "이력서"
+    "resume": "이력서",
+    "pages": "페이지"
   },
   "common": {
     "theme": {
@@ -18,17 +19,17 @@
     "greeting": "안녕하세요,",
     "introduction": "아름다운 개발자",
     "name": "장종현",
-    "description": "Next.js, TypeScript, React를 활용한 웹 개발 전문가입니다. 사용자 경험을 중시하는 웹 애플리케이션을 만듭니다.",
+    "description": "Next.js, TypeScript, React를 활용한 웹 개발 전문가입니다.\n사용자 경험을 중시하는 웹 애플리케이션을 만듭니다.",
     "viewProjects": "프로젝트 보기",
     "contact": "연락하기"
   },
   "hero": {
     "greeting": "안녕하세요,",
-    "tagline": "사용자 경험에 진심인",
+    "tagline": "UX에 진심인",
     "developerSuffix": "개발자",
     "name": "장종현",
     "ending": "입니다.",
-    "description": "Next.js, TypeScript, React를 전문으로 하는 웹 개발자입니다. 사용자 경험을 우선시하는 웹 애플리케이션을 만듭니다.",
+    "description": "Next.js, TypeScript, React를 전문으로 하는 웹 개발자입니다.\n사용자 경험을 우선시하는 웹 애플리케이션을 만듭니다.",
     "getInTouch": "연락하기",
     "viewPortfolio": "포트폴리오 보기"
   },

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Mail, ChevronDown, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import * as React from "react";
@@ -33,6 +33,7 @@ export function Navigation() {
   const pathname = usePathname();
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations("navigation");
 
   const currentLanguage =
     languages.find((lang) => lang.code === locale) || languages[0];
@@ -43,7 +44,6 @@ export function Navigation() {
       return;
     }
 
-    // Use next-intl router to navigate with locale
     router.replace(pathname, { locale: language.code });
     setLangOpen(false);
   };
@@ -70,24 +70,24 @@ export function Navigation() {
             href="/"
             className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity"
           >
-            Home
+            {t("home")}
           </Link>
           <Link
             href="/about"
             className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity"
           >
-            About
+            {t("about")}
           </Link>
           <Link
             href="/projects"
             className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity"
           >
-            Portfolio
+            {t("projects")}
           </Link>
           <DropdownMenu open={open} onOpenChange={setOpen}>
             <DropdownMenuTrigger asChild>
               <button className="flex items-center gap-1 text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity cursor-pointer">
-                Pages
+                {t("pages")}
                 <ChevronDown
                   className={cn(
                     "w-4 h-4 transition-transform",
@@ -106,7 +106,7 @@ export function Navigation() {
                   href="/blog"
                   className="block w-full px-3 py-2 text-[16px] font-bold leading-[20px] rounded-md hover:bg-black hover:text-white"
                 >
-                  Blog
+                  {t("blog")}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild className="rounded-md">
@@ -114,7 +114,7 @@ export function Navigation() {
                   href="/resume"
                   className="block w-full px-3 py-2 text-[16px] font-bold leading-[20px] rounded-md hover:bg-black hover:text-white"
                 >
-                  Resume
+                  {t("resume")}
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>

@@ -60,14 +60,14 @@ export function HeroSection() {
   }, [greeting, tagline, developerSuffix, name, ending]);
 
   return (
-    <section className="container px-4 py-16 mx-auto md:py-24">
+    <section className="container px-4 py-20 mx-auto md:py-32">
       <div className="grid gap-12 items-center mx-auto max-w-7xl md:grid-cols-2">
         <div className="space-y-6">
           <h1 className="text-[42px] leading-[50px] md:text-[72px] font-bold md:leading-[85px]">
             {renderedTitle}
           </h1>
 
-          <p className="text-[#393939] text-[16px] md:text-[18px] font-medium leading-[28px] md:leading-[30px] max-w-xl">
+          <p className="text-[#393939] text-[16px] md:text-[18px] font-medium leading-[28px] md:leading-[30px] max-w-xl whitespace-pre-line">
             {t("description")}
           </p>
 

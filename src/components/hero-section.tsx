@@ -87,11 +87,11 @@ export function HeroSection() {
         </div>
 
         <div className="flex justify-center md:justify-end">
-          <div className="relative w-full max-w-md aspect-square bg-[#FDB927] border-4 border-black rounded-3xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <div className="relative w-full max-w-md aspect-square bg-[#FFFF] border-4 border-black rounded-3xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <img
               src="/idpic.png"
               alt="Illustrated character avatar"
-              className="object-contain w-full h-full"
+              className="object-cover w-full h-full"
             />
           </div>
         </div>

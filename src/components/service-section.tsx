@@ -14,7 +14,7 @@ export function ServicesSection() {
     "/erp_system.png",
     "/web_application.png",
     "/system_intergration.png",
-    "/business.png",
+    "/api.png",
     "/system_maintainence.png",
     "/cooperation.png",
     "/getintouch.png",

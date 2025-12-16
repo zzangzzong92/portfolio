@@ -63,7 +63,7 @@ export function AboutSection() {
           </div>
 
           <Link href="/about">
-            <Button className="bg-[#0B0B0B] text-white hover:bg-white hover:text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] cursor-pointer transition-colors">
+            <Button className="bg-[#0B0B0B] text-white border-[3px] border-black hover:bg-white hover:text-black hover:border-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px] cursor-pointer transition-all duration-300">
               <User className="w-5 h-5" />
               {t("button")}
             </Button>

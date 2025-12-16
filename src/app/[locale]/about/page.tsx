@@ -66,9 +66,17 @@ export default function AboutPage() {
 
               <div className="space-y-6">
                 <div className="bg-white border-4 border-black rounded-3xl min-h-[220px] md:min-h-[240px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
-                  <div className="flex justify-between items-center px-6 pt-6 mb-4 md:mb-6 md:pt-8 md:px-8">
+                  <div className="flex justify-between items-center px-6 pt-4 mb-3 md:pt-4 md:mb-3 md:px-8">
                     <div className="text-base md:text-[22px] leading-tight md:leading-[34px] font-bold text-[#0B0B0B]">
                       {t("career1Period")}
+                    </div>
+                    <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
+                      <Image
+                        src="/cubecore.png"
+                        alt="큐브코아 로고"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                   </div>
 
@@ -106,9 +114,17 @@ export default function AboutPage() {
                 </div>
 
                 <div className="bg-white border-4 border-black rounded-3xl min-h-[220px] md:min-h-[240px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
-                  <div className="flex justify-between items-center px-6 pt-6 mb-4 md:mb-6 md:pt-8 md:px-8">
+                  <div className="flex justify-between items-center px-6 pt-4 mb-3 md:pt-4 md:mb-3 md:px-8">
                     <div className="text-base md:text-[22px] leading-tight md:leading-[34px] font-bold text-[#0B0B0B]">
                       {t("career2Period")}
+                    </div>
+                    <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
+                      <Image
+                        src="/korbiztech.png"
+                        alt="한국비즈텍 로고"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                   </div>
 
@@ -129,6 +145,51 @@ export default function AboutPage() {
                         "React",
                         "Recoil",
                         "TypeScript",
+                        "Styled-Components",
+                      ].map((tech) => (
+                        <span
+                          key={tech}
+                          className="bg-black text-white text-xs font-semibold px-4 py-1.5 rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white border-4 border-black rounded-3xl min-h-[220px] md:min-h-[240px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                  <div className="flex justify-between items-center px-6 pt-4 mb-3 md:pt-4 md:mb-3 md:px-8">
+                    <div className="text-base md:text-[22px] leading-tight md:leading-[34px] font-bold text-[#0B0B0B]">
+                      {t("career3Period")}
+                    </div>
+                    <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
+                      <Image
+                        src="/cherground.png"
+                        alt="쉐어그라운드 로고"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="border-t-[3px] border-black mb-4 md:mb-6"></div>
+
+                  <div className="px-6 pb-6 md:px-8 md:pb-8">
+                    <h3 className="text-xl md:text-[28px] leading-tight md:leading-[40px] font-bold text-[#0B0B0B] mb-2 md:mb-3">
+                      {t("career3Title")}
+                    </h3>
+                    <p className="text-lg md:text-xl font-semibold text-[#0B0B0B] mb-3">
+                      {t("career3Company")}
+                    </p>
+                    <p className="text-base md:text-[18px] text-[#393939] leading-relaxed whitespace-pre-line break-words mb-4">
+                      {t("career3Desc")}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        "React",
+                        "TypeScript",
+                        "JavaScript",
                         "Styled-Components",
                       ].map((tech) => (
                         <span

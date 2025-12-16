@@ -131,5 +131,15 @@
     "getInTouchTitle": "联系我",
     "getInTouchDescription": "需要建筑ERP解决方案开发或网页应用开发吗？联系我，我很可能能够帮助您！",
     "getInTouchButton": "联系我"
+  },
+  "aboutSection": {
+    "title": "这些出色作品的背后",
+    "titleHighlight": "是谁？",
+    "description": "我是一名拥有4年经验的开发者，对网页开发充满热情。我优先考虑用户体验，开发高效且可扩展的网页应用。",
+    "experience1Title": "4年+开发经验",
+    "experience1Description": "我专注于使用Next.js、React和TypeScript开发现代化的网页应用。我以用户为中心的方式处理项目。",
+    "experience2Title": "丰富的项目经验",
+    "experience2Description": "我从建筑ERP系统到网页应用，拥有各种项目经验。我努力在每个项目中提供最佳结果。",
+    "button": "了解更多"
   }
 }

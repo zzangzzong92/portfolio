@@ -131,5 +131,15 @@
     "getInTouchTitle": "연락하기",
     "getInTouchDescription": "건설 ERP 솔루션 개발이나 웹 애플리케이션 개발이 필요하신가요? 연락 주시면 도와드릴 수 있는 가능성이 높습니다!",
     "getInTouchButton": "연락하기"
+  },
+  "aboutSection": {
+    "title": "이 모든 것을 만들어낸 사람은",
+    "titleHighlight": "누구일까요?",
+    "description": "웹 개발에 대한 열정을 가진 4년차 개발자입니다. 사용자 경험을 최우선으로 생각하며, 효율적이고 확장 가능한 웹 애플리케이션을 개발합니다.",
+    "experience1Title": "4년+ 개발 경험",
+    "experience1Description": "Next.js, React, TypeScript를 활용한 현대적인 웹 애플리케이션 개발에 전문성을 가지고 있습니다. 사용자 중심의 접근 방식으로 프로젝트를 진행합니다.",
+    "experience2Title": "다양한 프로젝트 경험",
+    "experience2Description": "건설 ERP 시스템부터 웹 애플리케이션까지 다양한 프로젝트를 경험했습니다. 각 프로젝트에서 최상의 결과를 제공하기 위해 노력합니다.",
+    "button": "더 알아보기"
   }
 }

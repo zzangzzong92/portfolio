@@ -131,5 +131,15 @@
     "getInTouchTitle": "お問い合わせ",
     "getInTouchDescription": "建設ERPソリューション開発やウェブアプリケーション開発が必要ですか？お問い合わせいただければ、お手伝いできる可能性が高いです！",
     "getInTouchButton": "お問い合わせ"
+  },
+  "aboutSection": {
+    "title": "これらの素晴らしい作品の背後には",
+    "titleHighlight": "誰がいますか？",
+    "description": "ウェブ開発に情熱を持つ4年目の開発者です。ユーザー体験を最優先に考え、効率的で拡張可能なウェブアプリケーションを開発します。",
+    "experience1Title": "4年以上の開発経験",
+    "experience1Description": "Next.js、React、TypeScriptを活用したモダンなウェブアプリケーション開発を専門としています。ユーザー中心のアプローチでプロジェクトに取り組みます。",
+    "experience2Title": "多様なプロジェクト経験",
+    "experience2Description": "建設ERPシステムからウェブアプリケーションまで、様々なプロジェクトを経験してきました。各プロジェクトで最良の結果を提供するよう努めています。",
+    "button": "もっと詳しく"
   }
 }

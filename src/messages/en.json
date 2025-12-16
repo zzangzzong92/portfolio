@@ -131,5 +131,15 @@
     "getInTouchTitle": "Get in touch",
     "getInTouchDescription": "Need construction ERP solution development or web application development? Get in touch with me, there is a high chance that I will be able to help!",
     "getInTouchButton": "Get in touch"
+  },
+  "aboutSection": {
+    "title": "Who's behind all this",
+    "titleHighlight": "great work?",
+    "description": "A 4-year experienced developer passionate about web development. I prioritize user experience and develop efficient and scalable web applications.",
+    "experience1Title": "4+ years of experience",
+    "experience1Description": "I specialize in developing modern web applications using Next.js, React, and TypeScript. I approach projects with a user-centric mindset.",
+    "experience2Title": "Diverse project experience",
+    "experience2Description": "I have experience with various projects from construction ERP systems to web applications. I strive to deliver the best results in every project.",
+    "button": "More about me"
   }
 }

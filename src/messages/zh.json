@@ -6,6 +6,7 @@
     "blog": "博客",
     "contact": "联系",
     "resume": "简历",
+    "restaurants": "餐厅",
     "pages": "页面"
   },
   "common": {
@@ -35,20 +36,36 @@
   },
   "footer": {
     "description": "这是一个同时学习前端和后端环境的空间。通过学习和记录网页开发的各个方面来成长。",
+    "pages": {
+      "title": "页面",
+      "home": "首页",
+      "about": "关于",
+      "projects": "项目",
+      "blog": "博客",
+      "restaurant": "餐厅"
+    },
+    "utility": {
+      "title": "实用页面",
+      "styleGuide": "样式指南",
+      "startHere": "从这里开始",
+      "notFound": "404页面",
+      "passwordProtected": "密码保护",
+      "licenses": "许可证",
+      "changelog": "更新日志"
+    },
+    "contact": {
+      "title": "联系我们",
+      "email": "zzangzzong92@gmail.com",
+      "phone": "+82-10-1234-5678"
+    },
+    "copyright": "© 2025 ZZANGZZONG DEV. All rights reserved.",
     "sitemap": "网站地图",
-    "contact": "联系方式",
     "location": "位置",
-    "copyright": "ZZ DevPortfolio. All rights reserved.",
     "privacy": "隐私政策",
     "terms": "使用条款",
     "address": {
       "line1": "江南区三星路104街28号",
       "line2": "首尔，韩国"
-    },
-    "navigation": {
-      "about": "关于",
-      "projects": "项目",
-      "blog": "博客"
     }
   },
   "about": {
@@ -145,5 +162,27 @@
     "experience2Title": "丰富的项目经验",
     "experience2Description": "我从建筑ERP系统到网页应用，拥有各种项目经验。我努力在每个项目中提供最佳结果。",
     "button": "了解更多"
+  },
+  "articles": {
+    "title": "文章与新闻",
+    "browseAll": "浏览所有文章",
+    "categories": {
+      "resources": "资源",
+      "articles": "文章",
+      "news": "新闻"
+    },
+    "featured": {
+      "title": "2023年应该选择什么样的设计工具？",
+      "author": "约翰·卡特",
+      "date": "2022年10月28日"
+    },
+    "article1": {
+      "title": "UI设计中的字体大小：完整指南",
+      "description": "关于如何在UI设计中选择合适字体大小的完整指南。"
+    },
+    "article2": {
+      "title": "成为专业UI/UX设计师的6个实践练习",
+      "description": "帮助您成长为专业UI/UX设计师的实用练习方法。"
+    }
   }
 }

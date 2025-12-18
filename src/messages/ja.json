@@ -6,6 +6,7 @@
     "blog": "ブログ",
     "contact": "お問い合わせ",
     "resume": "履歴書",
+    "restaurants": "レストラン",
     "pages": "ページ"
   },
   "common": {
@@ -35,20 +36,36 @@
   },
   "footer": {
     "description": "フロントエンドとバックエンドの両方の環境を学ぶ空間です。ウェブ開発の様々な側面を学び、記録しながら成長していきます。",
+    "pages": {
+      "title": "ページ",
+      "home": "ホーム",
+      "about": "自己紹介",
+      "projects": "プロジェクト",
+      "blog": "ブログ",
+      "restaurant": "レストラン"
+    },
+    "utility": {
+      "title": "ユーティリティページ",
+      "styleGuide": "スタイルガイド",
+      "startHere": "スタート",
+      "notFound": "404ページ",
+      "passwordProtected": "パスワード保護",
+      "licenses": "ライセンス",
+      "changelog": "変更履歴"
+    },
+    "contact": {
+      "title": "お問い合わせ",
+      "email": "zzangzzong92@gmail.com",
+      "phone": "+82-10-1234-5678"
+    },
+    "copyright": "© 2025 ZZANGZZONG DEV. All rights reserved.",
     "sitemap": "サイトマップ",
-    "contact": "お問い合わせ",
     "location": "所在地",
-    "copyright": "ZZ DevPortfolio. All rights reserved.",
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",
     "address": {
       "line1": "江南区三星路104番地28",
       "line2": "ソウル、韓国"
-    },
-    "navigation": {
-      "about": "概要",
-      "projects": "プロジェクト",
-      "blog": "ブログ"
     }
   },
   "about": {
@@ -145,5 +162,27 @@
     "experience2Title": "多様なプロジェクト経験",
     "experience2Description": "建設ERPシステムからウェブアプリケーションまで、様々なプロジェクトを経験してきました。各プロジェクトで最良の結果を提供するよう努めています。",
     "button": "もっと詳しく"
+  },
+  "articles": {
+    "title": "アーティクル & ニュース",
+    "browseAll": "すべてのアーティクルを見る",
+    "categories": {
+      "resources": "リソース",
+      "articles": "アーティクル",
+      "news": "ニュース"
+    },
+    "featured": {
+      "title": "2023年に選ぶべき正しいデザインツールとは？",
+      "author": "ジョン・カーター",
+      "date": "2022年10月28日"
+    },
+    "article1": {
+      "title": "UIデザインのフォントサイズ：完全ガイド",
+      "description": "UIデザインで適切なフォントサイズを選ぶ方法についての完全なガイドです。"
+    },
+    "article2": {
+      "title": "プロのUI/UXデザイナーになるための6つの実践的な練習",
+      "description": "プロのUI/UXデザイナーに成長するための実践的な練習方法を紹介します。"
+    }
   }
 }

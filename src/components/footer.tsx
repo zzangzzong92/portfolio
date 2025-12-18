@@ -1,14 +1,17 @@
+"use client"
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 export function Footer() {
+  const t = useTranslations("footer")
   return (
     <footer className="bg-black text-white py-12 md:py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-12 md:mb-16 relative">
+          {/* <div className="mb-12 md:mb-16 relative">
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
               <div className="w-24 h-24 md:w-36 md:h-36 rounded-full flex items-center justify-center flex-shrink-0 relative">
                 <Image
@@ -37,7 +40,7 @@ export function Footer() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
             <div>
@@ -51,10 +54,10 @@ export function Footer() {
                     className="object-cover"
                   />
                 </div>
-                <span className="text-lg md:text-xl font-bold">Paperfolio X</span>
+                <span className="text-lg md:text-xl font-bold">ZZANGZZONG DEV</span>
               </div>
               <p className="text-gray-400 mb-6 text-sm leading-relaxed">
-                Lorem ipsum dolor amet consecte adipiscing elit. Lectus mattis nunc.
+                {t("description")}
               </p>
               <div className="flex gap-3">
                 <a
@@ -91,85 +94,85 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="font-bold mb-4">Pages</h3>
+              <h3 className="font-bold mb-4">{t("pages.title")}</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Home
+                  <a href="/" className="hover:text-white transition-colors">
+                    {t("pages.home")}
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    About
+                  <a href="/about" className="hover:text-white transition-colors">
+                    {t("pages.about")}
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contact
+                  <a href="/projects" className="hover:text-white transition-colors">
+                    {t("pages.projects")}
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Portfolio
+                  <a href="/blog" className="hover:text-white transition-colors">
+                    {t("pages.blog")}
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Single Project
+                  <a href="/restaurant" className="hover:text-white transition-colors">
+                    {t("pages.restaurant")}
                   </a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-bold mb-4">Utility Pages</h3>
+              <h3 className="font-bold mb-4">{t("utility.title")}</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    Style Guide
+                    {t("utility.styleGuide")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    Start Here
+                    {t("utility.startHere")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    404 Not Found
+                    {t("utility.notFound")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    Password protected
+                    {t("utility.passwordProtected")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    Licenses
+                    {t("utility.licenses")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    Changelog
+                    {t("utility.changelog")}
                   </a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-bold mb-4">Contact us</h3>
+              <h3 className="font-bold mb-4">{t("contact.title")}</h3>
               <ul className="space-y-3 text-gray-400 text-sm">
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <a href="mailto:hello@john.com" className="hover:text-white transition-colors">
-                    nikhil@helpinggeeks.com
+                  <a href="mailto:zzangzzong92@gmail.com" className="hover:text-white transition-colors">
+                    {t("contact.email")}
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <a href="tel:246234-4643" className="hover:text-white transition-colors">
-                    +91-9000057810
+                  <a href="tel:+821012345678" className="hover:text-white transition-colors">
+                    {t("contact.phone")}
                   </a>
                 </li>
               </ul>
@@ -177,7 +180,7 @@ export function Footer() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-            <p>Made by Nikhil - Powered by V0</p>
+            <p>{t("copyright")}</p>
           </div>
         </div>
       </div>

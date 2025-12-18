@@ -6,6 +6,7 @@
     "blog": "블로그",
     "contact": "연락처",
     "resume": "이력서",
+    "restaurants": "맛집",
     "pages": "페이지"
   },
   "common": {
@@ -35,20 +36,36 @@
   },
   "footer": {
     "description": "Frontend 환경과 더불어 Backend 환경도 함께 공부하는 공간입니다. 웹 개발의 전반에 대해 공부하고 기록하며 성장합니다.",
+    "pages": {
+      "title": "페이지",
+      "home": "홈",
+      "about": "소개",
+      "projects": "프로젝트",
+      "blog": "블로그",
+      "restaurant": "맛집"
+    },
+    "utility": {
+      "title": "유틸리티 페이지",
+      "styleGuide": "스타일 가이드",
+      "startHere": "여기서 시작",
+      "notFound": "404 페이지",
+      "passwordProtected": "비밀번호 보호",
+      "licenses": "라이선스",
+      "changelog": "변경 내역"
+    },
+    "contact": {
+      "title": "연락처",
+      "email": "zzangzzong92@gmail.com",
+      "phone": "+82-10-1234-5678"
+    },
+    "copyright": "© 2025 ZZANGZZONG DEV. All rights reserved.",
     "sitemap": "사이트맵",
-    "contact": "연락처",
     "location": "위치",
-    "copyright": "ZZ DevPortfolio. All rights reserved.",
     "privacy": "개인정보 처리방침",
     "terms": "이용약관",
     "address": {
       "line1": "강남구 삼성로 104길, 28",
       "line2": "서울, 대한민국"
-    },
-    "navigation": {
-      "about": "소개",
-      "projects": "프로젝트",
-      "blog": "블로그"
     }
   },
   "about": {
@@ -149,5 +166,27 @@
     "experience2Title": "다양한 프로젝트 경험",
     "experience2Description": "건설 ERP 시스템부터 웹 애플리케이션까지 다양한 프로젝트를 경험했습니다. 각 프로젝트에서 최상의 결과를 제공하기 위해 노력합니다.",
     "button": "더 알아보기"
+  },
+  "articles": {
+    "title": "아티클 & 뉴스",
+    "browseAll": "모든 아티클 보기",
+    "categories": {
+      "resources": "리소스",
+      "articles": "아티클",
+      "news": "뉴스"
+    },
+    "featured": {
+      "title": "2023년에 선택해야 할 올바른 디자인 도구는 무엇일까요?",
+      "author": "존 카터",
+      "date": "2022년 10월 28일"
+    },
+    "article1": {
+      "title": "UI 디자인의 폰트 크기: 완벽한 가이드",
+      "description": "UI 디자인에서 적절한 폰트 크기를 선택하는 방법에 대한 완벽한 가이드입니다."
+    },
+    "article2": {
+      "title": "프로 UI/UX 디자이너가 되기 위한 6가지 실용적인 연습",
+      "description": "전문 UI/UX 디자이너로 성장하기 위한 실용적인 연습 방법을 소개합니다."
+    }
   }
 }

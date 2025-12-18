@@ -6,6 +6,7 @@
     "blog": "Blog",
     "contact": "Contact",
     "resume": "Resume",
+    "restaurants": "Restaurants",
     "pages": "Pages"
   },
   "common": {
@@ -35,20 +36,36 @@
   },
   "footer": {
     "description": "A space where I study both Frontend and Backend environments. I grow by studying and documenting various aspects of web development.",
+    "pages": {
+      "title": "Pages",
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "blog": "Blog",
+      "restaurant": "Restaurants"
+    },
+    "utility": {
+      "title": "Utility Pages",
+      "styleGuide": "Style Guide",
+      "startHere": "Start Here",
+      "notFound": "404 Not Found",
+      "passwordProtected": "Password Protected",
+      "licenses": "Licenses",
+      "changelog": "Changelog"
+    },
+    "contact": {
+      "title": "Contact us",
+      "email": "zzangzzong92@gmail.com",
+      "phone": "+82-10-1234-5678"
+    },
+    "copyright": "© 2025 ZZANGZZONG DEV. All rights reserved.",
     "sitemap": "Sitemap",
-    "contact": "Contact",
     "location": "Location",
-    "copyright": "ZZ DevPortfolio. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Use",
     "address": {
       "line1": "104-gil, Samsung-ro, Gangnam-gu",
       "line2": "Seoul, South Korea"
-    },
-    "navigation": {
-      "about": "About",
-      "projects": "Projects",
-      "blog": "Blog"
     }
   },
   "about": {
@@ -145,5 +162,27 @@
     "experience2Title": "Diverse project experience",
     "experience2Description": "I have experience with various projects from construction ERP systems to web applications. I strive to deliver the best results in every project.",
     "button": "More about me"
+  },
+  "articles": {
+    "title": "Articles & News",
+    "browseAll": "Browse all articles",
+    "categories": {
+      "resources": "Resources",
+      "articles": "Articles",
+      "news": "News"
+    },
+    "featured": {
+      "title": "What is the right design tool to choose in 2023?",
+      "author": "John Carter",
+      "date": "Oct 28, 2022"
+    },
+    "article1": {
+      "title": "Font sizes in UI design: The complete guide to follow",
+      "description": "A complete guide on how to choose the right font sizes in UI design."
+    },
+    "article2": {
+      "title": "6 practical exercises to learn become a pro UI/UX designer",
+      "description": "Practical exercises to help you grow into a professional UI/UX designer."
+    }
   }
 }

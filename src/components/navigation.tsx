@@ -67,12 +67,6 @@ export function Navigation() {
 
         <div className="hidden flex-1 gap-6 justify-center items-center md:flex">
           <Link
-            href="/"
-            className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity"
-          >
-            {t("home")}
-          </Link>
-          <Link
             href="/about"
             className="text-[18px] font-bold leading-[20px] hover:opacity-70 transition-opacity"
           >

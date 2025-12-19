@@ -1,13 +1,11 @@
 "use client";
 
-import MapSkeleton from "@/components/hospital/map-skeleton";
-import RestaurantFilters from "@/components/restaurant/restaurant-filters";
 import RestaurantInfiniteList from "@/components/restaurant/restaurant-infinite-list";
 import RestaurantListSkeleton from "@/components/restaurant/restaurant-list-skeleton";
 import RestaurantSearchBar from "@/components/restaurant/restaurant-searchbar";
 import { Button } from "@/components/ui/button";
 import { getAllRestaurants } from "@/lib/restaurant.action";
-import { Restaurant } from "@/types/restaurant";
+
 import {
   ChevronDown,
   ChevronLeft,

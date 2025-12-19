@@ -16,12 +16,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  // 카테고리 이름 가져오기
-  const categoryNames =
-    post.categories?.map((categoryId) => {
-      const category = categories.find((c) => c.id === categoryId);
-      return category?.name || categoryId;
-    }) || [];
+  // 카테고리 ID 전달 (클라이언트에서 번역)
+  const categoryIds = post.categories || [];
 
-  return <BlogPostClient t={t} post={post} categoryNames={categoryNames} />;
+  return <BlogPostClient t={t} post={post} categoryIds={categoryIds} />;
 }

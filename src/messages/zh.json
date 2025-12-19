@@ -184,5 +184,19 @@
       "title": "成为专业UI/UX设计师的6个实践练习",
       "description": "帮助您成长为专业UI/UX设计师的实用练习方法。"
     }
+  },
+  "blog": {
+    "title": "博客",
+    "searchPlaceholder": "搜索博客...",
+    "categories": "分类",
+    "noResults": "未找到结果。",
+    "backToAllPosts": "返回所有文章",
+    "categoryNames": {
+      "frontend": "前端",
+      "backend": "后端",
+      "devops": "DevOps",
+      "design": "设计",
+      "career": "职业"
+    }
   }
 }

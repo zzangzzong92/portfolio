@@ -188,5 +188,19 @@
       "title": "프로 UI/UX 디자이너가 되기 위한 6가지 실용적인 연습",
       "description": "전문 UI/UX 디자이너로 성장하기 위한 실용적인 연습 방법을 소개합니다."
     }
+  },
+  "blog": {
+    "title": "블로그",
+    "searchPlaceholder": "블로그 검색...",
+    "categories": "카테고리",
+    "noResults": "검색 결과가 없습니다.",
+    "backToAllPosts": "모든 글 보기",
+    "categoryNames": {
+      "frontend": "프론트엔드",
+      "backend": "백엔드",
+      "devops": "DevOps",
+      "design": "디자인",
+      "career": "커리어"
+    }
   }
 }

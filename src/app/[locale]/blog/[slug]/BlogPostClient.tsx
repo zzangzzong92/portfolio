@@ -4,77 +4,90 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ChevronLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import parse from "html-react-parser";
 import { BlogPostType } from "@/lib/blog-data";
+import { Navigation } from "@/components/navigation";
 
 interface BlogPostClientProps {
   t: (key: string) => string;
   post: BlogPostType;
-  categoryNames: string[];
+  categoryIds: string[];
 }
 
 export default function BlogPostClient({
   t,
   post,
-  categoryNames,
+  categoryIds,
 }: BlogPostClientProps) {
   return (
-    <div className="container py-12">
-      <Link
-        href="/blog"
-        className="flex items-center mb-8 text-muted-foreground hover:text-foreground"
-      >
-        <ChevronLeft className="mr-2 w-4 h-4" />
-        {t("backToAllPosts") /* 번역키 예시, 실제 메시지에 맞게 수정 */}
-      </Link>
+    <main className="min-h-screen bg-[#FFFFFF]">
+      <Navigation />
+      <section className="container px-4 py-16 mx-auto md:py-24">
+        <div className="mx-auto max-w-4xl">
+          <Link
+            href="/blog"
+            className="inline-flex items-center mb-8 text-[#393939] hover:text-[#0B0B0B] transition-colors"
+          >
+            <ChevronLeft className="mr-2 w-4 h-4" />
+            {t("backToAllPosts")}
+          </Link>
 
-      <article className="mx-auto max-w-3xl">
-        <div className="mb-8">
-          <h1 className="mb-4 text-4xl font-bold">{post.title}</h1>
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex items-center">
-              {post.author && (
-                <>
-                  <div className="relative mr-3 w-10 h-10">
-                    <Image
-                      src={post.author.avatar || "/placeholder.svg"}
-                      alt={post.author.name}
-                      fill
-                      className="object-cover rounded-full"
-                    />
-                  </div>
-                  <span className="font-medium">{post.author.name}</span>
-                </>
+          <article className="overflow-hidden bg-white rounded-3xl border-4 border-black">
+            <div className="relative w-full h-64 md:h-96 bg-[#EDEDED]">
+              <Image
+                src={post.coverImage || "/placeholder.svg"}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            <div className="p-6 md:p-8">
+              <h1 className="mb-6 text-3xl md:text-4xl font-bold text-[#0B0B0B]">
+                {post.title}
+              </h1>
+
+              <div className="flex justify-between items-center mb-6 pb-6 border-b-[3px] border-black">
+                <div className="flex items-center">
+                  {post.author && (
+                    <>
+                      <div className="overflow-hidden relative mr-3 w-10 h-10 rounded-full border-2 border-black">
+                        <Image
+                          src={post.author.avatar || "/placeholder.svg"}
+                          alt={post.author.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <span className="font-semibold text-[#0B0B0B]">
+                        {post.author.name}
+                      </span>
+                    </>
+                  )}
+                </div>
+                <time className="text-[#393939]">{post.date}</time>
+              </div>
+
+              {categoryIds.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {categoryIds.map((categoryId) => (
+                    <Badge
+                      key={categoryId}
+                      className="bg-black text-white text-xs font-semibold px-4 py-1.5 rounded-full border-0"
+                    >
+                      {t(`categoryNames.${categoryId}`)}
+                    </Badge>
+                  ))}
+                </div>
               )}
+
+              <div className="max-w-none prose prose-lg dark:prose-invert prose-headings:text-[#0B0B0B] prose-p:text-[#393939] prose-a:text-[#0B0B0B]">
+                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+              </div>
             </div>
-            <time className="text-muted-foreground">{post.date}</time>
-          </div>
-
-          {categoryNames.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-6">
-              {categoryNames.map((category) => (
-                <Badge key={category} variant="secondary">
-                  {category}
-                </Badge>
-              ))}
-            </div>
-          )}
-
-          <div className="relative mb-8 w-full h-64 md:h-96">
-            <Image
-              src={post.coverImage || "/placeholder.svg"}
-              alt={post.title}
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
-          </div>
+          </article>
         </div>
-
-        <div className="max-w-none prose prose-lg dark:prose-invert">
-          <div>{parse(post.content)}</div>
-        </div>
-      </article>
-    </div>
+      </section>
+    </main>
   );
 }

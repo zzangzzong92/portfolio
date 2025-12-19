@@ -184,5 +184,19 @@
       "title": "プロのUI/UXデザイナーになるための6つの実践的な練習",
       "description": "プロのUI/UXデザイナーに成長するための実践的な練習方法を紹介します。"
     }
+  },
+  "blog": {
+    "title": "ブログ",
+    "searchPlaceholder": "ブログを検索...",
+    "categories": "カテゴリー",
+    "noResults": "検索結果が見つかりません。",
+    "backToAllPosts": "すべての投稿に戻る",
+    "categoryNames": {
+      "frontend": "フロントエンド",
+      "backend": "バックエンド",
+      "devops": "DevOps",
+      "design": "デザイン",
+      "career": "キャリア"
+    }
   }
 }

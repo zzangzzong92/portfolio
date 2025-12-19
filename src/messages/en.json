@@ -184,5 +184,19 @@
       "title": "6 practical exercises to learn become a pro UI/UX designer",
       "description": "Practical exercises to help you grow into a professional UI/UX designer."
     }
+  },
+  "blog": {
+    "title": "Blog",
+    "searchPlaceholder": "Search blog...",
+    "categories": "Categories",
+    "noResults": "No results found.",
+    "backToAllPosts": "Back to all posts",
+    "categoryNames": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "design": "Design",
+      "career": "Career"
+    }
   }
 }

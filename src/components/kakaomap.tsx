@@ -165,7 +165,6 @@ export default function KakaoMap({
                 <MapInfoWindow
                   position={position}
                   removable={true}
-                  onClose={() => setInfoWindowOpenId(null)}
                 >
                   <div
                     style={{

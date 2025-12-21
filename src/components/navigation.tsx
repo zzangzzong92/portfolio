@@ -104,14 +104,6 @@ export function Navigation() {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild className="rounded-md">
-                <Link
-                  href="/resume"
-                  className="block w-full px-3 py-2 text-[16px] font-bold leading-[20px] rounded-md hover:bg-black hover:text-white"
-                >
-                  {t("resume")}
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild className="rounded-md">
                 <Link 
                   href="/restaurant"
                   className="block w-full px-3 py-2 text-[16px] font-bold leading-[20px] rounded-md hover:bg-black hover:text-white"

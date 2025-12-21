@@ -1,6 +1,6 @@
 "use client";
 
-import { KakaoMapRestaurant } from "@/components/KakaoMapRestaurant";
+import KakaoMap from "@/components/kakaomap";
 import { Restaurant } from "types/restaurant";
 
 interface RestaurantMapProps {
@@ -20,13 +20,22 @@ export default function RestaurantMap({
 }: RestaurantMapProps) {
   return (
     <div className="h-full w-full">
-      <KakaoMapRestaurant
+      <KakaoMap
         restaurants={restaurants}
         selectedRestaurantId={selectedRestaurantId}
         onRestaurantSelect={onRestaurantSelect}
         center={center}
-        zoom={zoom}
+        level={zoomToLevel(zoom)}
       />
     </div>
   );
+}
+
+function zoomToLevel(zoom: number): number {
+  const levelMap: { [key: number]: number } = {
+    20: 1, 19: 1, 18: 2, 17: 2, 16: 3, 15: 3, 14: 4, 13: 4,
+    12: 5, 11: 5, 10: 6, 9: 6, 8: 7, 7: 7, 6: 8, 5: 8,
+    4: 9, 3: 9, 2: 10, 1: 10
+  };
+  return levelMap[zoom] || 3;
 }

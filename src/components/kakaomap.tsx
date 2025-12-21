@@ -40,6 +40,9 @@ export default function KakaoMap({
 }: KakaoMapProps) {
   const [map, setMap] = useState<any>(null);
   const [infoWindowOpenId, setInfoWindowOpenId] = useState<number | null>(null);
+  
+  const kakaoKey = process.env.NEXT_PUBLIC_KAKAO_MAP_KEY || "";
+  const mapProps = kakaoKey ? { JavascriptKey: kakaoKey } : {};
 
   const getPosition = (restaurant: LocationData): { lat: number; lng: number } | null => {
     if (restaurant.x && restaurant.y) {
@@ -110,6 +113,7 @@ export default function KakaoMap({
           level={level}
           isPanto={true}
           onCreate={setMap}
+          {...mapProps}
         >
           <MapMarker position={center} />
         </Map>
@@ -127,6 +131,7 @@ export default function KakaoMap({
         level={level}
         isPanto={true}
         onCreate={setMap}
+        {...mapProps}
       >
         {validRestaurants.map((restaurant) => {
           const position = getPosition(restaurant);

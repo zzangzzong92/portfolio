@@ -6,7 +6,7 @@ import RestaurantInfiniteList from "@/components/restaurant/restaurant-infinite-
 import RestaurantListSkeleton from "@/components/restaurant/restaurant-list-skeleton";
 import RestaurantSearchBar from "@/components/restaurant/restaurant-searchbar";
 import { Button } from "@/components/ui/button";
-import { getAllRestaurants } from "@/lib/restaurant.action";
+import { getAllRestaurants } from "@/lib/restaurant.actions";
 import { Restaurant } from "types/restaurant";
 import {
   ChevronDown,

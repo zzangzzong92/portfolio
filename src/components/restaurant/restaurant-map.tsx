@@ -1,6 +1,6 @@
 "use client";
 
-import { GoogleMap } from "@/components/GoogleMap";
+import { KakaoMapRestaurant } from "@/components/KakaoMapRestaurant";
 import { Restaurant } from "types/restaurant";
 
 interface RestaurantMapProps {
@@ -20,7 +20,7 @@ export default function RestaurantMap({
 }: RestaurantMapProps) {
   return (
     <div className="h-full w-full">
-      <GoogleMap
+      <KakaoMapRestaurant
         restaurants={restaurants}
         selectedRestaurantId={selectedRestaurantId}
         onRestaurantSelect={onRestaurantSelect}

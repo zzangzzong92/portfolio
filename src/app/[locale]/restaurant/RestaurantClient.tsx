@@ -6,8 +6,8 @@ import RestaurantInfiniteList from "@/components/restaurant/restaurant-infinite-
 import RestaurantListSkeleton from "@/components/restaurant/restaurant-list-skeleton";
 import RestaurantSearchBar from "@/components/restaurant/restaurant-searchbar";
 import { Button } from "@/components/ui/button";
-import { getAllRestaurants } from "@/lib/restaurant.actions";
-import { Restaurant } from "types/restaurant";
+import { getAllRestaurants } from "@/lib/restaurant.action";
+
 import {
   ChevronDown,
   ChevronLeft,
@@ -17,9 +17,10 @@ import {
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { Restaurant } from "types/restaurant";
 
-const KakaoMap = dynamic(
-  () => import("@/components/kakaomap"),
+const GoogleMap = dynamic(
+  () => import("@/components/GoogleMap").then((m) => m.GoogleMap),
   { ssr: false, loading: () => <MapSkeleton /> }
 );
 
@@ -339,7 +340,7 @@ export default function RestaurantClient() {
                   </div>
                 </div>
               ) : (
-                <KakaoMap
+                <GoogleMap
                   restaurants={filteredRestaurants}
                   selectedRestaurantId={selectedRestaurantId}
                   onRestaurantSelect={handleRestaurantSelect}

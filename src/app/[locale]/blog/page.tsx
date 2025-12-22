@@ -6,7 +6,8 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Search, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { blogPosts, categories } from "@/lib/blog-data";
 import { useTranslations } from "next-intl";
 import { Navigation } from "@/components/navigation";
@@ -47,9 +48,17 @@ export default function BlogPage() {
       <section className="container px-4 py-16 mx-auto md:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 md:mb-16">
-            <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
-              {t("title")}
-            </h1>
+            <div className="flex justify-between items-center mb-4">
+              <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
+                {t("title")}
+              </h1>
+              <Link href="/blog/edit/new">
+                <Button className="bg-black text-white hover:bg-black/90 border-4 border-black rounded-lg px-4 py-2 font-bold flex items-center gap-2">
+                  <Plus className="w-4 h-4" />
+                  새 글 작성
+                </Button>
+              </Link>
+            </div>
           </div>
 
           <div className="flex flex-col gap-8 md:flex-row">

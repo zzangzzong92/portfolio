@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Edit, Plus } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { BlogPostType } from "@/lib/blog-data";
 import { Navigation } from "@/components/navigation";
 
@@ -23,13 +24,29 @@ export default function BlogPostClient({
       <Navigation />
       <section className="container px-4 py-16 mx-auto md:py-24">
         <div className="mx-auto max-w-4xl">
-          <Link
-            href="/blog"
-            className="inline-flex items-center mb-8 text-[#393939] hover:text-[#0B0B0B] transition-colors"
-          >
-            <ChevronLeft className="mr-2 w-4 h-4" />
-            {t("backToAllPosts")}
-          </Link>
+          <div className="flex justify-between items-center mb-8">
+            <Link
+              href="/blog"
+              className="inline-flex items-center text-[#393939] hover:text-[#0B0B0B] transition-colors"
+            >
+              <ChevronLeft className="mr-2 w-4 h-4" />
+              {t("backToAllPosts")}
+            </Link>
+            <div className="flex gap-3">
+              <Link href="/blog/edit/new">
+                <Button className="bg-black text-white hover:bg-black/90 border-4 border-black rounded-lg px-4 py-2 font-bold flex items-center gap-2">
+                  <Plus className="w-4 h-4" />
+                  새 글 작성
+                </Button>
+              </Link>
+              <Link href={`/blog/edit/${post.id}`}>
+                <Button className="bg-white text-black hover:bg-gray-100 border-4 border-black rounded-lg px-4 py-2 font-bold flex items-center gap-2">
+                  <Edit className="w-4 h-4" />
+                  수정
+                </Button>
+              </Link>
+            </div>
+          </div>
 
           <article className="overflow-hidden bg-white rounded-3xl border-4 border-black">
             <div className="relative w-full h-64 md:h-96 bg-[#EDEDED]">

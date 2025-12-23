@@ -6,7 +6,8 @@ import RestaurantInfiniteList from "@/components/restaurant/restaurant-infinite-
 import RestaurantListSkeleton from "@/components/restaurant/restaurant-list-skeleton";
 import RestaurantSearchBar from "@/components/restaurant/restaurant-searchbar";
 import { Button } from "@/components/ui/button";
-import { getAllRestaurants } from "@/lib/restaurant.action";
+// TODO: 백엔드 연결 후 주석 해제
+// import { getAllRestaurants } from "@/lib/restaurant.action";
 
 import {
   ChevronDown,
@@ -29,7 +30,8 @@ export default function RestaurantClient() {
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [allRestaurants, setAllRestaurants] = useState<Restaurant[]>([]);
-  const [isLoadingRestaurants, setIsLoadingRestaurants] = useState(true);
+  // TODO: 백엔드 연결 후 데이터 로드 시 true로 변경
+  const [isLoadingRestaurants, setIsLoadingRestaurants] = useState(false);
   const [selectedRestaurantId, setSelectedRestaurantId] = useState<
     number | null
   >(null);
@@ -79,22 +81,23 @@ export default function RestaurantClient() {
     setIsSidebarOpen(true);
   }, []);
 
+  // TODO: 백엔드 연결 후 주석 해제
   // 레스토랑 데이터 로드
-  useEffect(() => {
-    const loadRestaurants = async () => {
-      try {
-        setIsLoadingRestaurants(true);
-        const data = await getAllRestaurants();
-        setAllRestaurants(data);
-      } catch (error) {
-        console.error("레스토랑 데이터 로드 실패:", error);
-      } finally {
-        setIsLoadingRestaurants(false);
-      }
-    };
+  // useEffect(() => {
+  //   const loadRestaurants = async () => {
+  //     try {
+  //       setIsLoadingRestaurants(true);
+  //       const data = await getAllRestaurants();
+  //       setAllRestaurants(data);
+  //     } catch (error) {
+  //       console.error("레스토랑 데이터 로드 실패:", error);
+  //     } finally {
+  //       setIsLoadingRestaurants(false);
+  //     }
+  //   };
 
-    loadRestaurants();
-  }, []);
+  //   loadRestaurants();
+  // }, []);
 
   // 필터링된 레스토랑 데이터 계산
   const filteredRestaurants = useMemo(() => {

@@ -235,7 +235,7 @@ export const GoogleMap = ({
   const markersRef = useRef<any[]>([]);
   const infoWindowsRef = useRef<any[]>([]);
 
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
 
   // 이미 스크립트가 로드되어 있는 경우 즉시 준비 완료 처리
   useEffect(() => {
@@ -476,7 +476,7 @@ export const GoogleMap = ({
 
   return (
     <>
-      {!window.google && (
+      {!window.google && apiKey && (
         <Script
           src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&language=en&region=KR`}
           strategy="afterInteractive"
@@ -484,7 +484,7 @@ export const GoogleMap = ({
             setMapLoaded(true);
           }}
           onError={(e) => {
-            setMapError("Google Maps 스크립트를 로드할 수 없습니다.");
+            setMapError("Google Maps 스크립트를 로드할 수 없습니다. API 키를 확인해주세요.");
           }}
         />
       )}

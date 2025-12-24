@@ -211,14 +211,14 @@ export default function RestaurantClient() {
               : "fixed inset-x-0 z-50 h-0 pointer-events-none -bottom-[70vh] md:static md:h-auto md:w-0 md:transform-none"
           }`}
         >
-          <div className="relative flex h-full w-full flex-col overflow-hidden rounded-t-3xl bg-white shadow-2xl md:w-[600px] md:rounded-none md:shadow-none lg:w-[800px]">
+          <div className="relative flex h-full w-full flex-col overflow-hidden rounded-t-3xl bg-gradient-to-b from-white via-white to-gray-50/50 shadow-2xl backdrop-blur-sm md:w-[600px] md:rounded-none md:shadow-lg md:border-r md:border-gray-200/50 lg:w-[800px]">
             {/* 모바일: 시트 핸들 */}
             <div
-              className="flex justify-center py-2 transition-colors cursor-pointer hover:bg-gray-50 md:hidden"
+              className="flex justify-center py-3 transition-colors cursor-pointer hover:bg-gray-50/50 md:hidden"
               onClick={() => setIsSidebarOpen(false)}
               aria-label="close bottom sheet"
             >
-              <div className="w-12 h-1 bg-gray-300 rounded-full"></div>
+              <div className="w-16 h-1.5 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-full shadow-sm"></div>
             </div>
 
             {/* 검색바 */}
@@ -253,7 +253,7 @@ export default function RestaurantClient() {
             role="button"
             aria-label="필터 열기"
           >
-            <div className="h-1.5 w-24 rounded-full border border-white/60 bg-gradient-to-r from-gray-300/40 via-gray-300/80 to-gray-300/40 shadow-sm" />
+            <div className="h-2 w-28 rounded-full border border-white/80 bg-gradient-to-r from-gray-200/60 via-gray-300/80 to-gray-200/60 shadow-md backdrop-blur-sm" />
           </div>
 
           {/* 상단 힌트 배너 */}
@@ -263,7 +263,7 @@ export default function RestaurantClient() {
               role="button"
               onClick={() => setFiltersOpenMobile(true)}
             >
-              <div className="mx-4 w-full max-w-[640px] rounded-xl bg-white/90 px-4 py-2 text-center text-sm font-semibold shadow">
+              <div className="mx-4 w-full max-w-[640px] rounded-2xl bg-gradient-to-r from-blue-50/95 via-white/95 to-blue-50/95 backdrop-blur-md px-5 py-3 text-center text-sm font-semibold text-gray-700 shadow-lg ring-1 ring-blue-100/50 border border-white/80">
                 아래로 스와이프하여 필터 보기
               </div>
             </div>
@@ -282,7 +282,7 @@ export default function RestaurantClient() {
             }}
           >
             <div
-              className="bg-white rounded-b-2xl border-t border-gray-200 shadow-2xl"
+              className="bg-gradient-to-b from-white via-white to-gray-50/80 rounded-b-3xl border-t border-gray-200/60 shadow-2xl backdrop-blur-md"
               onTouchStart={(e) => {
                 setDragStartY(e.touches[0].clientY);
                 setDragTranslate(0);
@@ -309,7 +309,7 @@ export default function RestaurantClient() {
               {/* 하단 닫기 핸들 */}
               <div className="flex justify-center pb-3">
                 <button
-                  className="h-1.5 w-24 rounded-full border border-white/60 bg-gradient-to-r from-gray-300/40 via-gray-300/80 to-gray-300/40 shadow-sm"
+                  className="h-2 w-28 rounded-full border border-white/80 bg-gradient-to-r from-gray-200/60 via-gray-300/80 to-gray-200/60 shadow-md backdrop-blur-sm"
                   onClick={() => setFiltersOpenMobile(false)}
                   aria-label="닫기"
                 />
@@ -358,7 +358,7 @@ export default function RestaurantClient() {
               onClick={toggleSidebar}
               variant="outline"
               size="icon"
-              className="w-12 h-12 bg-white rounded-full border shadow-lg hover:bg-gray-50 md:h-10 md:w-6 md:rounded-l-none md:rounded-r-lg md:border-l-0 lg:h-12 lg:w-8"
+              className="w-12 h-12 bg-white/95 backdrop-blur-md rounded-full border-2 border-gray-200/80 shadow-xl hover:bg-white hover:shadow-2xl hover:scale-105 transition-all duration-200 md:h-10 md:w-6 md:rounded-l-none md:rounded-r-lg md:border-l-0 lg:h-12 lg:w-8"
             >
               {isSidebarOpen ? (
                 <ChevronDown className="w-6 h-6 md:hidden" />
@@ -377,27 +377,27 @@ export default function RestaurantClient() {
           {!isSidebarOpen && (
             <div className="absolute right-0 bottom-0 left-0 md:hidden">
               <div
-                className="p-4 bg-white rounded-t-3xl shadow-2xl transition-colors cursor-pointer hover:bg-gray-50"
+                className="p-5 bg-gradient-to-b from-white via-white to-gray-50/80 backdrop-blur-md rounded-t-3xl shadow-2xl border-t border-gray-200/60 transition-all duration-200 cursor-pointer hover:bg-white hover:shadow-3xl"
                 onClick={handleSheetHandleClick}
               >
                 {/* 시트 핸들 */}
-                <div className="flex justify-center mb-2">
-                  <div className="w-12 h-1 rounded-full"></div>
+                <div className="flex justify-center mb-3">
+                  <div className="w-16 h-1.5 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-full shadow-sm"></div>
                 </div>
 
                 {/* 힌트 텍스트 */}
-                <div className="mb-3 text-center">
-                  <p className="text-sm text-gray-600">
+                <div className="mb-4 text-center">
+                  <p className="text-sm font-medium text-gray-600">
                     위로 스와이프하여 레스토랑 목록 보기
                   </p>
                 </div>
 
                 {/* 레스토랑 개수 표시 */}
                 <div className="text-center">
-                  <p className="text-lg font-semibold text-blue-600">
+                  <p className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
                     {filteredRestaurants.length}개의 레스토랑
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-500 mt-1">
                     지도에서 선택하거나 위로 스와이프
                   </p>
                 </div>

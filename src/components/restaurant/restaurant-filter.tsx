@@ -49,7 +49,7 @@ export default function RestaurantFilters({
   };
 
   return (
-    <div className="s sticky top-0 z-40 w-full bg-white/30 px-3 py-3 shadow-sm backdrop-blur-md supports-[backdrop-filter]:bg-white/20 md:px-6 md:py-4">
+    <div className="sticky top-0 z-40 w-full bg-gradient-to-b from-white/95 via-white/90 to-white/85 px-3 py-3 shadow-sm backdrop-blur-md border-b border-gray-200/50 supports-[backdrop-filter]:bg-white/20 md:px-6 md:py-4">
       <div className="flex flex-col items-start gap-2 md:flex-row md:flex-wrap md:items-center md:gap-2">
         {/* 지역 필터 */}
         <RegionFilter
@@ -126,7 +126,7 @@ export default function RestaurantFilters({
               <Badge
                 key={filter}
                 variant="secondary"
-                className="flex items-center gap-1 rounded-full bg-white/40 text-xs text-blue-800 ring-1 ring-white/30 backdrop-blur-md hover:bg-white/60"
+                className="flex items-center gap-1 rounded-full bg-gradient-to-r from-blue-50 to-blue-100/80 text-xs font-medium text-blue-700 ring-1 ring-blue-200/50 shadow-sm backdrop-blur-sm hover:from-blue-100 hover:to-blue-200/80 transition-all duration-200"
               >
                 <span className="text-xs">{displayLabel}</span>
                 <button
@@ -142,7 +142,7 @@ export default function RestaurantFilters({
             variant="ghost"
             size="sm"
             onClick={clearAllFilters}
-            className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 cursor-pointer"
+            className="h-7 px-3 text-xs font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-100/80 rounded-full transition-all duration-200 cursor-pointer"
           >
             Clear all
           </Button>
@@ -486,14 +486,14 @@ function RegionFilter({
         <Button
           variant="outline"
           size="sm"
-          className="h-8 w-full justify-center rounded-full border-white/40 bg-white/60 text-sm backdrop-blur hover:bg-white/70 md:h-8 md:w-auto md:justify-start"
+          className="h-9 w-full justify-center rounded-full border-2 border-gray-200/80 bg-white/90 text-sm font-medium shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-white hover:border-gray-300 hover:shadow-md md:h-9 md:w-auto md:justify-start"
         >
           Region
           <ChevronDown className="ml-1 h-3 w-3" />
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className="z-50 hidden w-[calc(100vw-2rem)] rounded-2xl border border-l-0 border-white/20 bg-white/40 shadow-xl backdrop-blur-md md:block md:w-[28rem] dark:border-white/10 dark:bg-white/10"
+        className="z-50 hidden w-[calc(100vw-2rem)] rounded-2xl border-2 border-gray-200/80 bg-white/95 shadow-2xl backdrop-blur-md md:block md:w-[28rem] dark:border-white/10 dark:bg-white/10"
         align="start"
         side="bottom"
         sideOffset={8}
@@ -514,14 +514,14 @@ function RegionFilter({
             </button>
           </div>
           <div className="flex gap-3">
-            <div className="max-h-64 w-40 space-y-1 overflow-y-auto rounded-xl border border-white/30 bg-white/40 p-2 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/10">
+            <div className="max-h-64 w-40 space-y-1 overflow-y-auto rounded-xl border border-gray-200/80 bg-gradient-to-b from-gray-50/80 to-white/80 p-2 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
               {metropolitanAreas.map((area) => (
                 <button
                   key={area.value}
-                  className={`w-full rounded-lg px-2 py-1.5 text-left text-sm transition-colors ${
+                  className={`w-full rounded-lg px-2 py-1.5 text-left text-sm font-medium transition-all duration-200 ${
                     selectedMetro === area.value
-                      ? "bg-white/60 text-blue-700 ring-1 ring-white/40 backdrop-blur-sm"
-                      : "hover:bg-white/50 hover:backdrop-blur-sm"
+                      ? "bg-gradient-to-r from-blue-50 to-blue-100/80 text-blue-700 ring-1 ring-blue-200/50 shadow-sm"
+                      : "hover:bg-gray-100/80 hover:shadow-sm"
                   }`}
                   onClick={() => {
                     // 광역권 전환 시, 기존 선택된 지역 전체 해제 후 광역권 변경
@@ -546,24 +546,24 @@ function RegionFilter({
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search region"
-                  className="w-full rounded-lg border border-white/40 bg-white/40 py-2 pr-3 pl-8 text-sm text-gray-800 backdrop-blur-md placeholder:text-gray-500 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-white/10 dark:bg-white/10 dark:text-gray-100"
+                  className="w-full rounded-lg border-2 border-gray-200/80 bg-white/90 py-2 pr-3 pl-8 text-sm text-gray-800 backdrop-blur-sm placeholder:text-gray-400 shadow-sm transition-all duration-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 dark:border-white/10 dark:bg-white/10 dark:text-gray-100"
                 />
               </div>
-              <div className="max-h-64 space-y-1 overflow-y-auto rounded-xl border border-white/20 bg-white/30 p-1 pr-1 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/10">
+              <div className="max-h-64 space-y-1 overflow-y-auto rounded-xl border border-gray-200/80 bg-gradient-to-b from-white/90 to-gray-50/80 p-1 pr-1 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
                 {filtered.map((region) => {
                   const checked = selectedLocations.includes(region);
                   return (
                     <label
                       key={region}
-                      className="flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-colors hover:bg-white/50 hover:backdrop-blur-sm"
+                      className="flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1.5 text-sm font-medium transition-all duration-200 hover:bg-gray-100/80 hover:shadow-sm"
                     >
                       <Checkbox
                         id={`loc-${region}`}
                         checked={checked}
                         className={
                           checked
-                            ? "border-blue-600 bg-blue-600/90 backdrop-blur data-[state=checked]:text-white"
-                            : "border-white/40 bg-white/40"
+                            ? "border-blue-600 bg-gradient-to-br from-blue-500 to-blue-600 shadow-sm data-[state=checked]:text-white"
+                            : "border-gray-300 bg-white shadow-sm"
                         }
                         onCheckedChange={(next) => {
                           if (next) {
@@ -591,7 +591,7 @@ function RegionFilter({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-7 bg-white/30 px-2 text-xs backdrop-blur hover:bg-white/50 cursor-pointer"
+                  className="h-8 bg-gray-100/80 px-3 text-xs font-medium rounded-lg hover:bg-gray-200/80 transition-all duration-200 cursor-pointer"
                   onClick={() => {
                     const withoutLocations = (activeFilters || []).filter(
                       (f) => !f.startsWith("location:")
@@ -604,7 +604,7 @@ function RegionFilter({
                 <Button
                   size="sm"
                   style={{ backgroundColor: "#185fa3" }}
-                  className="h-7 px-3 text-xs text-white shadow-md shadow-blue-500/20 cursor-pointer"
+                  className="h-8 px-4 text-xs font-semibold text-white rounded-lg shadow-md shadow-blue-500/30 hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-200 cursor-pointer"
                   onClick={() => onOpenChange(false)}
                 >
                   Apply
@@ -767,7 +767,7 @@ function CategoryFilter({
         <Button
           variant="outline"
           size="sm"
-          className="h-8 w-full justify-center rounded-full border-white/40 bg-white/60 text-sm backdrop-blur hover:bg-white/70 md:h-8 md:w-auto md:justify-start"
+          className="h-9 w-full justify-center rounded-full border-2 border-gray-200/80 bg-white/90 text-sm font-medium shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-white hover:border-gray-300 hover:shadow-md md:h-9 md:w-auto md:justify-start"
         >
           Category
           <ChevronDown className="ml-1 h-3 w-3" />
@@ -948,7 +948,7 @@ function FacilityFilter({
         <Button
           variant="outline"
           size="sm"
-          className="h-8 w-full justify-center rounded-full border-white/40 bg-white/60 text-sm backdrop-blur hover:bg-white/70 md:h-8 md:w-auto md:justify-start"
+          className="h-9 w-full justify-center rounded-full border-2 border-gray-200/80 bg-white/90 text-sm font-medium shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-white hover:border-gray-300 hover:shadow-md md:h-9 md:w-auto md:justify-start"
         >
           Facilities
           <ChevronDown className="ml-1 h-3 w-3" />

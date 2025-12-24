@@ -18,10 +18,12 @@ export default function RestaurantInfiniteList({
   return (
     <div className="space-y-4">
       {restaurants.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-16 text-center">
-          <Utensils className="mb-4 h-12 w-12 text-gray-400" />
-          <p className="text-lg text-gray-600">검색 결과가 없습니다</p>
-          <p className="text-sm text-gray-500">다른 조건으로 검색해보세요</p>
+        <div className="flex flex-col items-center justify-center py-20 text-center">
+          <div className="mb-4 rounded-full bg-gray-100 p-4">
+            <Utensils className="h-12 w-12 text-gray-400" />
+          </div>
+          <p className="text-lg font-semibold text-gray-700">검색 결과가 없습니다</p>
+          <p className="text-sm text-gray-500 mt-1">다른 조건으로 검색해보세요</p>
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-4">

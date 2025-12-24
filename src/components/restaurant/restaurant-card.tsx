@@ -75,32 +75,35 @@ export default function RestaurantCard({
 
   return (
     <div
-      className={`group relative h-[420px] cursor-pointer overflow-hidden rounded-xl transition-all hover:shadow-lg ${
-        isSelected ? "shadow-lg ring-2 ring-blue-500" : "hover:shadow-md"
+      className={`group relative h-[420px] cursor-pointer overflow-hidden rounded-2xl transition-all duration-300 ${
+        isSelected 
+          ? "shadow-2xl ring-2 ring-blue-500 ring-offset-2 scale-[1.02]" 
+          : "hover:shadow-xl hover:scale-[1.01]"
       }`}
       onClick={handleCardClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative h-64 w-full overflow-hidden">
+      <div className="relative h-64 w-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
         <img
           src={images[currentImageIndex] || "/assets/activity/restaurant.png"}
           alt={`${restaurant.name} view ${currentImageIndex + 1}`}
-          className="h-full w-full object-cover transition-transform duration-300"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
 
         {/* Navigation Arrows */}
         {isHovered && images.length > 1 && (
           <>
             <button
               onClick={prevImage}
-              className="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-white/80 p-1.5 opacity-0 shadow-md transition-all group-hover:opacity-100 hover:bg-white"
+              className="absolute top-1/2 left-3 -translate-y-1/2 rounded-full bg-white/95 backdrop-blur-md p-2 opacity-0 shadow-xl transition-all duration-200 group-hover:opacity-100 hover:bg-white hover:scale-110 hover:shadow-2xl"
             >
               <ChevronLeft className="h-4 w-4 text-gray-700" />
             </button>
             <button
               onClick={nextImage}
-              className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-white/80 p-1.5 opacity-0 shadow-md transition-all group-hover:opacity-100 hover:bg-white"
+              className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full bg-white/95 backdrop-blur-md p-2 opacity-0 shadow-xl transition-all duration-200 group-hover:opacity-100 hover:bg-white hover:scale-110 hover:shadow-2xl"
             >
               <ChevronRight className="h-4 w-4 text-gray-700" />
             </button>
@@ -110,22 +113,22 @@ export default function RestaurantCard({
         {/* Favorite Button */}
         <button
           onClick={handleHeartClick}
-          className="absolute top-2 right-2 rounded-full bg-white p-2 shadow-md transition-transform hover:scale-110"
+          className="absolute top-3 right-3 rounded-full bg-white/95 backdrop-blur-md p-2.5 shadow-lg transition-all duration-200 hover:scale-110 hover:bg-white hover:shadow-xl"
         >
-          <Heart className="h-5 w-5 text-gray-500 transition-colors hover:text-red-500" />
+          <Heart className="h-5 w-5 text-gray-500 transition-colors hover:text-red-500 hover:fill-red-500" />
         </button>
 
         {/* Image Pagination Dots */}
         {images.length > 1 && (
-          <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 space-x-1">
+          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 space-x-1.5">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={(e) => goToImage(index, e)}
-                className={`h-1.5 w-1.5 rounded-full transition-all ${
+                className={`h-2 w-2 rounded-full transition-all duration-200 ${
                   index === currentImageIndex
-                    ? "bg-white"
-                    : "bg-gray-400 hover:bg-gray-300"
+                    ? "bg-white shadow-lg scale-125"
+                    : "bg-white/50 hover:bg-white/80 hover:scale-110"
                 }`}
               />
             ))}
@@ -134,7 +137,7 @@ export default function RestaurantCard({
 
         {/* Selected Indicator */}
         {isSelected && (
-          <div className="absolute top-2 left-2 rounded-full bg-blue-500 p-1">
+          <div className="absolute top-3 left-3 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 p-1.5 shadow-lg ring-2 ring-white">
             <svg
               className="h-4 w-4 text-white"
               fill="none"
@@ -144,7 +147,7 @@ export default function RestaurantCard({
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
+                strokeWidth={2.5}
                 d="M5 13l4 4L19 7"
               />
             </svg>
@@ -152,10 +155,10 @@ export default function RestaurantCard({
         )}
       </div>
 
-      <div className="flex h-[156px] flex-col p-3">
+      <div className="flex h-[156px] flex-col p-4 bg-white">
         <div className="flex items-start justify-between">
           <div className="min-w-0 flex-1">
-            <h3 className="truncate text-base font-semibold">
+            <h3 className="truncate text-base font-bold text-gray-900">
               {restaurant.name}
             </h3>
             {restaurant.description && (
@@ -204,12 +207,12 @@ export default function RestaurantCard({
           좌표: {restaurant.x || "N/A"}, {restaurant.y || "N/A"}
         </p> */}
 
-        {restaurant.facilities && restaurant.facilities.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1">
+            {restaurant.facilities && restaurant.facilities.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1.5">
             {restaurant.facilities.slice(0, 2).map((facility, index) => (
               <span
                 key={index}
-                className="rounded-full px-2 py-0.5 text-xs"
+                className="rounded-full px-2.5 py-1 text-xs font-medium shadow-sm"
                 style={{ backgroundColor: "#e6f0f8", color: "#185fa3" }}
               >
                 {facility}

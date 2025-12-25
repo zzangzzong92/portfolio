@@ -324,7 +324,7 @@ export default function RestaurantClient() {
             )}
           </div>
           {/* 필터 영역: 모바일에선 제거, 데스크톱에서만 표시 */}
-          <div className="hidden px-6 pt-3 md:block">
+          <div className="hidden md:block">
             <RestaurantFilters
               activeFilters={activeFilters}
               onFilterChange={handleFilterChange}

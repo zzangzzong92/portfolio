@@ -50,7 +50,7 @@ export default function RestaurantFilters({
   };
 
   return (
-    <div className="sticky top-0 z-40 w-full bg-gradient-to-b from-white/95 via-white/90 to-white/85 px-3 py-3 shadow-sm backdrop-blur-md border-b border-gray-200/50 supports-[backdrop-filter]:bg-white/20 md:px-6 md:py-4 border border-red-500">
+    <div className="sticky top-0 z-40 w-full bg-gradient-to-b from-white/95 via-white/90 to-white/85 px-3 py-3 shadow-sm backdrop-blur-md border-b border-gray-200/50 supports-[backdrop-filter]:bg-white/20 md:px-6 md:py-4">
       <div className="flex flex-col items-start gap-2 md:flex-row md:flex-wrap md:items-center md:gap-2">
         {/* 지역 필터 */}
         <RegionFilter

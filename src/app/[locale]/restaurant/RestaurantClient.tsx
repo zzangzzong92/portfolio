@@ -300,7 +300,7 @@ export default function RestaurantClient() {
                 setDragTranslate(0);
               }}
             >
-              <div className="max-h-[70vh] overflow-y-auto px-2 pt-6 pb-3">
+              <div className="max-h-[70vh] overflow-y-auto">
                 <RestaurantFilters
                   activeFilters={activeFilters}
                   onFilterChange={handleFilterChange}

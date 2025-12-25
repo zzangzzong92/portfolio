@@ -9,8 +9,9 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Label } from "@/components/ui/label";
-import { ChevronDown, X, Search } from "lucide-react";
+import { ChevronDown, X, Search, Home } from "lucide-react";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 interface RestaurantFiltersProps {
   activeFilters?: string[];
@@ -49,7 +50,7 @@ export default function RestaurantFilters({
   };
 
   return (
-    <div className="sticky top-0 z-40 w-full bg-gradient-to-b from-white/95 via-white/90 to-white/85 px-3 py-3 shadow-sm backdrop-blur-md border-b border-gray-200/50 supports-[backdrop-filter]:bg-white/20 md:px-6 md:py-4">
+    <div className="sticky top-0 z-40 w-full bg-gradient-to-b from-white/95 via-white/90 to-white/85 px-3 py-3 shadow-sm backdrop-blur-md border-b border-gray-200/50 supports-[backdrop-filter]:bg-white/20 md:px-6 md:py-4 border border-red-500">
       <div className="flex flex-col items-start gap-2 md:flex-row md:flex-wrap md:items-center md:gap-2">
         {/* 지역 필터 */}
         <RegionFilter
@@ -77,6 +78,16 @@ export default function RestaurantFilters({
           activeFilters={activeFilters}
           onFilterChange={onFilterChange}
         />
+
+        {/* 메인으로 가기 버튼 */}
+        <Link href="/" className="ml-auto md:ml-auto">
+          <Button
+            size="sm"
+            className="h-9 w-9 rounded-full bg-gray-900 border-2 border-gray-900 shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-gray-800 hover:border-gray-800 hover:shadow-md hover:scale-105 p-0 flex items-center justify-center cursor-pointer group"
+          >
+            <Home className="h-4 w-4 text-white transition-colors duration-200 group-hover:text-gray-100" />
+          </Button>
+        </Link>
 
         {/* 레스토랑 등록 버튼 */}
         {/* <Link href="/daily/restaurant/new">
@@ -781,7 +792,7 @@ function CategoryFilter({
         onInteractOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
       >
-        <div className="space-y-3">
+        <div className="space-y-3" >
           <div className="flex items-center justify-between">
             <h4 className="font-medium text-gray-900">Select Category</h4>
             <button

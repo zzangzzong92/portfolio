@@ -100,7 +100,7 @@ export default function RestaurantFilters({
           </Button>
         </Link> */}
       </div>
-123123123
+
       {/* 활성 필터 표시 */}
       {activeFilters.length > 0 && (
         <div className="mt-3 flex flex-wrap items-center gap-2">

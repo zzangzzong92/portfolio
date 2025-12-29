@@ -785,19 +785,21 @@ function CategoryFilter({
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className="relative z-50 hidden w-[calc(100vw-2rem)] rounded-2xl border border-l-0 border-white/20 bg-white/40 shadow-xl backdrop-blur-md md:block md:w-80"
+        className="z-50 hidden w-[calc(100vw-2rem)] rounded-2xl border-2 border-gray-200/80 bg-white/95 shadow-2xl backdrop-blur-md md:block md:w-80 dark:border-white/10 dark:bg-white/10"
         align="start"
         side="bottom"
         sideOffset={8}
         onInteractOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
       >
-        <div className="space-y-3" >
+        <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h4 className="font-medium text-gray-900">Select Category</h4>
+            <h4 className="font-medium text-gray-900 drop-shadow-sm">
+              Select Category
+            </h4>
             <button
               onClick={() => onOpenChange(false)}
-              className="rounded p-1 text-gray-500 hover:bg-gray-100 md:hidden cursor-pointer"
+              className="rounded p-1 text-gray-500 hover:bg-white/60 md:hidden"
               aria-label="Close"
             >
               <X className="h-4 w-4" />
@@ -815,8 +817,8 @@ function CategoryFilter({
                     checked={isSelected}
                     className={
                       isSelected
-                        ? "border-blue-600 bg-blue-600/90 backdrop-blur data-[state=checked]:text-white"
-                        : "border-white/40 bg-white/40 backdrop-blur"
+                        ? "border-blue-600 bg-gradient-to-br from-blue-500 to-blue-600 shadow-sm data-[state=checked]:text-white"
+                        : "border-gray-300 bg-white shadow-sm"
                     }
                     onCheckedChange={(checked) => {
                       if (checked) {
@@ -833,7 +835,7 @@ function CategoryFilter({
                   />
                   <Label
                     htmlFor={category}
-                    className="cursor-pointer text-sm font-normal"
+                    className="cursor-pointer text-sm font-normal text-gray-800 dark:text-gray-100"
                   >
                     {category}
                   </Label>
@@ -841,11 +843,24 @@ function CategoryFilter({
               );
             })}
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-8 bg-gray-100/80 px-3 text-xs font-medium rounded-lg hover:bg-gray-200/80 transition-all duration-200 cursor-pointer"
+              onClick={() => {
+                const withoutCategories = (activeFilters || []).filter(
+                  (f) => !f.startsWith("category:")
+                );
+                onFilterChange?.(withoutCategories);
+              }}
+            >
+              Clear all
+            </Button>
             <Button
               size="sm"
               style={{ backgroundColor: "#185fa3" }}
-              className="text-white cursor-pointer"
+              className="h-8 px-4 text-xs font-semibold text-white rounded-lg shadow-md shadow-blue-500/30 hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-200 cursor-pointer"
               onClick={() => onOpenChange(false)}
             >
               Apply
@@ -854,13 +869,15 @@ function CategoryFilter({
         </div>
       </PopoverContent>
       {isOpen && (
-        <div className="mt-2 w-full rounded-2xl border border-white/20 bg-white/40 p-4 shadow-2xl backdrop-blur-md md:hidden">
-          <div className="space-y-3">
+        <div className="mt-2 w-full rounded-2xl border border-white/20 bg-white/40 shadow-2xl backdrop-blur-md md:hidden">
+          <div className="space-y-3 p-4">
             <div className="flex items-center justify-between">
-              <h4 className="font-medium text-gray-900">Select Category</h4>
+              <h4 className="font-medium text-gray-900 drop-shadow-sm">
+                Select Category
+              </h4>
               <button
                 onClick={() => onOpenChange(false)}
-                className="rounded p-1 text-gray-500 hover:bg-gray-100"
+                className="rounded p-1 text-gray-500 hover:bg-white/60 cursor-pointer"
                 aria-label="Close"
               >
                 <X className="h-4 w-4" />
@@ -888,8 +905,8 @@ function CategoryFilter({
                       }}
                       className={
                         isSelected
-                          ? "border-blue-600 bg-blue-600/90 backdrop-blur data-[state=checked]:text-white"
-                          : "border-white/40 bg-white/40 backdrop-blur"
+                          ? "border-blue-600 bg-gradient-to-br from-blue-500 to-blue-600 shadow-sm data-[state=checked]:text-white"
+                          : "border-gray-300 bg-white shadow-sm"
                       }
                     />
                     <Label
@@ -902,10 +919,23 @@ function CategoryFilter({
                 );
               })}
             </div>
-            <div className="flex justify-end">
+            <div className="mt-2 flex justify-end gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-7 bg-white/30 px-2 text-xs backdrop-blur hover:bg-white/50 cursor-pointer"
+                onClick={() => {
+                  const withoutCategories = (activeFilters || []).filter(
+                    (f) => !f.startsWith("category:")
+                  );
+                  onFilterChange?.(withoutCategories);
+                }}
+              >
+                Clear all
+              </Button>
               <Button
                 size="sm"
-                className="text-white cursor-pointer"
+                className="h-7 px-3 text-xs text-white cursor-pointer"
                 onClick={() => onOpenChange(false)}
               >
                 Apply
@@ -966,7 +996,7 @@ function FacilityFilter({
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className="relative z-50 hidden w-[calc(100vw-2rem)] rounded-2xl border border-l-0 border-white/20 bg-white/40 shadow-xl backdrop-blur-md md:block md:w-80"
+        className="z-50 hidden w-[calc(100vw-2rem)] rounded-2xl border-2 border-gray-200/80 bg-white/95 shadow-2xl backdrop-blur-md md:block md:w-80 dark:border-white/10 dark:bg-white/10"
         align="start"
         side="bottom"
         sideOffset={8}
@@ -975,10 +1005,12 @@ function FacilityFilter({
       >
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h4 className="font-medium text-gray-900">Choose Facilities</h4>
+            <h4 className="font-medium text-gray-900 drop-shadow-sm">
+              Choose Facilities
+            </h4>
             <button
               onClick={() => onOpenChange(false)}
-              className="rounded p-1 text-gray-500 hover:bg-gray-100 md:hidden"
+              className="rounded p-1 text-gray-500 hover:bg-white/60 md:hidden"
               aria-label="Close"
             >
               <X className="h-4 w-4" />
@@ -996,8 +1028,8 @@ function FacilityFilter({
                     checked={isSelected}
                     className={
                       isSelected
-                        ? "border-blue-600 bg-blue-600/90 backdrop-blur data-[state=checked]:text-white"
-                        : "border-white/40 bg-white/40 backdrop-blur"
+                        ? "border-blue-600 bg-gradient-to-br from-blue-500 to-blue-600 shadow-sm data-[state=checked]:text-white"
+                        : "border-gray-300 bg-white shadow-sm"
                     }
                     onCheckedChange={(checked) => {
                       if (checked) {
@@ -1014,7 +1046,7 @@ function FacilityFilter({
                   />
                   <Label
                     htmlFor={facility.key}
-                    className="cursor-pointer text-sm font-normal"
+                    className="cursor-pointer text-sm font-normal text-gray-800 dark:text-gray-100"
                   >
                     {facility.label}
                   </Label>
@@ -1022,11 +1054,24 @@ function FacilityFilter({
               );
             })}
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-8 bg-gray-100/80 px-3 text-xs font-medium rounded-lg hover:bg-gray-200/80 transition-all duration-200 cursor-pointer"
+              onClick={() => {
+                const withoutFacilities = (activeFilters || []).filter(
+                  (f) => !f.startsWith("facility:")
+                );
+                onFilterChange?.(withoutFacilities);
+              }}
+            >
+              Clear all
+            </Button>
             <Button
               size="sm"
               style={{ backgroundColor: "#185fa3" }}
-              className="text-white cursor-pointer"
+              className="h-8 px-4 text-xs font-semibold text-white rounded-lg shadow-md shadow-blue-500/30 hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-200 cursor-pointer"
               onClick={() => onOpenChange(false)}
             >
               Apply
@@ -1035,13 +1080,15 @@ function FacilityFilter({
         </div>
       </PopoverContent>
       {isOpen && (
-        <div className="mt-2 w-full rounded-2xl border border-white/20 bg-white/40 p-4 shadow-2xl backdrop-blur-md md:hidden">
-          <div className="space-y-3">
+        <div className="mt-2 w-full rounded-2xl border border-white/20 bg-white/40 shadow-2xl backdrop-blur-md md:hidden">
+          <div className="space-y-3 p-4">
             <div className="flex items-center justify-between">
-              <h4 className="font-medium text-gray-900">Choose Facilities</h4>
+              <h4 className="font-medium text-gray-900 drop-shadow-sm">
+                Choose Facilities
+              </h4>
               <button
                 onClick={() => onOpenChange(false)}
-                className="rounded p-1 text-gray-500 hover:bg-gray-100"
+                className="rounded p-1 text-gray-500 hover:bg-white/60 cursor-pointer"
                 aria-label="Close"
               >
                 <X className="h-4 w-4" />
@@ -1072,8 +1119,8 @@ function FacilityFilter({
                       }}
                       className={
                         isSelected
-                          ? "border-blue-600 bg-blue-600/90 backdrop-blur data-[state=checked]:text-white"
-                          : "border-white/40 bg-white/40 backdrop-blur"
+                          ? "border-blue-600 bg-gradient-to-br from-blue-500 to-blue-600 shadow-sm data-[state=checked]:text-white"
+                          : "border-gray-300 bg-white shadow-sm"
                       }
                     />
                     <Label
@@ -1086,10 +1133,23 @@ function FacilityFilter({
                 );
               })}
             </div>
-            <div className="flex justify-end">
+            <div className="mt-2 flex justify-end gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-7 bg-white/30 px-2 text-xs backdrop-blur hover:bg-white/50 cursor-pointer"
+                onClick={() => {
+                  const withoutFacilities = (activeFilters || []).filter(
+                    (f) => !f.startsWith("facility:")
+                  );
+                  onFilterChange?.(withoutFacilities);
+                }}
+              >
+                Clear all
+              </Button>
               <Button
                 size="sm"
-                className="text-white cursor-pointer"
+                className="h-7 px-3 text-xs text-white cursor-pointer"
                 onClick={() => onOpenChange(false)}
               >
                 Apply

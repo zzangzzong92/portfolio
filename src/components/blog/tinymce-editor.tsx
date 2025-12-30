@@ -1,7 +1,7 @@
 "use client";
 
 import { Editor } from "@tinymce/tinymce-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface TinyMCEEditorProps {
   value: string;
@@ -15,10 +15,36 @@ export default function TinyMCEEditor({
   height = 500,
 }: TinyMCEEditorProps) {
   const editorRef = useRef<any>(null);
+  const [isMounted, setIsMounted] = useState(false);
+  
+  const apiKey = 
+    process.env.NEXT_PUBLIC_TINY_MCE_KEY || 
+    "";
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <div 
+        className="border border-gray-300 rounded"
+        style={{ height: `${height}px`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
+        <div>Loading editor...</div>
+      </div>
+    );
+  }
+
+  if (!apiKey) {
+    console.warn(
+      "TinyMCE API key is missing. Please add NEXT_PUBLIC_TINY_MCE_KEY to your .env file and restart the dev server."
+    );
+  }
 
   return (
     <Editor
-      apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY || "no-api-key"}
+      apiKey={apiKey}
       onInit={(_evt, editor) => {
         editorRef.current = editor;
       }}

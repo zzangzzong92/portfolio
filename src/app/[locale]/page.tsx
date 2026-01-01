@@ -17,7 +17,7 @@ export default function Home() {
       <LogoMarquee />
       <ServicesSection />
       <AboutSection />
-      <PortfolioSection />
+      {/* <PortfolioSection /> */}
       <ExperienceSection />
       {/* <TestimonialsSection /> */}
       <ArticlesSection />

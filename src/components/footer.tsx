@@ -47,8 +47,8 @@ export function Footer() {
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
                   <Image
-                    src="/images/footer-logo.jpeg"
-                    alt="Paperfolio X Logo"
+                    src="/zzang.png"
+                    alt="ZZANGZZONG DEV Logo"
                     width={32}
                     height={32}
                     className="object-cover"

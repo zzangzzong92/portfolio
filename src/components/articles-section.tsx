@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
+import { Link } from "@/i18n/navigation"
 
 export function ArticlesSection() {
   const t = useTranslations("articles")
@@ -12,13 +13,15 @@ export function ArticlesSection() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">{t("title")}</h2>
-          <Button
-            variant="outline"
-            className="border-[3px] border-black rounded-xl px-4 md:px-6 py-4 md:py-6 hover:bg-gray-50 bg-white font-semibold text-sm md:text-base w-full sm:w-auto"
-          >
-            <Pencil className="w-4 h-4 mr-2" />
-            {t("browseAll")}
-          </Button>
+          <Link href="/blog">
+            <Button
+              variant="outline"
+              className="border-[3px] border-black rounded-xl px-4 md:px-6 py-4 md:py-6 hover:bg-gray-50 bg-white font-semibold text-sm md:text-base w-full sm:w-auto"
+            >
+              <Pencil className="w-4 h-4 mr-2" />
+              {t("browseAll")}
+            </Button>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-6 mb-16">

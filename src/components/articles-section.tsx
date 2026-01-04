@@ -86,7 +86,7 @@ export function ArticlesSection() {
                     {t("article1.description")}
                   </p>
                 </div>
-              </div>
+              </div>123123312
             </div>
 
             {/* Second smaller card */}
